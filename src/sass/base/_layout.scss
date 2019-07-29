@@ -33,6 +33,10 @@ body {
 @if nth($layout-page-space, 2) != 0 {
   .layout-page-spaces {
     @include padding-horizontal(nth($layout-page-space, 2));
+
+    .has-sidebar & {
+      padding-left: 30.8rem;
+    }
   }
 }
 
@@ -40,9 +44,9 @@ body {
 // Выравнивание основных элементов и их максимальная ширина
 .layout-page {
   max-width: $layout-page-max-width;
-  box-sizing: content-box;
+  //box-sizing: content-box;
 
-  @include push-auto;
+  //@include push-auto;
 }
 
 // Отступы по бокам текстовых элементов

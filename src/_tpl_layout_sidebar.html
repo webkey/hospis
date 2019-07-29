@@ -1,0 +1,85 @@
+<!--SIDEBAR-->
+<aside class="sidebar">
+  <!--logo-->
+  <div class="logo">
+    @@if(context.currentItem === "Главная"){<span>Project Name</span>}
+    @@if(context.currentItem !== "Главная"){<a href="index.html" title="Перейти на главную">Project Name</a>}
+    <!--logo for a print version-->
+    <img style="display: none;" src="img/logo.svg" alt="Print version logotype">
+  </div>
+  <!--logo end-->
+
+  <!--slogan-->
+  <div class="slogan">
+    Если ребенка нельзя выличить
+    это еще не значит что ему
+    нельзя помочь
+  </div>
+  <!--slogan end-->
+
+  <!--navigation-->
+  <div class="nav-wrap">
+    <nav class="nav">
+      <ul class="nav__list nav-js">
+        <li class="has-sub">
+          <a href="all-pages.html">О хосписе</a>
+          <em class="nav__angle nav__angle-js">&#9660;</em>
+          <!--submenu-->
+          <ul>
+            <li><a href="404.html">404</a></li>
+            <li><a href="forms.html">forms</a></li>
+            <li><a href="index.html">index</a></li>
+            <li><a href="typography.html">typography</a></li>
+          </ul>
+          <!--submenu end-->
+        </li>
+        <li class="has-sub ">
+          <a href="#">Как помочь</a>
+          <em class="nav__angle nav__angle-js">&#9660;</em>
+          <!--submenu-->
+          <ul>
+            <li>
+              <a href="#">Как помочь 2.1</a>
+            </li>
+            <li>
+              <a href="#">Как помочь 2.2</a>
+            </li>
+            <li>
+              <a href="#">Как помочь 2.3</a>
+            </li>
+          </ul>
+          <!--submenu end-->
+        </li>
+        <li>
+          <a href="#">Деятельность</a>
+          <em class="nav__angle nav__angle-js">&#9660;</em>
+          <!--submenu-->
+          <ul>
+            <li>
+              <a href="#">Деятельность 2.1</a>
+            </li>
+            <li>
+              <a href="#">Деятельность 2.2</a>
+            </li>
+            <li>
+              <a href="#">Деятельность 2.3</a>
+            </li>
+          </ul>
+          <!--submenu end-->
+        </li>
+        <li>
+          <a href="#">Новости</a>
+        </li>
+        <li>
+          <a href="#">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!--navigation end-->
+
+  <a href="tel:+375447735877" class="s-phone">+ 375 44 7735877</a>
+
+  {{social}}
+</aside>
+<!--SIDEBAR end-->

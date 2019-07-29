@@ -49,90 +49,13 @@
   <header class="header">
     <div class="layout-page layout-page-spaces">
       <div class="header-container">
-        <!--logo-->
-        <div class="logo">
-          <a href="index.html" title="Перейти на главную">Project Name</a>
-          <!--logo for a print version-->
-          <img style="display: none;" src="img/logo.svg" alt="Print version logotype">
+        {{search}}
+        <div class="h-count">
+          <div class="h-count__item">Детей под опекой хосписа <strong>350</strong></div>
+          <div class="h-count__item">Необходимо собрать на 2019 год <strong>900 000</strong></div>
         </div>
-        <!--logo end-->
-        <!--navigation-->
-        <div class="nav-wrap">
-          <nav class="nav">
-            <ul class="nav__list nav-js">
-              <li class="has-sub">
-                <a href="all-pages.html">All pages</a>
-                <em class="nav__angle nav__angle-js">&#9660;</em>
-                <!--submenu-->
-                <ul>
-                  <li><a href="404.html">404</a></li>
-                  <li><a href="forms.html">forms</a></li>
-                  <li><a href="index.html">index</a></li>
-                  <li><a href="typography.html">typography</a></li>
-                </ul>
-                <!--submenu end-->
-              </li>
-              <li class="has-sub ">
-                <a href="#">Пункт 1</a>
-                <em class="nav__angle nav__angle-js">&#9660;</em>
-                <!--submenu-->
-                <ul>
-                  <li>
-                    <a href="#">Пункт 1.1</a>
-                  </li>
-                  <li class="has-sub">
-                    <a href="#">Пункт 1.2 (есть подпункты)</a>
-                    <em class="nav__angle nav__angle-js">&#9660;</em>
-                    <!--submenu-->
-                    <ul>
-                      <li>
-                        <a href="#">Пункт 1.2.1</a>
-                      </li>
-                      <li class="has-sub">
-                        <a href="#">Пункт 1.2.2 (есть подпункты)</a>
-                        <em class="nav__angle nav__angle-js">&#9660;</em>
-                        <!--submenu-->
-                        <ul>
-                          <li>
-                            <a href="#">Пункт 1.2.2.1</a>
-                          </li>
-                          <li>
-                            <a href="#">Пункт 1.2.2.2</a>
-                          </li>
-                          <li>
-                            <a href="#">Пункт 1.2.2.3</a>
-                          </li>
-                          <li>
-                            <a href="#">Пункт 1.2.2.3</a>
-                          </li>
-                        </ul>
-                        <!--submenu end-->
-                      </li>
-                      <li>
-                        <a href="#">Пункт 1.2.3</a>
-                      </li>
-                      <li>
-                        <a href="#">Пункт 1.2.4</a>
-                      </li>
-                    </ul>
-                    <!--submenu end-->
-                  </li>
-                  <li>
-                    <a href="#">Пункт 1.4</a>
-                  </li>
-                  <li>
-                    <a href="#">Пункт 1.5</a>
-                  </li>
-                </ul>
-                <!--submenu end-->
-              </li>
-              <li>
-                <a href="#">Пункт 2</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <!--navigation end-->
+        <a href="#" class="btn-def">Как помочь</a>
+        {{lang}}
       </div>
     </div>
   </header>
@@ -153,28 +76,86 @@
   <!--FOOTER-->
   <footer class="footer">
     <div class="layout-page layout-page-spaces">
-      <!--footer bottom-->
-      <div class="footer-bottom">
-        <div class="footer-bottom__holder">
-          <div class="footer-bottom__col">
-            <span class="copyright">&copy; <a href="index.html">Project</a> 2018</span>
+      <div class="footer__holder">
+        <!--footer-common-->
+        <div class="footer-common">
+          <div class="footer-nav">
+            <ul>
+              <li>
+                <strong><a href="#">о хосписе</a></strong>
+                <ul>
+                  <li><a href="#">миссия и цели</a></li>
+                  <li><a href="#">история хосписа</a></li>
+                  <li><a href="#">наша команда</a></li>
+                  <li><a href="#">наши попечители</a></li>
+                  <li><a href="#">отзывы</a></li>
+                  <li><a href="#">отчеты</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong><a href="#">как помочь</a></strong>
+                <ul>
+                  <li><a href="#">физические лица</a></li>
+                  <li><a href="#">юридические лица</a></li>
+                  <li><a href="#">для перевода средств в валюте</a></li>
+                  <li><a href="#">волонтерство</a></li>
+                  <li><a href="#">автоволонтерство</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong><a href="#">деятельность</a></strong>
+                <ul>
+                  <li><a href="#">что такое паллиатив</a></li>
+                  <li><a href="#">наши программы</a></li>
+                  <li><a href="#">наши проекты</a></li>
+                  <li><a href="#">библиотека</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong><a href="#">новости</a></strong>
+              </li>
+              <li>
+                <strong><a href="#">контакты</a></strong>
+              </li>
+            </ul>
           </div>
-          <div class="footer-bottom__col">
-            <a href="tel:80001112233">8 000 111-22-33</a> / <a href="mailto:email@project.com">email@project.com</a>
+          <div class="footer-contacts">
+            <div class="footer-phones">
+              <div class="footer-phones__item"><span>Факс</span> <strong><a href="tel:+375447735877">+ 375 44 7735877</a></strong></div>
+              <div class="footer-phones__item"><span>Приемная</span> <strong><a href="tel:+375447735877">+ 375 44 7735877</a></strong></div>
+            </div>
+            <div class="footer-email">E-mail: <a href="mailto:hospice.belarus@gmail.com">hospice.belarus@gmail.com</a></div>
           </div>
-          <div class="footer-bottom__col">
-            <!--developer-->
-            <div class="developer">
+        </div>
+        <!--footer-common end-->
+        <!--footer bottom-->
+        <div class="footer-bottom">
+          <div class="footer-bottom__holder">
+            <div class="footer-bottom__col">
+              <span class="copyright">&copy; 2019 <a href="index.html">Белорусский детский хоспис</a></span>
+            </div>
+            <div class="footer-bottom__col">Минский район, Боровлянский с/c, 71 район пос. Опытный ул. Лесная</div>
+            <div class="footer-bottom__col">
+              {{social}}
+              <!--developer-->
+              <!--<div class="developer">
               <a href="http://astronim.by/" target="_blank">
                 <span class="developer__label">Разработка сайта <i>—</i></span>
                 <span class="developer__logo">Astronim*Support</span>
               </a>
+            </div>-->
+              <!--developer end-->
             </div>
-            <!--developer end-->
           </div>
         </div>
+        <!--footer bottom end-->
       </div>
-      <!--footer bottom end-->
     </div>
   </footer>
   <!--FOOTER end-->

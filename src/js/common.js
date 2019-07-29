@@ -137,5 +137,7 @@ $(document).ready(function () {
   customSelect();
   objectFitImages(); // object-fit-images initial
 
+  $(".sidebar").stick_in_parent();
+
   formValidation();
 });
