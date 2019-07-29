@@ -1,0 +1,31 @@
+Star a project
+
+Run in a console
+================
+start.bat
+
+OR
+
+Run in a console
+================
+npm i gulp
+npm i (this command install node_modules)
+npm i bower
+bower i
+
+Fast delete node_modules folder
+========================
+install rimraf:
+npm install rimraf -g
+
+remove node_modules
+rimraf node_modules/
+
+@source
+https://www.youtube.com/watch?v=kesyrCZE1bA&feature=youtu.be
+
+
+## Дизайн
+https://www.figma.com/file/0CcFZzbBEGn3FRJujh9E3o/%D0%A5%D0%BE%D1%81%D0%BF%D0%B8%D1%81?node-id=0%3A580
+Копия
+https://www.figma.com/file/kzc0Gb48yaMCOR4RDMAKK7/%D0%A5%D0%BE%D1%81%D0%BF%D0%B8%D1%81-(Copy)?node-id=0%3A1
