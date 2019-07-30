@@ -2,7 +2,18 @@
 <header class="header">
   <div class="layout-page layout-page-spaces">
     <div class="header-container">
-      {{search}}
+      <div class="search">
+        <form action="http://www.kommunarka.by/search/">
+          <fieldset>
+            <input type="text" name="search" placeholder="Поиск" class="search-input">
+            <button>
+              @@include("includes/svg/icon-mag.svg")
+              <span>Искать</span>
+            </button>
+          </fieldset>
+        </form>
+      </div>
+
       <div class="h-count">
         <div class="h-count__item">Детей под опекой хосписа <strong>350</strong></div>
         <div class="h-count__item">Необходимо собрать на 2019 год <strong>900 000</strong></div>

@@ -2,10 +2,10 @@
 <aside class="sidebar">
   <!--logo-->
   <div class="logo">
-    @@if(context.currentItem === "Главная"){<span>Project Name</span>}
-    @@if(context.currentItem !== "Главная"){<a href="index.html" title="Перейти на главную">Project Name</a>}
+    @@if(context.currentItem === "Главная"){<span>Белорусский детский хоспис</span>}
+    @@if(context.currentItem !== "Главная"){<a href="index.html" title="Перейти на главную">Белорусский детский хоспис</a>}
     <!--logo for a print version-->
-    <img style="display: none;" src="img/logo.svg" alt="Print version logotype">
+    <img style="display: none;" src="img/logo.png" alt="Print version logotype">
   </div>
   <!--logo end-->
 
@@ -50,7 +50,7 @@
           </ul>
           <!--submenu end-->
         </li>
-        <li>
+        <li class="has-sub">
           <a href="#">Деятельность</a>
           <em class="nav__angle nav__angle-js">&#9660;</em>
           <!--submenu-->
@@ -76,10 +76,30 @@
       </ul>
     </nav>
   </div>
+  <div class="nav-overlay"></div>
   <!--navigation end-->
 
-  <a href="tel:+375447735877" class="s-phone">+ 375 44 7735877</a>
+  <div class="sidebar-contacts">
+    <a href="tel:+375447735877" class="btn-def s-phone">+ 375 44 7735877</a>
+  </div>
 
-  {{social}}
+  <div class="social">
+    <a href="https://www.facebook.com/" target="_blank" class="social__item facebook" title="Facebook">
+      @@include("includes/svg/icon-soc--facebook.svg")
+      <span>Vkontakte</span>
+    </a>
+    <a href="https://vk.com/" target="_blank" class="social__item vkontakte" title="Vkontakte">
+      @@include("includes/svg/icon-soc--vkontakte.svg")
+      <span>Facebook</span>
+    </a>
+    <a href="https://ok.ru/" target="_blank" class="social__item odnoklassniki" title="Odnoklassniki">
+      @@include("includes/svg/icon-soc--odnoklassniki.svg")
+      <span>Odnoklassniki</span>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" class="social__item instagram" title="Instagram">
+      @@include("includes/svg/icon-soc--instagram.svg")
+      <span>Twitter</span>
+    </a>
+  </div>
 </aside>
 <!--SIDEBAR end-->

@@ -122,7 +122,8 @@
 /* ============== HEADER ============== */
 /* ==================================== */
 .header {
-
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .header-container {
@@ -132,82 +133,94 @@
   z-index: 5;
 }
 
-/* logo */
-.logo {
-  flex-shrink: 0;
+/* search */
+.search {
+  display: block;
   position: relative;
-  overflow: hidden;
-  width: 85px;
-  height: 85px;
-  margin: 0 2rem 0 0;
-  background: url(../../img/logo.svg) no-repeat;
-  background-size: contain;
-  text-indent: -9999px;
-  z-index: 5;
-
-  a, & > span {
-    display: block;
-    height: 100%;
-  }
-}
-
-/* logo end */
-
-/* ==================================== */
-/* ============ NAVIGATION ============ */
-/* ==================================== */
-.nav {
-  position: relative;
-}
-
-.nav__list {
-  list-style: none;
+  width: 36rem;
   margin: 0;
   padding: 0;
-  @include clear;
+  background-color: #f5f5f5;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.150702);
+  border-radius: 36rem;
 
-  li {
+  form, fieldset {
+    display: block;
     position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  // Первый уровень
-  & > li {
-    float: left;
-    margin-right: 2rem;
+  fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 4rem;
   }
-}
 
-// Submenu
-.nav__list {
-  li > ul {
+  input.search-input {
+    display: block;
+    width: 100%;
+    height: 4.6rem;
+    margin: 0;
+    padding: 0 1.9rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: 1.4rem;
+    line-height: 4.6rem;
+    color: #313131;
+
+    @include placeholder {
+      color: #999;
+    }
+  }
+
+  button {
+    $size: 3.8rem;
+    display: block;
     position: absolute;
-    left: 0;
-    top: 100%;
-    background-color: white;
-    border: 1px solid $border-color;
-    padding: 2rem;
-    width: $layout-page-min-width;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 10;
+    right: 0.4rem;
+    top: 0.4rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: $size;
+    width: $size;
+    border-radius: $size;
+    font-size: 0;
+    line-height: 0;
+    color: $highlight-color;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.13);
+    transition: color $animation-speed;
 
-    li {
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-      line-height: 1.5;
+    span {
+      font-size: 0;
+      line-height: 0;
     }
 
-    ul {
-      top: 0;
-      left: 100%;
+    svg {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1.6rem;
+      height: 1.3rem;
+      margin: -0.7rem 0 0 -0.8rem;
     }
-  }
 
-  li:hover > ul {
-    opacity: 1;
-    visibility: visible;
+    // Hover
+    .no-touchevents &:hover {
+      color: $highlight-color--hover;
+    }
   }
 }
+/* search end */
+
 
 /* ==================================== */
 /* ============= SIDEBAR =============== */
@@ -221,9 +234,374 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  padding: 4rem 6rem 4rem #{nth($layout-page-space, 2)};
+  padding: 4rem 4rem 4rem #{nth($layout-page-space, 2)};
   z-index: 10;
+
+  // ------ бутерброд -----------------------------------------
+  @include media("<tab") {
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
+
+/* logo */
+.logo {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  width: 175px;
+  margin: 0 0 2rem;
+  background: url(../../img/logo.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  z-index: 5;
+
+  &::before {
+    content: "";
+    display: block;
+    @include ratio(175, 145);
+  }
+
+  a, & > span {
+    display: block;
+    height: 100%;
+  }
+}
+
+/* logo end */
+
+/* slogan */
+.slogan {
+  @include font-italic;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  color: $base-color;
+  margin-bottom: 5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+/* slogan end */
+
+/* ==================================== */
+/* ============ NAVIGATION ============ */
+/* ==================================== */
+
+// Nav wrapper
+.nav-wrap {
+  position: relative;
+  // Поднять над контентом
+  z-index: 5;
+  margin-bottom: 5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // ------ бутерброд -----------------------------------------
+  @include media("<tab") {
+    position: fixed;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 48rem;
+    max-width: 100%;
+    height: 100%;
+    background-color: $bg-color;
+    z-index: 999;
+    transition: {
+      property: opacity, visibility, trasform;
+      duration: $animation-speed;
+    };
+
+    opacity: 0;
+    $translate: -100%, 0;
+    transform: translate($translate);
+    transform: translate3d($translate, 0);
+  }
+
+  &.is-open {
+    // ------ бутерброд -----------------------------------------
+    @include media("<tab") {
+      opacity: 1;
+      $translate: 0, 0;
+      transform: translate($translate);
+      transform: translate3d($translate, 0);
+    }
+  }
+}
+
+// Overlay
+.nav-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(#000, 0.5);
+  z-index: 998;
+  transition: opacity $animation-speed;
+
+  opacity: 0;
+  pointer-events: none;
+
+  display: none;
+
+  // ------ бутерброд -----------------------------------------
+  @include media("<tab") {
+    display: block;
+  }
+}
+
+.nav-wrap.is-open ~ .nav-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// Navigation
+.nav {
+  position: relative;
+
+  // ------ бутерброд -----------------------------------------
+  @include media("<tab") {
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+// Navigation list
+.nav__list {
+  $nav-inner-space: 1.5rem 2rem;
+  $nav-arrow-size: 2.4rem 4.0rem;
+  $nav-item-space: 0.5em 0;
+  $nav-item-indent: 0.4;
+
+  cursor: default;
+
+  // Все ul
+  &, & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #131313;
+  }
+
+  li {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: #{nth($nav-item-space, 1)} 0 0;
+    padding: 0 0 0 #{nth($nav-inner-space, 2)};
+
+    &:first-child {
+      margin-top: #{nth($nav-item-space, 1) + $nav-item-indent};
+    }
+
+    &:last-child {
+      margin-bottom: #{0em + $nav-item-indent};
+    }
+  }
+
+  // Все "a"
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color $animation-speed;
+  }
+
+  // Все "a" и "span"
+  // "a" заменять на "span" в пункте текущей страницы
+  a,
+  li > span {
+    //padding: 0 1rem 0 0;
+  }
+
+  li.has-sub {
+    & > a,
+    & > span {
+      // Если в пункте есть стрелка,
+      // то нужно ограничить максимальную ширину "a"
+      max-width: calc(100% - #{nth($nav-arrow-size, 2)});
+    }
+  }
+
+  // Вложенные ul (sub menu)
+  ul {
+    flex-shrink: 0;
+    width: 100%;
+    flex-basis: 100%;
+    //display: none;
+  }
+
+  // Стрелка для разворачивания подменю
+  .nav__angle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0;
+    line-height: 0;
+    height: nth($nav-arrow-size, 1);
+    width: nth($nav-arrow-size, 2);
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    color: $highlight-color;
+    transition: color $animation-speed;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    outline: none;
+
+    @at-root {
+      li.is-open > .nav__angle {
+        transform: rotate(0.5turn);
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include triangle("bottom", currentColor, 6px, 1);
+      margin: -3px 0 0 -6px;
+    }
+
+    .no-touchevents &:hover {
+      color: $highlight-color--hover;
+    }
+  }
+
+  // Пункт для текущей страницы
+  // Current
+  li {
+    &.current {
+      & > ul {
+        display: block;
+      }
+
+      & > a, & > span {
+        @include font-bold;
+        color: $base-color;
+      }
+    }
+  }
+
+  // Hover
+  .no-touchevents & a:hover {
+    color: $base-color;
+  }
+
+  // li ПЕРВОГО уровня
+  // -----------------
+  & > li {
+    padding-left: 0;
+
+    &:first-child {
+      margin-top: 0;
+      border-top: none;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // Все "a" и "span" первого уровня
+    // "a" заменять на "span" в пункте текущей страницы
+    & > a,
+    & > span {
+      @include font-bold;
+    }
+  }
+}
+
+/* s-phone */
+.s-phone {
+  padding-left: 5.7rem;
+  @include font-bold;
+  font-size: 1.4rem;
+  text-align: left;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48bWFzayBpZD0ibWFzazAiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDBIMTdWMTdIMFYwWiIgZmlsbD0id2hpdGUiLz48L21hc2s+PGcgbWFzaz0idXJsKCNtYXNrMCkiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC41IDBDMy44MDU4NSAwIDAgMy44MDU4NSAwIDguNUMwIDEzLjE5MzkgMy44MDU4NSAxNyA4LjUgMTdDMTMuMTkzOSAxNyAxNyAxMy4xOTM5IDE3IDguNUMxNyAzLjgwNTg1IDEzLjE5MzkgMCA4LjUgMFpNMTIuOTg4NSAxMi40MDIzTDEyLjMwOCAxMy4wODMxQzEyLjE4NjUgMTMuMjA0MyAxMS44MzA3IDEzLjI4MDIgMTEuODE5MSAxMy4yODAyQzkuNjY2MTMgMTMuMjk4OSA3LjU5MzA2IDEyLjQ1MzIgNi4wNjk5MiAxMC45MzAxQzQuNTQyNTQgOS40MDE3MSAzLjY5NTk1IDcuMzIxMTcgMy43MTg4MSA1LjE2MTA3QzMuNzE4ODEgNS4xNTk5MSAzLjc5NjYzIDQuODE0NDMgMy45MTc4NyA0LjY5NDE1TDQuNTk4NjUgNC4wMTMzN0M0Ljg0NzY3IDMuNzYzMzkgNS4zMjU5MiAzLjY1MDIxIDUuNjYxMDIgMy43NjIyM0w1LjgwNDM4IDMuODEwMDhDNi4xMzg0OCAzLjkyMjEgNi40ODkxOSA0LjI5MTQgNi41ODE0MSA0LjYzMTlMNi45MjM4MSA1Ljg4ODM0QzcuMDE2MjQgNi4yMjk3OSA2Ljg5MTczIDYuNzE1MzQgNi42NDI3MSA2Ljk2NDM2TDYuMTg4MjggNy40MTg3OUM2LjYzNDQ1IDkuMDcwNjggNy45MzAyOCAxMC4zNjY1IDkuNTgyMTcgMTAuODEzOEwxMC4wMzY2IDEwLjM1OTRDMTAuMjg2NiAxMC4xMDkyIDEwLjc3MjMgOS45ODQ3MSAxMS4xMTI2IDEwLjA3NzFMMTIuMzY5MSAxMC40MjA1QzEyLjcwOTYgMTAuNTEzOSAxMy4wNzg5IDEwLjg2MjYgMTMuMTkwOSAxMS4xOTY2TDEzLjIzODcgMTEuMzQxOEMxMy4zNDk3IDExLjY3NiAxMy4yMzc2IDEyLjE1NDQgMTIuOTg4NSAxMi40MDIzWiIgZmlsbD0id2hpdGUiLz48L2c+PC9zdmc+);
+  background-repeat: no-repeat;
+  background-position: 1.8rem 50%;
+  background-size: 2rem 2rem;
+}
+/* s-phone end */
+
+/* sidebar-contacts */
+.sidebar-contacts {
+  margin: 0 -2.4rem 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+/* sidebar-contacts end */
+
+/* social */
+.social {
+  margin: 0 -1.2rem 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.social__item {
+  $size: 3.8rem;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  height: $size;
+  width: $size;
+  margin: 0 0.6rem 0.6rem 0;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  text-align: left;
+  color: $text-color-muted;
+  text-decoration: none;
+  transition: color $animation-speed;
+
+  .no-touchevents &:hover {
+    color: $highlight-color;
+  }
+
+  & > span {
+    @include hide-text;
+  }
+
+  svg {
+    $size: 2rem;
+    $int: round-float($size / 2, 1);
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $size;
+    width: $size;
+    margin: -#{$int} 0 0 -#{$int};
+  }
+
+  path {
+    fill: currentColor;
+  }
+}
+
+/* social end */
+
 
 /* ==================================== */
 /* ============= FOOTER =============== */

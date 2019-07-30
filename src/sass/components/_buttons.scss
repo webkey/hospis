@@ -7,10 +7,10 @@
   $btn: &;
   $btn-font-size: 1.4rem;
   $btn-line-height: 1.8rem;
-  $btn-letter-spacing: 0.2em;
+  $btn-letter-spacing: normal;
   $btn-border-width: 2px;
   $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height - px-to-rem($btn-border-width) * 2) / 2, 1);
-  $btn-space-inner-horizontal: $btn-space-inner-vertical * 2;
+  $btn-space-inner-horizontal: 2.8rem;
   $btn-border-radius: 5px;
 
   display: inline-block;

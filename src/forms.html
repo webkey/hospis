@@ -49,7 +49,20 @@
   <header class="header">
     <div class="layout-page layout-page-spaces">
       <div class="header-container">
-        {{search}}
+        <div class="search">
+          <form action="http://www.kommunarka.by/search/">
+            <fieldset>
+              <input type="text" name="search" placeholder="Поиск" class="search-input">
+              <button>
+                <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 14L11 10" stroke="#005C9C" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M6.5 12C9.53757 12 12 9.53757 12 6.5C12 3.46243 9.53757 1 6.5 1C3.46243 1 1 3.46243 1 6.5C1 9.53757 3.46243 12 6.5 12Z" stroke="#005C9C"></path>
+                </svg>
+                <span>Искать</span>
+              </button>
+            </fieldset>
+          </form>
+        </div>
         <div class="h-count">
           <div class="h-count__item">Детей под опекой хосписа <strong>350</strong></div>
           <div class="h-count__item">Необходимо собрать на 2019 год <strong>900 000</strong></div>
