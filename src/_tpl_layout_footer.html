@@ -5,50 +5,52 @@
       <!--footer-common-->
       <div class="footer-common">
         <div class="footer-nav">
-          <ul>
-            <li>
-              <strong><a href="#">о хосписе</a></strong>
-              <ul>
-                <li><a href="#">миссия и цели</a></li>
-                <li><a href="#">история хосписа</a></li>
-                <li><a href="#">наша команда</a></li>
-                <li><a href="#">наши попечители</a></li>
-                <li><a href="#">отзывы</a></li>
-                <li><a href="#">отчеты</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <strong><a href="#">как помочь</a></strong>
-              <ul>
-                <li><a href="#">физические лица</a></li>
-                <li><a href="#">юридические лица</a></li>
-                <li><a href="#">для перевода средств в валюте</a></li>
-                <li><a href="#">волонтерство</a></li>
-                <li><a href="#">автоволонтерство</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <strong><a href="#">деятельность</a></strong>
-              <ul>
-                <li><a href="#">что такое паллиатив</a></li>
-                <li><a href="#">наши программы</a></li>
-                <li><a href="#">наши проекты</a></li>
-                <li><a href="#">библиотека</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <strong><a href="#">новости</a></strong>
-            </li>
-            <li>
-              <strong><a href="#">контакты</a></strong>
-            </li>
-          </ul>
+          <div class="footer-nav__list">
+            <ul>
+              <li>
+                <strong><a href="#">О хосписе</a></strong>
+                <ul>
+                  <li><a href="#">Миссия и цели</a></li>
+                  <li><a href="#">История хосписа</a></li>
+                  <li><a href="#">Наша команда</a></li>
+                  <li><a href="#">Наши попечители</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Отчеты</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong><a href="#">Как помочь</a></strong>
+                <ul>
+                  <li><a href="#">Физические лица</a></li>
+                  <li><a href="#">Юридические лица</a></li>
+                  <li><a href="#">Для перевода средств в валюте</a></li>
+                  <li><a href="#">Волонтерство</a></li>
+                  <li><a href="#">Автоволонтерство</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong><a href="#">Деятельность</a></strong>
+                <ul>
+                  <li><a href="#">Что такое паллиатив</a></li>
+                  <li><a href="#">Наши программы</a></li>
+                  <li><a href="#">Наши проекты</a></li>
+                  <li><a href="#">Библиотека</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <strong><a href="#">Новости</a></strong>
+              </li>
+              <li>
+                <strong><a href="#">Контакты</a></strong>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="footer-contacts">
           <div class="footer-phones">
@@ -67,7 +69,24 @@
           </div>
           <div class="footer-bottom__col">Минский район, Боровлянский с/c, 71 район пос. Опытный ул. Лесная</div>
           <div class="footer-bottom__col">
-            {{social}}
+            <div class="share">
+              <a href="https://www.facebook.com/" target="_blank" class="share__item facebook" title="Facebook">
+                @@include("includes/svg/icon-soc--facebook.svg")
+                <span>Vkontakte</span>
+              </a>
+              <a href="https://vk.com/" target="_blank" class="share__item vkontakte" title="Vkontakte">
+                @@include("includes/svg/icon-soc--vkontakte.svg")
+                <span>Facebook</span>
+              </a>
+              <a href="https://ok.ru/" target="_blank" class="share__item odnoklassniki" title="Odnoklassniki">
+                @@include("includes/svg/icon-soc--odnoklassniki.svg")
+                <span>Odnoklassniki</span>
+              </a>
+              <a href="https://www.instagram.com/" target="_blank" class="share__item instagram" title="Instagram">
+                @@include("includes/svg/icon-soc--instagram.svg")
+                <span>Twitter</span>
+              </a>
+            </div>
             <!--developer-->
             <!--<div class="developer">
               <a href="http://astronim.by/" target="_blank">

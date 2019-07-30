@@ -764,56 +764,168 @@ body {
 
 .footer__holder {
   background-color: $base-color;
-  padding: 2rem nth($layout-page-space, 2) 2rem 6rem;
+  padding: 7rem nth($layout-page-space, 2) 2rem 6rem;
 }
 
-/* footer bottom */
-.footer-bottom {
-  position: relative;
-
-  // обрезать вытянутый маржинами по горизонтале дочерний элемент
-  overflow: hidden;
-}
-
-.footer-bottom__holder {
-  position: relative;
+/* footer-common */
+.footer-common {
   display: flex;
   flex-wrap: wrap;
-
-  @include margin-horizontal(-#{round(nth($grid-space, 2) / 2)});
-
-  margin-bottom: -#{round(nth($grid-space, 1) / 2)};
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14rem;
 }
 
-.footer-bottom__col {
-  text-align: center;
+// Footer navigation
+.footer-nav {
+  flex-grow: 1;
+}
 
-  @include padding-horizontal(round(nth($grid-space, 2) / 2));
+.footer-nav__list {
+  display: flex;
+  margin: 0 -3rem -3rem;
 
-  margin-bottom: #{round(nth($grid-space, 1) / 2)};
+  & > ul {
+    flex-grow: 1;
+    $width: 25%;
+    flex-basis: $width;
+    max-width: $width;
+    padding: 0 3rem 3rem;
+    font-size: 1.7rem;
+    line-height: 2.3rem;
 
-  // для браузеров не поддерживающих display: flex
-  display: inline-block;
-  vertical-align: top;
-  width: calc(33.33% - 5px);
+    li {
+      margin-top: 1.5rem;
 
-  @include media("<mob") {
-    min-width: 100%;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        a {
+          color: #fff;
+          text-decoration: none;
+          padding-top: 0.3em;
+
+          transition: opacity $animation-speed;
+
+          opacity: 0.4;
+
+          .no-touchevents &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    & > li {
+      & > strong {
+        display: block;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+
+          transition: box-shadow $animation-speed;
+
+          box-shadow: inset 0 0 0 #fff;
+
+          .no-touchevents &:hover {
+            box-shadow: inset 0 -2px 0 #fff;
+          }
+        }
+      }
+    }
   }
+}
 
+// Footer contacts
+.footer-contacts {
+  flex-grow: 1;
+  text-align: right;
+  $width: 25%;
+  flex-basis: $width;
+  max-width: $width;
+  margin-left: 3rem;
+}
+
+.footer-phones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  line-height: 3.0rem;
+}
+
+.footer-phones__item {
+  margin-top: 0.2rem;
+  padding-left: 4.2rem;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48bWFzayBpZD0ibWFzazAiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDBIMTdWMTdIMFYwWiIgZmlsbD0id2hpdGUiLz48L21hc2s+PGcgbWFzaz0idXJsKCNtYXNrMCkiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC41IDBDMy44MDU4NSAwIDAgMy44MDU4NSAwIDguNUMwIDEzLjE5MzkgMy44MDU4NSAxNyA4LjUgMTdDMTMuMTkzOSAxNyAxNyAxMy4xOTM5IDE3IDguNUMxNyAzLjgwNTg1IDEzLjE5MzkgMCA4LjUgMFpNMTIuOTg4NSAxMi40MDIzTDEyLjMwOCAxMy4wODMxQzEyLjE4NjUgMTMuMjA0MyAxMS44MzA3IDEzLjI4MDIgMTEuODE5MSAxMy4yODAyQzkuNjY2MTMgMTMuMjk4OSA3LjU5MzA2IDEyLjQ1MzIgNi4wNjk5MiAxMC45MzAxQzQuNTQyNTQgOS40MDE3MSAzLjY5NTk1IDcuMzIxMTcgMy43MTg4MSA1LjE2MTA3QzMuNzE4ODEgNS4xNTk5MSAzLjc5NjYzIDQuODE0NDMgMy45MTc4NyA0LjY5NDE1TDQuNTk4NjUgNC4wMTMzN0M0Ljg0NzY3IDMuNzYzMzkgNS4zMjU5MiAzLjY1MDIxIDUuNjYxMDIgMy43NjIyM0w1LjgwNDM4IDMuODEwMDhDNi4xMzg0OCAzLjkyMjEgNi40ODkxOSA0LjI5MTQgNi41ODE0MSA0LjYzMTlMNi45MjM4MSA1Ljg4ODM0QzcuMDE2MjQgNi4yMjk3OSA2Ljg5MTczIDYuNzE1MzQgNi42NDI3MSA2Ljk2NDM2TDYuMTg4MjggNy40MTg3OUM2LjYzNDQ1IDkuMDcwNjggNy45MzAyOCAxMC4zNjY1IDkuNTgyMTcgMTAuODEzOEwxMC4wMzY2IDEwLjM1OTRDMTAuMjg2NiAxMC4xMDkyIDEwLjc3MjMgOS45ODQ3MSAxMS4xMTI2IDEwLjA3NzFMMTIuMzY5MSAxMC40MjA1QzEyLjcwOTYgMTAuNTEzOSAxMy4wNzg5IDEwLjg2MjYgMTMuMTkwOSAxMS4xOTY2TDEzLjIzODcgMTEuMzQxOEMxMy4zNDk3IDExLjY3NiAxMy4yMzc2IDEyLjE1NDQgMTIuOTg4NSAxMi40MDIzWiIgZmlsbD0id2hpdGUiLz48L2c+PC9zdmc+);
+  background-size: 1.7rem;
 
   &:first-child {
-    @include media(">=mob") {
-      text-align: left;
-    }
+    margin-top: 0;
   }
 
-  &:last-child {
-    @include media(">=mob") {
-      text-align: right;
-    }
+  & > span {
+    font-size: 1.8rem;
+    color: #fff;
+    text-transform: uppercase;
+    opacity: 0.4;
   }
 
+  & > strong {
+    @include font-bold;
+    font-size: 2.2rem;
+    color: #fff;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      transition: box-shadow $animation-speed;
+
+      box-shadow: inset 0 0 0 currentColor;
+
+      .no-touchevents &:hover {
+        box-shadow: inset 0 -1px 0 currentColor;
+      }
+    }
+  }
+}
+
+.footer-email {
+  font-size: 1.7rem;
+  line-height: 2.1rem;
+  color: #fff;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
+
+    transition: box-shadow $animation-speed;
+
+    box-shadow: inset 0 0 0 currentColor;
+
+    .no-touchevents &:hover {
+      box-shadow: inset 0 -1px 0 currentColor;
+    }
+  }
+}
+
+/* footer-common end */
+
+/* copyright */
+.copyright {
   a {
     color: inherit;
     text-decoration: none;
@@ -823,8 +935,59 @@ body {
     }
   }
 }
+/* copyright end */
 
-/* footer bottom end */
+/* share */
+.share {
+  margin: 0 -1.2rem 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.share__item {
+  $size: 3.8rem;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  height: $size;
+  width: $size;
+  margin: 0 0.6rem 0.6rem 0;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  text-align: left;
+  color: #afb5bb;
+  text-decoration: none;
+  transition: color $animation-speed;
+
+  .no-touchevents &:hover {
+    color: #fff;
+  }
+
+  & > span {
+    @include hide-text;
+  }
+
+  svg {
+    $size: 2rem;
+    $int: round-float($size / 2, 1);
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $size;
+    width: $size;
+    margin: -#{$int} 0 0 -#{$int};
+  }
+
+  path {
+    fill: currentColor;
+  }
+}
+
+/* share end */
 
 /* developer */
 .developer {
@@ -904,6 +1067,54 @@ body {
 }
 
 /* developer end */
+
+/* footer bottom */
+.footer-bottom {
+  position: relative;
+  font-size: 1.8rem;
+  line-height: 1.9rem;
+  color: #fff;
+
+  // обрезать вытянутый маржинами по горизонтале дочерний элемент
+  overflow: hidden;
+}
+
+.footer-bottom__holder {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  @include margin-horizontal(-#{round(nth($grid-space, 2) / 2)});
+  margin-bottom: -#{round(nth($grid-space, 1) / 2)};
+}
+
+.footer-bottom__col {
+  text-align: center;
+  @include padding-horizontal(round(nth($grid-space, 2) / 2));
+  margin-bottom: #{round(nth($grid-space, 1) / 2)};
+
+  // для браузеров не поддерживающих display: flex
+  display: inline-block;
+  vertical-align: top;
+  width: calc(33.33% - 5px);
+
+  @include media("<mob") {
+    min-width: 100%;
+  }
+
+  &:first-child {
+    @include media(">=mob") {
+      text-align: left;
+    }
+  }
+
+  &:last-child {
+    @include media(">=mob") {
+      text-align: right;
+    }
+  }
+}
+
+/* footer bottom end */
 
 /* ==================================== */
 /* ============== MAIN ================ */
