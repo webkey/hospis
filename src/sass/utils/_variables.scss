@@ -44,6 +44,10 @@ $font-alt: Georgia, serif !default;
   font-style: italic;
 }
 
+@mixin font-extra-bold {
+  font-weight: 800;
+}
+
 // Alternative font
 // ----------------------------------------------------
 @mixin font-alt {

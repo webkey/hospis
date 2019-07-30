@@ -25,7 +25,9 @@
     "select2": "^4.0.3",
     "normalize-scss": "normalize.scss#^7.0.1",
     "jquery-validation": "^1.17.0",
-    "sticky-kit": "^1.1.2"
+    "sticky-kit": "^1.1.2",
+    "swiper": "^4.5.0",
+    "matchHeight": "matchheight#^0.7.0"
   },
   "devDependencies": {
     "mathsass": "^0.9.5"

@@ -1,6 +1,6 @@
 @@include("_tpl_layout_head.html", {
   "title": "Главная",
-  "pageClass": "has-sidebar"
+  "pageClass": "home-page has-sidebar"
 })
 
 @@include("_tpl_layout_sidebar.html")
@@ -14,45 +14,162 @@
   <div class="layout-page layout-page-spaces">
     <!--CONTENT-->
     <!--promo-->
-    <div class="promo">
-      <img src="img/img-promo-large-01.jpg" alt="image description" />
-      <div>Приложи руку к доброму делу</div>
-    </div>
-    <div class="promo-thumbs">
-      <img src="img/img-promo-large-01.jpg" alt="image description" width="305" />
-      <img src="img/img-promo-large-02.jpg" alt="image description" width="305" />
-      <img src="img/img-promo-large-03.jpg" alt="image description" width="305" />
-      <img src="img/img-promo-large-02.jpg" alt="image description" width="305" />
+    <div class="promo-slider promo-slider-js">
+      <div class="swiper-container promo-screen promo-screen-js">
+        <div class="swiper-wrapper">
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-01.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Приложи руку к доброму делу</div>
+            </div>
+          </div>
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Детский хоспис запустил пилотный проект</div>
+            </div>
+          </div>
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-03.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Невероятное приключение в Парке-музее</div>
+            </div>
+          </div>
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Будни тяжело больных ребят не часто бывают яркими</div>
+            </div>
+          </div>
+
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-01.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Приложи руку к доброму делу</div>
+            </div>
+          </div>
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Детский хоспис запустил пилотный проект</div>
+            </div>
+          </div>
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-03.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Невероятное приключение в Парке-музее</div>
+            </div>
+          </div>
+          <div class="promo-screen__item swiper-slide">
+            <div class="promo-screen__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+            <div class="promo-screen__content">
+              <div class="promo-screen__text" data-swiper-parallax="-300" data-swiper-parallax-duration="600">Будни тяжело больных ребят не часто бывают яркими</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-container promo-thumbs promo-thumbs-js">
+        <div class="swiper-wrapper">
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-01.jpg);"></div>
+          </div>
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+          </div>
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-03.jpg);"></div>
+          </div>
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+          </div>
+
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-01.jpg);"></div>
+          </div>
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+          </div>
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-03.jpg);"></div>
+          </div>
+          <div class="promo-thumbs__item swiper-slide">
+            <div class="promo-thumbs__img" style="background-image:url(img/img-promo-large-02.jpg);"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
     <!--promo end-->
 
     <!--program-section-->
     <section class="program-section">
-      <h2>Наши программы</h2>
-      <a href="#">Все программы</a>
+      <div class="section-title">
+        <h2><a href="#">Наши программы</a></h2>
+        <a class="more" href="#"><span>Все программы</span></a>
+      </div>
       <div class="programs">
         <div class="programs__list">
-          <div class="programs__item" style="background-image:url(img/img-program-01.jpg);">
-            <div class="programs__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке </div>
+          <div class="programs__item">
+            <a href="#" class="programs-el">
+              <div class="programs-el__img" style="background-image:url(img/img-program-01.jpg);"></div>
+              <div class="programs-el__content">
+                <div class="programs-el__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке </div>
+              </div>
+            </a>
           </div>
-          <div class="programs__item" style="background-image:url(img/img-program-02.jpg);">
-            <div class="programs__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке </div>
+          <div class="programs__item">
+            <a href="#" class="programs-el">
+              <div class="programs-el__img" style="background-image:url(img/img-program-02.jpg);"></div>
+              <div class="programs-el__content">
+                <div class="programs-el__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке </div>
+              </div>
+            </a>
           </div>
-          <div class="programs__item" style="background-image:url(img/img-program-02.jpg);">
-            <div class="programs__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке </div>
+          <div class="programs__item">
+            <a href="#" class="programs-el">
+              <div class="programs-el__img" style="background-image:url(img/img-program-02.jpg);"></div>
+              <div class="programs-el__content">
+                <div class="programs-el__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке </div>
+              </div>
+            </a>
           </div>
-          <div class="programs__item" style="background-image:url(img/img-program-02.jpg);">
-            <div class="programs__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке Европейского Союза</div>
+          <div class="programs__item">
+            <a href="#" class="programs-el">
+              <div class="programs-el__img" style="background-image:url(img/img-program-02.jpg);"></div>
+              <div class="programs-el__content">
+                <div class="programs-el__text">Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке Европейского Союза</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </section>
     <!--program-section end-->
 
+    <!--about-section-->
+    <section class="about-section">
+      <div class="about">
+        <div class="about__content">
+          <h2>ОБО «Белорусский детский хоспис»</h2>
+          <p>ОБО «Белорусский детский хоспис»: негосударственная и некоммерческая структура, которая оказывает медицинскую, психологическую, социальную и духовную помощь семьям, воспитывающим детей с ограничивающими срок жизни и угрожающими жизни заболеваниями. Мы первая общественная организация, которая работает с Министерством здравоохранения на условиях частно-государственного партнерства. Сейчас в хосписе «Лесная поляна» совместно работает ГУ «Республиканский клинический центр паллиативной медицинской помощи детям» и ОБО «Белорусский детский хоспис». Республиканский клинический центр оказывает паллиативную медицинскую помощь Подробнее...</p>
+        </div>
+        <div class="about__logo">
+          <img src="img/logo.png" alt="Белорусский детский хоспис" />
+        </div>
+      </div>
+    </section>
+    <!--about-section end-->
+
     <!--news section-->
     <section class="news-section">
-      <h2>Наши новости</h2>
-      <a href="#">Все новости</a>
+      <div class="section-title">
+        <h2><a href="#">Наши новости</a></h2>
+        <a class="more" href="#"><span>Все новости</span></a>
+      </div>
       <div class="news">
         <div class="news__list">
           <div class="news__item">
@@ -99,57 +216,73 @@
     <!--subscribe section-->
     <section class="subscribe-section">
       <h2 class="hide">Подпишиска на рассылку</h2>
-      <div class="subscribe">
-        <div class="subs-form">
-          <form action="#" method="post" class="validate-js">
-            <div class="input-wrap">
-              <div class="label-holder">
-                <label for="subs">Подпишитесь на рассылку</label>
-              </div>
-              <div class="form-fields">
-                <div class="input-holder">
-                  <input id="subs" type="email" placeholder="Введите Ваш e-mail" required="">
-                  <button>Подписаться</button>
-                </div>
-                <div class="subs-success"><span>Поздравляем! Вы подписаны!</span></div>
-                <div class="subs-error">Введите корректный адрес</div>
-              </div>
+      <div class="subscribe subs-js">
+        <form action="#" method="post" class="subs-form validate-js">
+          <div class="subs-container">
+            <label for="subs" class="label-holder">Подпишитесь на рассылку</label>
+            <div class="subs-field">
+              <input id="subs" type="email" placeholder="Введите Ваш e-mail" required="" class="subs-input">
+              <button>Подписаться</button>
+              <div class="subs-success"><span>Поздравляем! Вы подписаны!</span></div>
+              <div class="subs-error">Введите корректный адрес</div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </section>
     <!--subscribe section end-->
 
     <!--reviews section-->
     <section class="reviews-section">
-      <h2>Отзывы</h2>
-      <a href="#">Все отзывы</a>
+      <div class="section-title">
+        <h2><a href="#">Отзывы</a></h2>
+        <a class="more" href="#"><span>Все отзывы</span></a>
+      </div>
+
       <div class="reviews">
-        <div class="reviews__list">
-          <div class="reviews__item">
-            @@include("_tpl_reviews-el.html", {
-            "srcPhoto": "img/img-rev-01.jpg",
-            "author": "Ольга",
-            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы «Помощь молодым взрослым»"
-            })
+        <div class="swiper-container reviews__list reviews-slider-js">
+          <div class="swiper-wrapper">
+            <div class="reviews__item swiper-slide">
+              @@include("_tpl_reviews-el.html", {
+              "srcPhoto": "img/img-rev-01.jpg",
+              "author": "Ольга",
+              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы «Помощь молодым взрослым»"
+              })
+            </div>
+            <div class="reviews__item swiper-slide">
+              @@include("_tpl_reviews-el.html", {
+              "srcPhoto": "img/img-rev-02.jpg",
+              "author": "Надежда",
+              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы «Помощь"
+              })
+            </div>
+            <div class="reviews__item swiper-slide">
+              @@include("_tpl_reviews-el.html", {
+              "srcPhoto": "img/img-rev-02.jpg",
+              "author": "Надежда",
+              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы"
+              })
+            </div>
+            <div class="reviews__item swiper-slide">
+              @@include("_tpl_reviews-el.html", {
+              "srcPhoto": "img/img-rev-01.jpg",
+              "author": "Ольга",
+              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы «Помощь молодым взрослым»"
+              })
+            </div>
+            <div class="reviews__item swiper-slide">
+              @@include("_tpl_reviews-el.html", {
+              "srcPhoto": "img/img-rev-02.jpg",
+              "author": "Надежда",
+              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы «Помощь"
+              })
+            </div>
           </div>
-          <div class="reviews__item">
-            @@include("_tpl_reviews-el.html", {
-            "srcPhoto": "img/img-rev-02.jpg",
-            "author": "Надежда",
-            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы «Помощь"
-            })
-          </div>
-          <div class="reviews__item">
-            @@include("_tpl_reviews-el.html", {
-            "srcPhoto": "img/img-rev-02.jpg",
-            "author": "Надежда",
-            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы"
-            })
-          </div>
+
+          <div class="swiper-pagination"></div>
         </div>
       </div>
+
     </section>
     <!--reviews section-->
 

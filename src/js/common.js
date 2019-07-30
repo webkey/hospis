@@ -81,9 +81,22 @@ function stickySidebar() {
 }
 
 /**
+ * !Equal height of blocks by maximum height of them
+ */
+function equalHeight() {
+  // equal height of elements
+  var $equalHeight = $('.equal-height-js');
+
+  if($equalHeight.length) {
+    $equalHeight.children().matchHeight({
+      byRow: true, property: 'height', target: null, remove: false
+    });
+  }
+}
+
+/**
  * ! jquery.drop.js
  */
-
 (function($){
   var defaults = {
     opener: '.ms-drop__opener-js',
@@ -263,13 +276,143 @@ function toggleLang() {
 }
 
 /**
+ * !Slider document photos
+ */
+function slidersInit() {
+  // Promo slider
+  var $promoSlider = $('.promo-slider-js');
+
+  if($promoSlider.length){
+    $promoSlider.each(function () {
+      var $thisSlider = $(this),
+          $screen = $thisSlider.find('.promo-screen-js'),
+          $thumbs = $thisSlider.find('.promo-thumbs-js'),
+          $pagination = $thisSlider.find('.swiper-pagination'),
+          $navPrev = $thisSlider.find('.swiper-button-prev'),
+          $navNext = $thisSlider.find('.swiper-button-next');
+
+      var thumbs = new Swiper($thumbs, {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        // freeMode: true,
+        slideToClickedSlide: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: $navPrev,
+          prevEl: $navNext,
+        },
+      });
+
+      var screen = new Swiper ($screen, {
+        init: false,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        loop: true,
+        allowTouchMove: false,
+        parallax: true,
+        pagination: {
+          el: $pagination,
+          type: 'bullets',
+          clickable: true
+        },
+        thumbs: {
+          swiper: thumbs
+        }
+        // breakpoints: {
+        //   991: {
+        //     slidesPerView: 'auto',
+        //     spaceBetween: 40
+        //   },
+        //   639: {
+        //     slidesPerView: 'auto',
+        //     spaceBetween: 10
+        //   }
+        // },
+        // on: {
+        //   resize: function () {
+        //     if (window.innerWidth <= 992) {
+        //       sampleSlider.slides.css('width', '');
+        //     }
+        //   }
+        // }
+      });
+
+      screen.on('init', function() {
+        $thisSlider.addClass('is-loaded');
+      });
+
+      screen.init();
+
+      // screen.params.controller.control = thumbs;
+      // thumbs.params.controller.control = screen;
+    });
+  }
+  
+  // Reviews slider
+  var $reviewsSlider = $('.reviews-slider-js');
+
+  if($reviewsSlider.length){
+    $reviewsSlider.each(function () {
+      var $thisSlider = $(this),
+          $pagination = $thisSlider.find('.swiper-pagination');
+
+      var reviewsSlider = new Swiper ($thisSlider, {
+        init: false,
+        spaceBetween: 14,
+        slidesPerView: 3,
+        loop: true,
+        watchSlidesVisibility: true,
+        pagination: {
+          el: $pagination,
+          type: 'bullets',
+          clickable: true
+        },
+        breakpoints: {
+          991: {
+            slidesPerView: 2,
+            spaceBetween: 14
+          },
+          639: {
+            slidesPerView: 1,
+            spaceBetween: 10
+          }
+        }
+      });
+
+      reviewsSlider.on('init', function() {
+        $thisSlider.addClass('is-loaded');
+        $(reviewsSlider.slides).not(':hidden').matchHeight({
+          byRow: true,
+          property: 'height',
+          target: null,
+          remove: false
+        });
+      });
+
+      reviewsSlider.init();
+    });
+  }
+}
+
+/**
  * !Form validation
  * */
 function formValidation() {
   $.validator.setDefaults({
-    submitHandler: function() {
-      alert('Форма находится в тестовом режиме. Чтобы закрыть окно, нажмите ОК.');
-      return false;
+    submitHandler: function(form) {
+      // alert('Форма находится в тестовом режиме. Чтобы закрыть окно, нажмите ОК.');
+
+      var $form = $(form);
+      if($form.hasClass('subs-form')) {
+        setTimeout(function () {
+          $form.closest('.subs-js').addClass('completed');
+        }, 50);
+      }
+
+      // return false;
     }
   });
 
@@ -325,8 +468,10 @@ $(document).ready(function () {
   placeholderInit();
   formElementState();
   customSelect();
+  equalHeight();
   stickySidebar();
   toggleLang();
+  slidersInit();
 
   formValidation();
 });
