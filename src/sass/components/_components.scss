@@ -134,6 +134,44 @@
   z-index: 5;
 }
 
+/* nav open */
+.menu-open {
+  display: none;
+  line-height: 2.2rem;
+  color: $highlight-color;
+  transition: color $animation-speed;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  @include media('<tab') {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 2px 0 0;
+  }
+
+  svg {
+    display: block;
+    height: 2.2rem;
+    width: 2.9rem;
+
+    @include media("<mob") {
+      height: 2.0rem;
+      width: 2.6rem;
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
+  }
+}
+
+/* nav open end */
+
 /* search */
 .search {
   display: block;
@@ -387,11 +425,63 @@ body {
 
   // ------ бутерброд -----------------------------------------
   @include media("<tab") {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
     padding: 0;
     height: 100%;
+    width: 48rem;
+    max-width: 100%;
+    background-color: $bg-color;
+    z-index: 999;
+    will-change: trasform, opacity;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    transition: opacity $animation-speed, transform $animation-speed;
+
+    opacity: 0;
+    $translate: -100%, 0;
+    transform: translate($translate);
+    transform: translate3d($translate, 0);
+  }
+
+  &.is-open {
+    // ------ бутерброд -----------------------------------------
+    @include media("<tab") {
+      opacity: 1;
+      $translate: 0, 0;
+      transform: translate($translate);
+      transform: translate3d($translate, 0);
+    }
+  }
+}
+
+// Overlay
+.menu-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(#000, 0.5);
+  z-index: 998;
+  transition: opacity $animation-speed;
+
+  opacity: 0;
+  pointer-events: none;
+
+  display: none;
+
+  // ------ бутерброд -----------------------------------------
+  @include media("<tab") {
+    display: block;
+  }
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -449,65 +539,59 @@ body {
   &:last-child {
     margin-bottom: 0;
   }
+}
 
-  // ------ бутерброд -----------------------------------------
-  @include media("<tab") {
-    position: fixed;
-    display: block;
-    left: 0;
-    top: 0;
-    width: 48rem;
-    max-width: 100%;
-    height: 100%;
-    background-color: $bg-color;
-    z-index: 999;
-    transition: {
-      property: opacity, visibility, trasform;
-      duration: $animation-speed;
-    };
+.popup-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: #3e4159;
+  z-index: 9999;
 
-    opacity: 0;
-    $translate: -100%, 0;
+  $translate: 100%, 0;
+  transform: translate($translate);
+  transform: translate3d($translate, 0);
+
+  transition: {
+    property: opacity, visibility, transform;
+    duration: $animation-speed;
+  };
+
+  &:not(.open-only-mob).is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    $translate: 0, 0;
+
     transform: translate($translate);
     transform: translate3d($translate, 0);
   }
 
-  &.is-open {
-    // ------ бутерброд -----------------------------------------
-    @include media("<tab") {
+  &.open-only-mob.is-open {
+    @include media('<tab') {
       opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+
       $translate: 0, 0;
+
       transform: translate($translate);
       transform: translate3d($translate, 0);
     }
   }
 }
 
-// Overlay
-.nav-overlay {
-  position: fixed;
-  left: 0;
-  top: 0;
+.popup-nav__frame {
   height: 100%;
-  width: 100%;
-  background-color: rgba(#000, 0.5);
-  z-index: 998;
-  transition: opacity $animation-speed;
-
-  opacity: 0;
-  pointer-events: none;
-
-  display: none;
-
-  // ------ бутерброд -----------------------------------------
-  @include media("<tab") {
-    display: block;
-  }
-}
-
-.nav-wrap.is-open ~ .nav-overlay {
-  opacity: 1;
-  pointer-events: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 // Navigation
@@ -588,7 +672,7 @@ body {
     flex-shrink: 0;
     width: 100%;
     flex-basis: 100%;
-    //display: none;
+    display: none;
   }
 
   // Стрелка для разворачивания подменю
@@ -656,6 +740,7 @@ body {
   // -----------------
   & > li {
     padding-left: 0;
+    margin-top: 2rem;
 
     &:first-child {
       margin-top: 0;

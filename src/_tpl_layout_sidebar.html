@@ -1,5 +1,5 @@
 <!--SIDEBAR-->
-<aside class="sidebar">
+<aside class="sidebar menu-js">
   <!--logo-->
   <div class="logo">
     @@if(context.currentItem === "Главная"){<span>Белорусский детский хоспис</span>}
@@ -76,7 +76,6 @@
       </ul>
     </nav>
   </div>
-  <div class="nav-overlay"></div>
   <!--navigation end-->
 
   <div class="sidebar-contacts">
@@ -101,5 +100,10 @@
       <span>Twitter</span>
     </a>
   </div>
+
+  <a href="#" class="menu-close menu-close-js" title="Close menu">
+    @@include("includes/svg/icon-menu.svg")
+  </a>
 </aside>
+<div class="menu-overlay menu-overlay-js"></div>
 <!--SIDEBAR end-->
