@@ -129,6 +129,7 @@
 .header-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   z-index: 5;
 }
@@ -219,7 +220,153 @@
     }
   }
 }
+
 /* search end */
+
+/* h-count */
+.h-count {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #999;
+}
+
+.h-count__item {
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    display: inline-block;
+    @include font-bold;
+    font-size: 1.6rem;
+    color: $base-color;
+    padding-left: 0.5rem;
+  }
+}
+
+/* h-count end */
+
+/* btn-help */
+.btn-help {
+  display: inline-block;
+  vertical-align: top;
+  height: 5.2rem;
+  padding: 0 1.4rem;
+  @include font-bold;
+  font-size: 1.3rem;
+  line-height: 5.2rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  border-top: none;
+  @include linear-gradient(180deg, #fad961 -50.98%, #f76b1c 100%);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.10);
+
+  .no-touchevents &:hover {
+    @include linear-gradient(180deg, #f8fa9a -30.98%, #f75400 100%);
+  }
+}
+
+/* btn-help end */
+
+/* lang */
+.ms-drop__drop-js {
+  opacity: 0;
+  visibility: hidden;
+
+  .is-open & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.lang {
+  position: relative;
+  width: 6rem;
+  font-size: 1.7rem;
+  line-height: 3.2rem;
+
+  .active-item {
+    background-color: $highlight-color;
+    color: white;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  a {
+    display: block;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  & > a {
+    display: block;
+    position: relative;
+    @include font-bold;
+    color: $highlight-color;
+    text-decoration: none;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      @include triangle("bottom", currentColor, 6px, 1);
+      margin: -3px 0 0;
+    }
+
+    .no-touchevents &:hover {
+      color: $highlight-color--hover;
+    }
+
+    // Hover
+    .no-touchevents &:hover {
+      color: $highlight-color--hover;
+    }
+  }
+
+  &.is-open > a:before {
+    border-top: none;
+    @include triangle("top", currentColor, 6px, 1);
+  }
+
+  ul {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: white;
+    box-shadow: inset 0 0 0 1px $border-color;
+    border-radius: 4px;
+  }
+}
+
+/* lang end */
+
+.h-right {
+  display: flex;
+  align-items: center;
+
+  .h-count {
+    margin-left: 3rem;
+  }
+
+  .btn-help {
+    margin-left: 5rem;
+  }
+
+  .lang {
+    margin-left: 2rem;
+  }
+}
 
 
 /* ==================================== */
