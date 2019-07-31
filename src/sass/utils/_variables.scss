@@ -249,6 +249,9 @@ $layout-page-min-width: 32rem !default;
 $layout-page-max-width: 192rem !default;
 // Отступы для всего сайта
 $layout-page-space: 3rem 7.2rem !default;
+$layout-page-space--lap: 3rem 7.0rem !default;
+$layout-page-space--net: 3rem 3rem !default;
+$layout-page-space--tab: 3rem 2rem !default;
 
 
 // Layout text
@@ -546,5 +549,17 @@ $animation-speed-mouseleave: 0.35s !default;
 // ====================================================
 
 
+// Sidebar
+// ====================================================
+$sidebar-width: 34.4rem;
+$sidebar-width--lap: 30.8rem;
+$sidebar-width--net: 28rem;
+
+
 // Footer
 // ====================================================
+
+
+// Mobile menu breakpoint
+// ====================================================
+$breakpoint-mob-menu: "<tab";

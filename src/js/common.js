@@ -74,6 +74,24 @@ function customSelect() {
 }
 
 /**
+ * !Background parallax
+ */
+function bgParallax() {
+  // init controller
+  var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+
+  // build scenes
+  new ScrollMagic.Scene({triggerElement: "#bg-parallax-1"})
+      .setTween("#bg-parallax-1", {y: "25%", ease: Linear.easeNone})
+      .addTo(controller);
+
+  // build scenes
+  new ScrollMagic.Scene({triggerElement: "#bg-parallax-2"})
+      .setTween("#bg-parallax-2", {y: "40%", ease: Linear.easeNone})
+      .addTo(controller);
+}
+
+/**
  * !Sticky sidebar
  */
 function stickySidebar() {
@@ -295,6 +313,7 @@ function slidersInit() {
         spaceBetween: 10,
         slidesPerView: 4,
         // freeMode: true,
+        parallax: true,
         slideToClickedSlide: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
@@ -313,6 +332,8 @@ function slidersInit() {
         loop: true,
         allowTouchMove: false,
         parallax: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
         pagination: {
           el: $pagination,
           type: 'bullets',
@@ -371,7 +392,7 @@ function slidersInit() {
           clickable: true
         },
         breakpoints: {
-          991: {
+          1440: {
             slidesPerView: 2,
             spaceBetween: 14
           },
@@ -536,6 +557,10 @@ function navAccordionInit() {
       animateSpeed: 250,
       collapsible: true
     });
+
+    $(nav).on('mAccordionAfterChange', function () {
+      $('.sidebar').trigger('sticky_kit:recalc');
+    })
   }
 }
 
@@ -716,7 +741,7 @@ function navAccordionInit() {
       var self = this;
 
       $('html').on('click', function (event) {
-
+        
         if ($(event.target).closest('.' + CONST_MOD.preventRemoveClass).length) {
           return;
         }
@@ -985,6 +1010,7 @@ $(document).ready(function () {
   formElementState();
   customSelect();
   equalHeight();
+  bgParallax();
   stickySidebar();
   toggleLang();
   slidersInit();

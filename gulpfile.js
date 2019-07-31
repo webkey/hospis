@@ -162,6 +162,11 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () {
     , 'src/libs/sticky-kit/jquery.sticky-kit.min.js'
     , 'src/libs/swiper/dist/js/swiper.min.js'
     , 'src/libs/matchHeight/dist/jquery.matchHeight-min.js'
+      // Parallax background
+    , 'src/libs/gsap/src/minified/TweenMax.min.js'
+    , 'src/libs/scrollmagic/scrollmagic/minified/ScrollMagic.min.js'
+    , 'src/libs/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'
+    , 'src/libs/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'
   ])
       .pipe(concat('libs.js'))
       .pipe(gulp.dest('src/js'))

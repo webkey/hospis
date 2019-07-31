@@ -34,8 +34,24 @@ body {
   .layout-page-spaces {
     @include padding-horizontal(nth($layout-page-space, 2));
 
+    @include media('<lap-l') {
+      @include padding-horizontal(nth($layout-page-space--net, 2));
+    }
+
+    @include media('<tab') {
+      @include padding-horizontal(nth($layout-page-space--tab, 2));
+    }
+
     .has-sidebar & {
-      padding-left: 30.8rem;
+      padding-left: $sidebar-width;
+
+      @include media('<desk') {
+        padding-left: $sidebar-width--net;
+      }
+
+      @include media('<tab') {
+        padding-left: nth($layout-page-space--tab, 2);
+      }
     }
   }
 }
