@@ -18,6 +18,10 @@ h1, h2, h3, h4, h5, h6,
   margin: 0 0 $bottom-space;
   padding: 0;
 
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
+
   @include font-normal;
   font-weight: normal;
   color: $title-color;
@@ -68,6 +72,10 @@ p, pre {
   padding: 0;
   margin: 0 0 $bottom-space;
 
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -82,6 +90,10 @@ hr {
   background: none;
   border-bottom: 1px solid $border-color;
   margin-bottom: $bottom-space;
+
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
 }
 
 // Ссылка
@@ -143,6 +155,10 @@ table {
   width: auto;
   margin-bottom: $bottom-space;
 
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -164,6 +180,10 @@ table {
   max-width: 100%;
   -webkit-overflow-scrolling: touch;
   margin-bottom: $bottom-space;
+
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -225,6 +245,10 @@ table {
   column-gap: 2em;
   margin-bottom: $bottom-space;
   font-size: 0.9em;
+
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
 }
 
 .columnize--3 {
@@ -275,6 +299,10 @@ table {
   & > h5, & > .h5,
   & > h6, & > .h6 {
     margin-top: round-float(2.6 * $bottom-space, 1);
+
+    @include media('<mob') {
+      margin-top: round-float(2.6 * $bottom-space--mob, 1);
+    }
 
     &:first-child {
       margin-top: 0;
@@ -357,6 +385,10 @@ table {
     padding: 0;
     list-style: none;
 
+    @include media('<mob') {
+      margin-bottom: $bottom-space--mob;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -365,6 +397,10 @@ table {
       padding-left: $list-space;
       margin: 0 0 round($bottom-space * 0.5);
       position: relative;
+
+      @include media('<mob') {
+        margin-bottom: round($bottom-space--mob * 0.5);
+      }
     }
   }
 
@@ -423,6 +459,10 @@ table {
     ul,
     ol {
       margin: round-float($bottom-space * 0.5, 1) 0;
+
+      @include media('<mob') {
+        margin: round-float($bottom-space--mob * 0.5, 1) 0;
+      }
     }
   }
 

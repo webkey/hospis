@@ -2,9 +2,20 @@
 <header class="header">
   <div class="layout-page layout-page-spaces">
     <div class="header-container">
-      <a href="#" class="menu-open menu-open-js">
-        @@include("includes/svg/icon-menu.svg")
-      </a>
+      <div class="h-left">
+        <!--menu-open-->
+        <a href="#" class="menu-open menu-open-js">
+          @@include("includes/svg/icon-menu.svg")
+        </a>
+        <!--menu-open end-->
+
+        <!--logo mob-->
+        <div class="logo-mob">
+          @@if(context.currentItem === "Главная"){<span>Белорусский детский хоспис</span>}
+          @@if(context.currentItem !== "Главная"){<a href="index.html" title="Перейти на главную">Белорусский детский хоспис</a>}
+        </div>
+        <!--logo mob end-->
+      </div>
 
       <!--search-->
       <div class="search">

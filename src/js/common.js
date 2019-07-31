@@ -312,6 +312,8 @@ function slidersInit() {
       var thumbs = new Swiper($thumbs, {
         spaceBetween: 10,
         slidesPerView: 4,
+        loop: true,
+        loopedSlides: 5,
         // freeMode: true,
         parallax: true,
         slideToClickedSlide: true,
@@ -330,6 +332,7 @@ function slidersInit() {
           crossFade: true
         },
         loop: true,
+        loopedSlides: 5,
         allowTouchMove: false,
         parallax: true,
         watchSlidesVisibility: true,
@@ -341,17 +344,15 @@ function slidersInit() {
         },
         thumbs: {
           swiper: thumbs
-        }
-        // breakpoints: {
-        //   991: {
-        //     slidesPerView: 'auto',
-        //     spaceBetween: 40
-        //   },
-        //   639: {
-        //     slidesPerView: 'auto',
-        //     spaceBetween: 10
-        //   }
+        },
+        // controller: {
+        //   swiper: thumbs
         // },
+        breakpoints: {
+          639: {
+            allowTouchMove: true,
+          }
+        },
         // on: {
         //   resize: function () {
         //     if (window.innerWidth <= 992) {

@@ -1,15 +1,25 @@
 {
-  "name": "Site",
-  "short_name": "Site",
-  "description": "Site",
+  "name": "Белорусский детский хоспис",
+  "short_name": "Хоспис",
+  "description": "Если ребенка нельзя выличить это еще не значит что ему нельзя помочь",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#fff",
   "icons": [
     {
+      "src": "favicon.ico",
+      "type": "icon/ico",
+      "sizes": "16x16"
+    },
+    {
       "src": "apple-touch-icon.png",
       "type": "image/png",
       "sizes": "256x256"
+    },
+    {
+      "src": "share.jpg",
+      "type": "image/jpg",
+      "sizes": "1200x630"
     }
   ]
 }

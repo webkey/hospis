@@ -86,6 +86,10 @@
   color: $text-color-light;
   margin-bottom: $bottom-space;
 
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -129,6 +133,24 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+
+  @include media('<tab') {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: $layout-page-min-width;
+    height: $header-height--tab;
+    padding-top: 1.7rem;
+    padding-bottom: 1.7rem;
+    background-color: $bg-color;
+    box-shadow: 0 1px 5px rgba(#000, 0.1);
+    z-index: 50;
+  }
+
+  & > div {
+    height: 100%;
+  }
 }
 
 .header-container {
@@ -136,39 +158,45 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  height: 100%;
   z-index: 5;
   
   @include media('<lap-s') {
     flex-wrap: wrap;
   }
+
+  @include media('<tab-s') {
+    flex-wrap: nowrap;
+  }
 }
 
 /* nav open */
 .menu-open {
-  display: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 2rem 0 0;
   line-height: 2.2rem;
   color: $highlight-color;
   transition: color $animation-speed;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  @include media('<tab') {
+  display: none;
+
+  @include media($breakpoint-mob-menu) {
     display: inline-block;
-    vertical-align: top;
-    margin: 0 2px 0 0;
+  }
+
+  @include media('<mob') {
+    margin-right: 1.5rem;
   }
 
   svg {
     display: block;
-    height: 2.2rem;
-    width: 2.9rem;
+    height: 1.7rem;
+    width: 2.6rem;
 
-    @include media("<mob") {
-      height: 2.0rem;
-      width: 2.6rem;
-    }
-
-    path {
+    path, rect {
       fill: currentColor;
     }
   }
@@ -180,6 +208,37 @@
 }
 
 /* nav open end */
+
+/* logo-mob */
+.logo-mob {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  width: 54px;
+  height: 44px;
+  margin-right: 2rem;
+  background: url(../../img/logo-short.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  z-index: 5;
+
+  @include media('<mob') {
+    margin-right: 1.5rem;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    @include ratio(54, 44);
+  }
+
+  a, & > span {
+    display: block;
+    height: 100%;
+  }
+}
+
+/* logo-mob end */
 
 /* search */
 .search {
@@ -205,6 +264,10 @@
     $width: 32rem;
     flex-basis: $width;
     max-width: 100%;
+  }
+
+  @include media('<tab') {
+    display: none;
   }
 
   form, fieldset {
@@ -296,6 +359,15 @@
     font-size: 1.4rem;
     line-height: 1.8rem;
   }
+
+  @include media('<tab-s') {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  @include media('<mob') {
+    display: none;
+  }
 }
 
 .h-count__item {
@@ -315,6 +387,10 @@
     @include media('<desk') {
       font-size: 1.6rem;
     }
+
+    @include media('<tab-s') {
+      font-size: 1.4rem;
+    }
   }
 }
 
@@ -324,11 +400,14 @@
 .btn-help {
   display: inline-block;
   vertical-align: top;
-  height: 5.2rem;
+  $height: 5.2rem;
+  height: $height;
+  min-width: 14rem;
+  text-align: center;
   padding: 0 4rem;
   @include font-bold;
   font-size: 1.8rem;
-  line-height: 5.2rem;
+  line-height: $height;
   letter-spacing: 0.02em;
   text-decoration: none;
   color: #fff;
@@ -340,6 +419,11 @@
   @include media('<desk') {
     font-size: 1.3rem;
     padding: 0 2.6rem;
+  }
+
+  @include media('<tab-s') {
+    min-width: 12rem;
+    padding: 0 1.5rem;
   }
 
   .no-touchevents &:hover {
@@ -428,6 +512,17 @@
 
 /* lang end */
 
+.h-left {
+  display: flex;
+  align-items: center;
+
+  display: none;
+
+  @include media('<tab') {
+    display: flex;
+  }
+}
+
 .h-right {
   display: flex;
   align-items: center;
@@ -435,6 +530,11 @@
   @include media('<lap-s') {
     justify-content: space-between;
     $width: 100%;
+    flex-basis: $width;
+  }
+
+  @include media('<tab') {
+    $width: auto;
     flex-basis: $width;
   }
 
@@ -448,10 +548,22 @@
 
   .btn-help {
     margin-left: 5rem;
+
+    @include media('<tab-s') {
+      margin-left: 2rem;
+    }
+
+    @include media('<mob') {
+      margin-left: 0;
+    }
   }
 
   .lang {
     margin-left: 2rem;
+
+    @include media('<tab-s') {
+      margin-left: 0;
+    }
   }
 }
 
@@ -468,7 +580,7 @@ body {
   left: 0;
   top: 0;
   width: $sidebar-width;
-  padding: 6rem 4rem 4rem #{nth($layout-page-space, 2)};
+  padding: 6.7rem 4rem 4rem #{nth($layout-page-space, 2)};
   z-index: 10;
 
   @include media('<desk') {
@@ -486,9 +598,10 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    padding: 4rem #{nth($layout-page-space--tab, 2)};
+    //padding: 9rem #{nth($layout-page-space--tab, 2)} 4rem;
+    padding: 9rem 5rem 4rem;
     height: 100%;
-    width: 48rem;
+    width: 32rem;
     max-width: 100%;
     background-color: $bg-color;
     z-index: 999;
@@ -504,6 +617,10 @@ body {
     transform: translate3d($translate, 0);
   }
 
+  @include media('<mob-s') {
+    width: 100%;
+  }
+
   &.is-open {
     // ------ мобильное меню -----------------------------------------
     @include media($breakpoint-mob-menu) {
@@ -516,11 +633,37 @@ body {
 }
 
 .menu-close {
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  left: nth($layout-page-space--tab, 2);
+  top: 3rem;
+  line-height: 2.2rem;
+  color: $highlight-color;
+  transition: color $animation-speed;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
   display: none;
 
   // ------ мобильное меню -----------------------------------------
   @include media($breakpoint-mob-menu) {
+    display: inline-block;
+  }
+
+  svg {
     display: block;
+    height: 2.3rem;
+    width: 2.7rem;
+
+    path, rect {
+      fill: currentColor;
+    }
+  }
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
   }
 }
 
@@ -556,12 +699,16 @@ body {
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  width: 175px;
-  margin: 0 0 2rem;
+  width: 17.5rem;
+  margin: 0 0 4.5rem;
   background: url(../../img/logo.png) no-repeat;
   background-size: contain;
   text-indent: -9999px;
   z-index: 5;
+
+  @include media($breakpoint-mob-menu) {
+    margin: 0 0 4rem;
+  }
 
   &::before {
     content: "";
@@ -570,7 +717,10 @@ body {
   }
 
   a, & > span {
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
   }
 }
@@ -589,6 +739,14 @@ body {
   &:last-child {
     margin-bottom: 0;
   }
+
+  //@include media($breakpoint-mob-menu) {
+  //  max-width: none;
+  //  width: 21.5rem;
+  //  margin: 0 auto 5rem;
+  //  position: relative;
+  //  left: 2rem;
+  //}
 }
 /* slogan end */
 
@@ -838,21 +996,46 @@ body {
   background-position: 1.8rem 50%;
   background-size: 2rem 2rem;
 }
+
 /* s-phone end */
 
 /* sidebar-contacts */
 .sidebar-contacts {
   margin: 0 -2.4rem 3rem;
 
+  @include media($breakpoint-mob-menu) {
+    margin-left: 0;
+    margin-right: 0;
+    //text-align: center;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
+
+  a {
+    margin-bottom: 1rem;
+
+    @include media($breakpoint-mob-menu) {
+      display: block;
+      width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
+
 /* sidebar-contacts end */
 
 /* social */
 .social {
   margin: 0 -1.2rem 3rem;
+
+  @include media($breakpoint-mob-menu) {
+    text-align: center;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -873,6 +1056,10 @@ body {
   color: $text-color-muted;
   text-decoration: none;
   transition: color $animation-speed;
+
+  @include media($breakpoint-mob-menu) {
+    margin: 0 0.3rem 0.6rem;
+  }
 
   .no-touchevents &:hover {
     color: $highlight-color;
@@ -929,6 +1116,10 @@ body {
   @include media('<lap-l') {
     padding: 4rem nth($layout-page-space--net, 2);
   }
+
+  @include media('<mob') {
+    padding: 3rem nth($layout-page-space--mob, 2);
+  }
 }
 
 /* footer-common */
@@ -946,6 +1137,13 @@ body {
   @include media('<desk') {
     margin-bottom: 6rem;
   }
+
+  @include media('<mob') {
+    display: block;
+    margin: 0 0 3rem;
+    padding: 0 0 2rem;
+    border-bottom: 1px solid rgba(#fff, 0.3);
+  }
 }
 
 // Footer navigation
@@ -959,6 +1157,13 @@ body {
     $width: calc(100% - 28rem);
     flex-basis: $width;
     max-width: $width;
+  }
+
+  @include media('<mob') {
+    max-width: none;
+    margin: 0 0 3rem;
+    padding: 0 0 3rem;
+    border-bottom: 1px solid rgba(#fff, 0.3);
   }
 }
 
@@ -1066,6 +1271,11 @@ body {
     max-width: $width;
     padding-left: 2rem;
   }
+
+  @include media('<mob') {
+    max-width: none;
+    padding: 0;
+  }
 }
 
 .footer-phones {
@@ -1078,13 +1288,17 @@ body {
   @include media('<desk') {
     line-height: 2.0rem;
   }
+
+  @include media('<mob') {
+    align-items: center;
+  }
 }
 
 .footer-phones__item {
   margin-top: 0.2rem;
   padding-left: 4.2rem;
-  background-position: 0 50%;
   background-repeat: no-repeat;
+  background-position: 0 50%;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48bWFzayBpZD0ibWFzazAiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDBIMTdWMTdIMFYwWiIgZmlsbD0id2hpdGUiLz48L21hc2s+PGcgbWFzaz0idXJsKCNtYXNrMCkiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC41IDBDMy44MDU4NSAwIDAgMy44MDU4NSAwIDguNUMwIDEzLjE5MzkgMy44MDU4NSAxNyA4LjUgMTdDMTMuMTkzOSAxNyAxNyAxMy4xOTM5IDE3IDguNUMxNyAzLjgwNTg1IDEzLjE5MzkgMCA4LjUgMFpNMTIuOTg4NSAxMi40MDIzTDEyLjMwOCAxMy4wODMxQzEyLjE4NjUgMTMuMjA0MyAxMS44MzA3IDEzLjI4MDIgMTEuODE5MSAxMy4yODAyQzkuNjY2MTMgMTMuMjk4OSA3LjU5MzA2IDEyLjQ1MzIgNi4wNjk5MiAxMC45MzAxQzQuNTQyNTQgOS40MDE3MSAzLjY5NTk1IDcuMzIxMTcgMy43MTg4MSA1LjE2MTA3QzMuNzE4ODEgNS4xNTk5MSAzLjc5NjYzIDQuODE0NDMgMy45MTc4NyA0LjY5NDE1TDQuNTk4NjUgNC4wMTMzN0M0Ljg0NzY3IDMuNzYzMzkgNS4zMjU5MiAzLjY1MDIxIDUuNjYxMDIgMy43NjIyM0w1LjgwNDM4IDMuODEwMDhDNi4xMzg0OCAzLjkyMjEgNi40ODkxOSA0LjI5MTQgNi41ODE0MSA0LjYzMTlMNi45MjM4MSA1Ljg4ODM0QzcuMDE2MjQgNi4yMjk3OSA2Ljg5MTczIDYuNzE1MzQgNi42NDI3MSA2Ljk2NDM2TDYuMTg4MjggNy40MTg3OUM2LjYzNDQ1IDkuMDcwNjggNy45MzAyOCAxMC4zNjY1IDkuNTgyMTcgMTAuODEzOEwxMC4wMzY2IDEwLjM1OTRDMTAuMjg2NiAxMC4xMDkyIDEwLjc3MjMgOS45ODQ3MSAxMS4xMTI2IDEwLjA3NzFMMTIuMzY5MSAxMC40MjA1QzEyLjcwOTYgMTAuNTEzOSAxMy4wNzg5IDEwLjg2MjYgMTMuMTkwOSAxMS4xOTY2TDEzLjIzODcgMTEuMzQxOEMxMy4zNDk3IDExLjY3NiAxMy4yMzc2IDEyLjE1NDQgMTIuOTg4NSAxMi40MDIzWiIgZmlsbD0id2hpdGUiLz48L2c+PC9zdmc+);
   background-size: 1.7rem;
 
@@ -1143,6 +1357,10 @@ body {
     line-height: 1.8rem;
   }
 
+  @include media('<mob') {
+    text-align: center;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -1178,10 +1396,10 @@ body {
 
 /* share */
 .share {
-  margin: 0 -1.2rem 3rem;
+  margin: 0 0 -0.6rem;
 
-  &:last-child {
-    margin-bottom: 0;
+  @include media('<mob') {
+    text-align: center;
   }
 }
 
@@ -1199,6 +1417,11 @@ body {
   color: #afb5bb;
   text-decoration: none;
   transition: color $animation-speed;
+
+  @include media('<mob') {
+    margin: 0 0.3rem 0.6rem;
+    color: #fff;
+  }
 
   .no-touchevents &:hover {
     color: #fff;
@@ -1396,8 +1619,12 @@ body {
 .main {
   position: relative;
 
+  @include media('<tab') {
+    padding-top: $header-height--tab;
+  }
+
   .home-page & {
-    padding: 0 0 15rem;
+    padding-bottom: 15rem;
     overflow: hidden; // Важно! Обрезает элементы с фоновыми изображенияме на секциях
 
     @include media('<desk') {
@@ -1406,6 +1633,10 @@ body {
 
     @include media('<lap-l') {
       padding-bottom: 9.5rem;
+    }
+
+    @include media('<mob') {
+      padding-bottom: 5rem;
     }
   }
 }
@@ -1425,6 +1656,10 @@ body {
 
   @include media('<lap-s') {
     margin-bottom: 3rem;
+  }
+
+  @include media('<mob') {
+    margin: 0 -#{nth($layout-page-space--mob, 2)} 4rem;
   }
 
   &:last-child {
@@ -1455,8 +1690,8 @@ body {
     cursor: pointer;
     background-color: #fff;
     background-size: 13px;
-    background-position: 50%;
     background-repeat: no-repeat;
+    background-position: 50%;
     box-shadow: 0 1px 19px rgba(0, 0, 0, 0.13);
     transition: box-shadow $animation-speed;
     outline: none;
@@ -1477,6 +1712,10 @@ body {
       border-radius: $size;
       bottom: 14.2%;
       background-size: 10px;
+    }
+
+    @include media('<mob') {
+      display: none;
     }
 
     &:not(.swiper-button-disabled):active {
@@ -1516,6 +1755,10 @@ body {
     content: "";
     display: block;
     @include ratio(1504, 745);
+
+    @include media('<mob') {
+      @include ratio(320, 340);
+    }
   }
 }
 
@@ -1527,6 +1770,7 @@ body {
   height: 100%;
   background-color: #fff;
   background-repeat: no-repeat;
+  background-position: 50%;
   background-size: cover;
 }
 
@@ -1555,6 +1799,11 @@ body {
   @include media('<lap-s') {
     padding: 3.6rem 3.0rem;
     min-height: 22.1rem;
+  }
+
+  @include media('<mob') {
+    padding: $layout-page-space--mob;
+    min-height: 20rem;
   }
 
   &::before {
@@ -1595,6 +1844,12 @@ body {
     font-size: 2.4rem;
     line-height: 3.2rem;
   }
+
+  @include media('<mob') {
+    max-width: 22rem;
+    font-size: 2.1rem;
+    line-height: 2.8rem;
+  }
 }
 
 // promo-thumbs
@@ -1608,6 +1863,14 @@ body {
 
   @include media('<lap-s') {
     padding: 0 6rem 4.7rem;
+  }
+
+  @include media('<mob') {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
   }
 }
 
@@ -1669,6 +1932,7 @@ body {
   opacity: 0.6;
   background-color: #fff;
   background-repeat: no-repeat;
+  background-position: 50%;
   background-size: cover;
   will-change: opacity;
   transition: opacity $animation-speed;
@@ -1724,6 +1988,10 @@ body {
     justify-content: space-between;
     align-items: center;
 
+    @include media('<mob') {
+      display: block;
+    }
+
     h2 {
       margin-bottom: 4rem;
 
@@ -1737,6 +2005,8 @@ body {
     }
 
     .more {
+      display: inline-block;
+      vertical-align: top;
       @include font-bold;
       font-size: 1.9rem;
       line-height: 2.3rem;
@@ -1782,6 +2052,10 @@ body {
     margin-bottom: 10rem;
   }
 
+  @include media('<mob') {
+    margin-bottom: 5rem;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -1798,6 +2072,10 @@ body {
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: contain;
+
+  z-index: -1;
+  user-select: none;
+  pointer-events: none;
 }
 
 // programs element
@@ -1845,9 +2123,14 @@ body {
   opacity: 0.6;
   background-color: #fff;
   background-repeat: no-repeat;
+  background-position: 50%;
   background-size: cover;
   will-change: opacity;
   transition: opacity $animation-speed;
+
+  @include media('<tab') {
+    opacity: 1;
+  }
 }
 
 .programs-el__content {
@@ -1864,6 +2147,10 @@ body {
   @include media('<desk') {
     padding: 2.3rem 2.2rem;
   }
+
+  @include media('<mob') {
+    padding: $layout-page-space--mob;
+  }
 }
 
 .programs-el__text {
@@ -1878,6 +2165,11 @@ body {
   @include media('<desk') {
     font-size: 1.6rem;
     line-height: 2.5rem;
+  }
+
+  @include media('<mob') {
+    font-size: 1.5rem;
+    line-height: 2.3rem;
   }
 }
 
@@ -1899,12 +2191,27 @@ body {
 // programs
 .programs {
   position: relative;
+
+  @include media('<mob') {
+    margin: 0 -#{nth($layout-page-space--mob, 2)};
+  }
 }
 
 .programs__list {
   margin: 0 -0.1rem -4rem;
   display: flex;
   flex-wrap: wrap;
+
+  @include media('<mob') {
+    flex-wrap: nowrap;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }
 
 .programs__item {
@@ -1920,6 +2227,21 @@ body {
     flex-basis: $width;
     max-width: $width;
   }
+
+  @include media('<mob') {
+    $width: 24rem;
+    flex-basis: $width;
+    max-width: $width;
+    padding: 0 1rem 0;
+
+    &:first-child {
+      margin-left: 0.5rem;
+    }
+
+    &:last-child {
+      margin-right: 0.5rem;
+    }
+  }
 }
 /* program-section end */
 
@@ -1929,6 +2251,12 @@ body {
 
   @include media('<desk') {
     margin-bottom: 6.5rem;
+  }
+
+  @include media('<mob') {
+    margin-bottom: 5rem;
+
+    display: none;
   }
 
   &:last-child {
@@ -1948,15 +2276,37 @@ body {
     line-height: 2.4rem;
   }
 
+  @include media('<mob') {
+    font-size: $font-size--mob;
+    line-height: $line-height--mob;
+  }
+
   h2 {
     margin-bottom: 3rem;
+
+    @include media('<lap-s') {
+      margin-bottom: 2rem;
+    }
   }
 }
 
 .about__logo {
   flex-grow: 1;
   flex-shrink: 0;
-  margin: 0 0 4rem 6rem;
+  margin: 0 0 0 6rem;
+
+  @include media('<tab') {
+    margin: 0 0 0 2rem;
+  }
+
+  @include media('<mob') {
+    display: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* about-section end */
@@ -1964,6 +2314,10 @@ body {
 /* news-section */
 .news-section {
   margin-bottom: 7rem;
+
+  @include media('<mob') {
+    margin-bottom: 5rem;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -2047,12 +2401,27 @@ body {
 // news
 .news {
   position: relative;
+
+  @include media('<mob') {
+    margin: 0 -#{nth($layout-page-space--mob, 2)};
+  }
 }
 
 .news__list {
   margin: 0 -1.2rem -4rem;
   display: flex;
   flex-wrap: wrap;
+
+  @include media('<mob') {
+    flex-wrap: nowrap;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }
 
 .news__item {
@@ -2068,6 +2437,21 @@ body {
     flex-basis: $width;
     max-width: $width;
   }
+
+  @include media('<mob') {
+    $width: 24rem;
+    flex-basis: $width;
+    max-width: $width;
+    padding: 0 1rem 0;
+
+    &:first-child {
+      margin-left: 0.5rem;
+    }
+
+    &:last-child {
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 /* news-section end */
@@ -2082,6 +2466,10 @@ body {
 
   @include media('<lap-s') {
     margin-bottom: 6rem;
+  }
+
+  @include media('<mob') {
+    margin-bottom: 5rem;
   }
 
   &:last-child {
@@ -2105,6 +2493,12 @@ body {
     padding: 4rem 3rem;
   }
 
+  @include media('<mob') {
+    padding: $layout-page-space--mob;
+    border-radius: 0;
+    margin: 0 -#{nth($layout-page-space--mob, 2)};
+  }
+
   &::before {
     content: "";
     display: block;
@@ -2113,7 +2507,9 @@ body {
     right: 10.9%;
     width: 64.2rem;
     height: 50.4rem;
-    background: url(../../img/subs-bg.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url(../../img/subs-bg.svg);
     background-size: 100% 100%;
 
     @include media('<desk') {
@@ -2127,6 +2523,14 @@ body {
       //width: 39.5rem;
       //height: 40.3rem;
     }
+
+    @include media('<mob') {
+      top: -7.8rem;
+      right: -53%;
+      width: 42.1rem;
+      height: 42.9rem;
+      background-image: url(../../img/subs-bg--mob.svg);
+    }
   }
 }
 
@@ -2135,9 +2539,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include media('<mob') {
+    display: block;
+  }
 }
 
-.label-holder {
+.sub-label {
   flex-grow: 1;
   $width: 32rem;
   flex-basis: $width;
@@ -2164,15 +2572,24 @@ body {
     line-height: 2.5rem;
     margin-right: 2rem;
   }
+
+  @include media('<mob') {
+    max-width: none;
+    font-size: 2.1rem;
+    line-height: 2.8rem;
+    margin: 0 0 2rem;
+  }
 }
 
 .subs-field {
+  $height: 5.6rem;
+
   position: relative;
   flex-shrink: 0;
   $width: 54.3rem;
   flex-basis: $width;
   max-width: $width;
-  height: 5.5rem;
+  height: $height;
   background: $base-color;
   border: 1px solid rgba(255, 255, 255, 0.31);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.31);
@@ -2201,7 +2618,7 @@ body {
     box-shadow: none;
     font-family: inherit;
     font-size: 1.6rem;
-    line-height: 5.3rem;
+    line-height: $height - 0.2;
     color: #fff;
 
     @include placeholder {
@@ -2214,10 +2631,10 @@ body {
     right: -1px;
     top: -1px;
     border: none;
-    height: 5.5rem;
+    height: $height;
     width: 17.5rem;
     background: #fff;
-    border-radius: 5.5rem;
+    border-radius: $height;
     box-shadow: 0 2px 1px #063e67;
     @include font-bold;
     font-size: 1.6rem;
@@ -2229,6 +2646,40 @@ body {
 
     @include media('<lap-s') {
       width: 15rem;
+    }
+
+    @include media('<mob') {
+      height: $height;
+      width: $height;
+      font-size: 0;
+      line-height: 0;
+    }
+
+    &::before, &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 4px;
+      width: 21px;
+      border-radius: 4px;
+      background-color: currentColor;
+
+      display: none;
+
+      @include media('<mob') {
+        display: block;
+      }
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      margin: 0 -17px;
+    }
+    &::after {
+      transform: rotate(-45deg);
+      margin: 0 -5px;
     }
 
     .no-touchevents &:hover {
@@ -2262,6 +2713,14 @@ body {
   position: relative;
   margin-bottom: 14rem;
 
+  @include media('<desk') {
+    margin-bottom: 10rem;
+  }
+
+  @include media('<mob') {
+    margin-bottom: 8rem;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -2280,7 +2739,17 @@ body {
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: contain;
+
   z-index: -1;
+  user-select: none;
+  pointer-events: none;
+
+  @include media('<mob') {
+    width: 320px;
+    height: 299px;
+    //margin: -300px 0 0 -350px;
+    margin: -450px 0 0 -178px;
+  }
 }
 
 
@@ -2299,6 +2768,11 @@ body {
 
   .reviews__item:not(.swiper-slide-visible) & {
     box-shadow: none;
+  }
+
+  @include media('<mob') {
+    display: block;
+    padding: 3.3rem 3rem;
   }
 }
 
@@ -2321,6 +2795,15 @@ body {
     max-width: $size;
     width: $size;
     height: $size;
+  }
+
+  @include media('<mob') {
+    $size: 9.8rem;
+    flex-basis: $size;
+    max-width: $size;
+    width: $size;
+    height: $size;
+    margin: 0 auto 1.5rem;
   }
 
   &:last-child {
@@ -2351,6 +2834,13 @@ body {
     line-height: 2;
   }
 
+  @include media('<mob') {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    text-align: center;
+    margin-bottom: 2.2rem;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -2361,6 +2851,11 @@ body {
 
   @include media('<desk') {
     font-size: 1.4rem;
+    line-height: 2.0rem;
+  }
+
+  @include media('<mob') {
+    font-size: 1.5rem;
     line-height: 2.0rem;
   }
 }
@@ -2424,12 +2919,17 @@ body {
 }
 
 .partners__list {
-  margin: 0 -1.5rem -3rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   //justify-content: space-between;
   justify-content: center;
+  margin: 0 -1.5rem -3rem;
+
+  @include media('<mob') {
+    justify-content: flex-start;
+    margin: 0 -1rem -2rem;
+  }
 }
 
 .partners__item {
@@ -2442,6 +2942,13 @@ body {
 
   @include media('<lap-s') {
     $width: 9rem;
+    flex-basis: $width;
+    max-width: $width;
+  }
+
+  @include media('<mob') {
+    padding: 0 1rem 2rem;
+    $width: 7.6rem;
     flex-basis: $width;
     max-width: $width;
   }

@@ -252,6 +252,7 @@ $layout-page-space: 3rem 7.2rem !default;
 $layout-page-space--lap: 3rem 7.0rem !default;
 $layout-page-space--net: 3rem 3rem !default;
 $layout-page-space--tab: 3rem 2rem !default;
+$layout-page-space--mob: 2.5rem 1.5rem !default;
 
 
 // Layout text
@@ -547,7 +548,7 @@ $animation-speed-mouseleave: 0.35s !default;
 
 // Header
 // ====================================================
-
+$header-height--tab: 8.6rem;
 
 // Sidebar
 // ====================================================
