@@ -315,8 +315,9 @@ function slidersInit() {
         loop: true,
         loopedSlides: 5,
         // freeMode: true,
+        shortSwipes: false,
         parallax: true,
-        slideToClickedSlide: true,
+        // slideToClickedSlide: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         navigation: {
@@ -385,7 +386,7 @@ function slidersInit() {
         init: false,
         spaceBetween: 14,
         slidesPerView: 3,
-        loop: true,
+        // loop: true,
         watchSlidesVisibility: true,
         pagination: {
           el: $pagination,
@@ -412,6 +413,62 @@ function slidersInit() {
           target: null,
           remove: false
         });
+      });
+
+      reviewsSlider.init();
+    });
+  }
+
+  // Reviews slider
+  var $partnersSlider = $('.partners-slider-js');
+
+  if($partnersSlider.length){
+    $partnersSlider.each(function () {
+      var $thisSlider = $(this),
+          $pagination = $thisSlider.find('.swiper-pagination');
+
+      var reviewsSlider = new Swiper ($thisSlider, {
+        init: false,
+        spaceBetween: 20,
+        slidesPerView: 7,
+        slidesPerGroup: 7,
+        loop: true,
+        watchSlidesVisibility: true,
+        pagination: {
+          el: $pagination,
+          type: 'bullets',
+          clickable: true
+        },
+        breakpoints: {
+          1440: {
+            slidesPerView: 6,
+            slidesPerGroup: 6
+          },
+          1200: {
+            slidesPerView: 5,
+            slidesPerGroup: 5
+          },
+          992: {
+            slidesPerView: 6,
+            slidesPerGroup: 6
+          },
+          768: {
+            slidesPerView: 5,
+            slidesPerGroup: 5
+          },
+          480: {
+            slidesPerView: 4,
+            slidesPerGroup: 4
+          },
+          360: {
+            slidesPerView: 3,
+            slidesPerGroup: 3
+          },
+        }
+      });
+
+      reviewsSlider.on('init', function() {
+        $thisSlider.addClass('is-loaded');
       });
 
       reviewsSlider.init();
