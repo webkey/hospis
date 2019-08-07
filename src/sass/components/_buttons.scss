@@ -5,7 +5,7 @@
 /* button default */
 .btn-def {
   $btn: &;
-  $btn-font-size: 1.4rem;
+  $btn-font-size: 1.6rem;
   $btn-line-height: 1.8rem;
   $btn-letter-spacing: normal;
   $btn-border-width: 2px;
@@ -23,7 +23,6 @@
   line-height: $btn-line-height;
   letter-spacing: $btn-letter-spacing;
   color: $btn-text-color;
-  text-transform: uppercase;
   text-decoration: none;
   text-align: center;
   border: $btn-border-width solid transparent;
@@ -58,7 +57,7 @@
 /* button alternative */
 .btn-alt {
   $btn: &;
-  $btn-font-size: 1.4rem;
+  $btn-font-size: 1.6rem;
   $btn-line-height: 1.8rem;
   $btn-letter-spacing: 0.2em;
   $btn-border-width: 2px;
@@ -76,7 +75,6 @@
   line-height: $btn-line-height;
   letter-spacing: $btn-letter-spacing;
   color: $btn-bg-color;
-  text-transform: uppercase;
   text-decoration: none;
   text-align: center;
   border: $btn-border-width solid $btn-bg-color;
