@@ -95,7 +95,17 @@ function bgParallax() {
  * !Sticky sidebar
  */
 function stickySidebar() {
-  $(".sidebar").stick_in_parent();
+  $('.sidebar').stick_in_parent();
+}
+
+/**
+ * !Sticky c-aside
+ */
+function stickyCAside() {
+  $('.c-aside__holder').stick_in_parent({
+    parent: '.c-content',
+    offset_top: 20
+  });
 }
 
 /**
@@ -1070,6 +1080,7 @@ $(document).ready(function () {
   equalHeight();
   bgParallax();
   stickySidebar();
+  stickyCAside();
   toggleLang();
   slidersInit();
   navAccordionInit();

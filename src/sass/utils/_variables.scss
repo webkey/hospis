@@ -323,9 +323,9 @@ $form-bottom-space--mob: 2.5rem !default;
 // Form elements colors scheme
 // ====================================================
 $form-def-text-color: $text-color !default;
-$form-def-placeholder-color: lighten($form-def-text-color, 65%) !default;
+$form-def-placeholder-color: lighten($form-def-text-color, 40%) !default;
 $form-def-bg-color: #fff !default;
-$form-def-border-color: lighten($form-def-text-color, 70%) !default;
+$form-def-border-color: lighten($form-def-text-color, 40%) !default;
 // ----------------------------------------------------
 $form-def-border-color--focus: darken($form-def-border-color, 20%) !default;
 // ----------------------------------------------------
@@ -550,11 +550,17 @@ $animation-speed-mouseleave: 0.35s !default;
 // ====================================================
 $header-height--tab: 8.6rem;
 
+
 // Sidebar
 // ====================================================
 $sidebar-width: 34.4rem;
 $sidebar-width--lap: 30.8rem;
 $sidebar-width--net: 28rem;
+
+
+// c-aside
+// ====================================================
+$c-aside-width: 32rem;
 
 
 // Footer

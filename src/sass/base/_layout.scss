@@ -55,6 +55,10 @@ body {
       padding-left: $sidebar-width;
 
       @include media('<desk') {
+        padding-left: $sidebar-width--lap;
+      }
+
+      @include media('<lap-l') {
         padding-left: $sidebar-width--net;
       }
 
