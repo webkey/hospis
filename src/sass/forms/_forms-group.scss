@@ -22,6 +22,8 @@ $form-group-gap-half: round-float($form-group-gap / 2, 1);
 
   @include media("<mob") {
     display: block;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -40,6 +42,8 @@ $form-group-gap-half: round-float($form-group-gap / 2, 1);
     width: auto;
     max-width: none;
     margin-bottom: $form-bottom-space;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   // Нижние отступы у элементов форм необходимо обнулить

@@ -67,11 +67,13 @@
               </div>
             </div>
 
+            <div id="charityForm" class="charity-form-anchor"></div>
             <h2>Внести пожертвование</h2>
             <div class="charity-form-box">
               <div class="form-fields">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "Сумма",
+                "class": "first-field-js",
                 "id": "charityFormAmount",
                 "type": "text"
                 })
@@ -139,9 +141,8 @@
 
       <div class="c-aside">
         <div class="c-aside__holder">
-          <div class="c-aside__title">Отчет о поступлениях</div>
-
           <div class="c-aside__widget">
+            <div class="c-aside__title">Отчет о поступлениях</div>
             <div class="sponsors">
               <div class="sponsors__list">
                 @@include("_tpl_sponsors-el.html", {

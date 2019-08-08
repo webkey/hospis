@@ -589,7 +589,7 @@ body {
 
   @include media('<lap-l') {
     width: $sidebar-width--net;
-    padding: 4rem 3rem 3rem 5rem;
+    padding: 4rem 3rem 3rem #{nth($layout-page-space--net, 2)};
   }
 
   // ------ мобильное меню -----------------------------------------
@@ -1627,18 +1627,18 @@ body {
   flex-basis: $width;
   max-width: $width;
 
-  @include media("<mob") {
+  @include media("<tab") {
     min-width: 100%;
   }
 
   &:first-child {
-    @include media(">=mob") {
+    @include media(">=tab") {
       text-align: left;
     }
   }
 
   &:last-child {
-    @include media(">=mob") {
+    @include media(">=tab") {
       text-align: right;
     }
   }
@@ -1692,6 +1692,10 @@ body {
   display: flex;
   margin-bottom: 5rem;
 
+  @include media('<tab') {
+    display: block;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -1699,7 +1703,21 @@ body {
 
 .c-body {
   flex-grow: 1;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-section;
+  }
+
+  @include media('<mob') {
+    margin-bottom: $bottom-section--mob;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
+
+/* c-aside */
 
 .c-aside {
   flex-grow: 1;
@@ -1709,17 +1727,49 @@ body {
   max-width: $width;
   padding-left: 3rem;
   //margin-top: -0.4rem;
-}
 
-.entry-text {
-  margin-bottom: $bottom-section;
+  @include media('<lap-l') {
+    $width: $c-aside-width--lap;
+    flex-basis: $width;
+    max-width: $width;
+  }
 
-  @include media('<mob') {
-    margin-bottom: $bottom-space--mob;
+  @include media('<net') {
+    $width: $c-aside-width--net;
+    flex-basis: $width;
+    max-width: $width;
+  }
+
+  @include media('<tab') {
+    flex-basis: auto;
+    max-width: none;
+    padding-left: 0;
   }
 }
 
-/* c-aside */
+.c-aside__holder {
+  @include media('<tab') {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1.5rem -3rem;
+
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: auto !important;
+  }
+
+  @include media('<mob') {
+    display: block;
+  }
+
+  & + div {
+    @include media('<tab') {
+      display: none !important;
+    }
+  }
+}
+
 .c-aside__title {
   @include font-bold;
   color: $title-color;
@@ -1735,6 +1785,12 @@ body {
 .c-aside__widget {
   margin-bottom: $bottom-section;
 
+  @include media('<tab') {
+    flex-grow: 1;
+    flex-basis: 50%;
+    padding: 0 1.5rem;
+  }
+
   @include media('<mob') {
     margin-bottom: $bottom-section--mob;
   }
@@ -1746,6 +1802,14 @@ body {
 
 /* c-aside end */
 
+.entry-text {
+  margin-bottom: $bottom-section;
+
+  @include media('<mob') {
+    margin-bottom: $bottom-space--mob;
+  }
+}
+
 /* sponsors */
 
 // sponsors
@@ -1755,7 +1819,7 @@ body {
   padding: 2rem 3.5rem;
   box-shadow: 0 9px 21px rgba(115, 130, 147, 0.18);
 
-  @include media('<mob') {
+  @include media('<lap-l') {
     padding: 1.8rem 2rem;
   }
 }
@@ -1763,6 +1827,7 @@ body {
 // sponsors__list
 .sponsors__list {
   display: table;
+  min-width: 100%;
   margin-bottom: 1rem;
 
   &:last-child {
@@ -3277,6 +3342,14 @@ a.promo-screen__item {
   text-decoration: none;
   transition: color $animation-speed;
 
+  @include media('<tab') {
+    padding: 4rem 2rem 3rem;
+  }
+
+  @include media('<mob') {
+    padding: 1.7rem 1.5rem 2rem;
+  }
+
   &::before {
     content: "";
     display: block;
@@ -3312,6 +3385,14 @@ a.promo-screen__item {
   line-height: 1;
   transition: transform $animation-speed;
 
+  @include media('<tab') {
+    font-size: 4.8rem;
+  }
+
+  @include media('<mob') {
+    font-size: 3.2rem;
+  }
+
   & > strong {
     @include font-bold;
   }
@@ -3321,6 +3402,10 @@ a.promo-screen__item {
     font-style: normal;
     font-size: 2rem;
     text-transform: uppercase;
+
+    @include media('<mob') {
+      font-size: 1.4rem;
+    }
   }
 }
 
@@ -3337,9 +3422,19 @@ a.promo-screen__item {
   line-height: $height;
   color: $base-color;
   text-decoration: none;
+  pointer-events: none;
   //cursor: pointer;
   box-shadow: 0 2px 4px transparent;
+
   transition: transform $animation-speed, background-color $animation-speed, box-shadow $animation-speed;
+
+  @include media('<mob') {
+    $height: 4rem;
+    height: $height;
+    padding: 0 1rem;
+    font-size: 1.3rem;
+    line-height: $height;
+  }
 }
 
 // Hover
@@ -3349,12 +3444,24 @@ a.promo-screen__item {
       $translate: 0, -0.9rem;
       transform: translate($translate);
       transform: translate3d($translate, 0);
+
+      @include media('<mob') {
+        $translate: 0, -0.4rem;
+        transform: translate($translate);
+        transform: translate3d($translate, 0);
+      }
     }
 
     .donate-el__btn {
       $translate: 0, 0.9rem;
       transform: translate($translate);
       transform: translate3d($translate, 0);
+
+      @include media('<mob') {
+        $translate: 0, 0.4rem;
+        transform: translate($translate);
+        transform: translate3d($translate, 0);
+      }
     }
   }
 }
@@ -3372,14 +3479,27 @@ a.promo-screen__item {
       $translate: 0, -0.9rem;
       transform: translate($translate);
       transform: translate3d($translate, 0);
+
+      @include media('<mob') {
+        $translate: 0, -0.4rem;
+        transform: translate($translate);
+        transform: translate3d($translate, 0);
+      }
     }
 
     .donate-el__btn {
+      pointer-events: auto;
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
       $translate: 0, 0.9rem;
       transform: translate($translate);
       transform: translate3d($translate, 0);
+
+      @include media('<mob') {
+        $translate: 0, 0.4rem;
+        transform: translate($translate);
+        transform: translate3d($translate, 0);
+      }
     }
   }
 }
@@ -3435,12 +3555,36 @@ a.promo-screen__item {
 }
 /* donate end */
 
+.charity-form-anchor {
+  float: left;
+  height: 1px;
+  width: 1px;
+  margin: -2rem 0 2rem;
+  pointer-events: none;
+
+  @include media('<tab') {
+    $space: $header-height--tab + 2;
+    margin: -#{$space} 0 #{$space};
+  }
+}
+
 /* charity-form */
 .charity-form-box {
   padding: 3.5rem;
   background: #f7fcfe;
   box-shadow: 0 12px 25px rgba(232, 232, 232, 0.5);
   border-radius: 4px;
+
+  @include media('<tab') {
+    padding: 3rem 2rem;
+  }
+
+  @include media('<mob') {
+    box-shadow: none;
+    border-radius: 0;
+    padding: $layout-page-space--mob;
+    margin: 0 -#{nth($layout-page-space--mob, 2)};
+  }
 
   .form-fields {
     padding: 2.0rem 2.5rem 3.0rem;
@@ -3483,6 +3627,13 @@ a.promo-screen__item {
   border: none;
   cursor: pointer;
   @include linear-gradient(180deg, #0095cb -52.74%, #005c9c 100%);
+
+  @include media('<mob') {
+    $height: 5.2rem;
+    height: $height;
+    font-size: 1.6rem;
+    line-height: $height;
+  }
 
   .no-touchevents &:hover {
     @include linear-gradient(180deg, #0095cb 0%, #054c9c 100%);

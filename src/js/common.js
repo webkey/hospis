@@ -1012,6 +1012,32 @@ function toggleMobMenu() {
 }
 
 /**
+ * !Scroll to form
+ */
+function scrollToForm() {
+  var $btn = $('.donate-el__btn');
+
+  if ($btn.length) {
+    var $page = $('html');
+
+    $btn.on('click', function (e) {
+      e.preventDefault();
+
+      var $curBtn = $(this);
+
+      if (!$page.is(':animated')) {
+        var $target = $($curBtn.attr('href'));
+        $page.stop().animate({scrollTop: $target.offset().top}, 300, function () {
+          setTimeout(function () {
+            $target.closest('form').find('.first-field-js').focus();
+          }, 50)
+        });
+      }
+    });
+  }
+}
+
+/**
  * !Form validation
  * */
 function formValidation() {
@@ -1090,6 +1116,7 @@ $(document).ready(function () {
   slidersInit();
   navAccordionInit();
   toggleMobMenu();
+  scrollToForm();
 
   formValidation();
 });
