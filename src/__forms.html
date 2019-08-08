@@ -21,16 +21,15 @@
   "value": "",        // "Some value", дефолтное значение поля ввода
   "disabled": ""      // "disabled"
 })</pre>
-    <pre>
-&#64;&#64;include("includes/tpl/_tpl_forms_valid.html")</pre>
 
     <p class="mark">HTML:</p>
     <pre>
-&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
-&lt;input class="form-def field-js" id="id" name="id" type="text" required /&gt;</pre>
-    <pre>
-&lt;span class="error-feedback"&gt;Error feedback&lt;/span&gt;
-&lt;span class="success-feedback"&gt;Success feedback&lt;/span&gt;</pre>
+&lt;label class="form-unit"&gt;
+  &lt;input class="form-def field-js" id="id" name="id" type="text" required /&gt;
+  &lt;span class="label-float">Label&lt;/span&gt;
+  &lt;span class="error-feedback"&gt;Error feedback&lt;/span&gt;
+  &lt;span class="success-feedback"&gt;Success feedback&lt;/span&gt;
+&lt;/label&gt;</pre>
 
     <p class="mark">Example:</p>
     <form action="#" class="validate-js">
@@ -39,7 +38,6 @@
       "label": "Default:",
       "id": "inputDefault"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <!--Disabled-->
       @@include("includes/tpl/_tpl_forms_input.html", {
@@ -47,24 +45,21 @@
       "id": "inputDisabled",
       "disabled": "disabled"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <!--Value-->
       @@include("includes/tpl/_tpl_forms_input.html", {
       "label": "Has value:",
       "id": "inputValue",
-      "value": "Has value"
+      "value": "This is value"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <!--Value and Disabled-->
       @@include("includes/tpl/_tpl_forms_input.html", {
       "label": "Has value and disabled:",
       "id": "inputValueDisabled",
-      "value": "Has value",
+      "value": "This is value",
       "disabled": "disabled"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <br>
       <button class="btn-def">VALIDATE</button>
@@ -86,16 +81,15 @@
   "value": "",        // "Some value", дефолтное значение поля ввода
   "disabled": ""      // "disabled"
 })</pre>
-    <pre>
-&#64;&#64;include("includes/tpl/_tpl_forms_valid.html")</pre>
 
     <p class="mark">HTML:</p>
     <pre>
-&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
-&lt;textarea class="form-def field-js" id="id" name="id" required&gt;&lt;/textarea&gt;</pre>
-    <pre>
-&lt;span class="error-feedback"&gt;Error feedback&lt;/span&gt;
-&lt;span class="success-feedback"&gt;Success feedback&lt;/span&gt;</pre>
+&lt;label class="form-unit"&gt;
+  &lt;textarea class="form-def field-js" id="id" name="id" required&gt;&lt;/textarea&gt;
+  &lt;span class="label-float">Label&lt;/span&gt;
+  &lt;span class="error-feedback"&gt;Error feedback&lt;/span&gt;
+  &lt;span class="success-feedback"&gt;Success feedback&lt;/span&gt;
+&lt;/label&gt;</pre>
 
     <p class="mark">Example:</p>
     <form action="#" class="validate-js">
@@ -104,7 +98,6 @@
       "label": "Default:",
       "id": "textareaDefault"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <!--Disabled-->
       @@include("includes/tpl/_tpl_forms_textarea.html", {
@@ -112,24 +105,21 @@
       "id": "textareaDisabled",
       "disabled": "disabled"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <!--Value-->
       @@include("includes/tpl/_tpl_forms_textarea.html", {
       "label": "Has value:",
       "id": "textareaValue",
-      "value": "Has value"
+      "value": "This is value"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <!--Value and Disabled-->
       @@include("includes/tpl/_tpl_forms_textarea.html", {
       "label": "Has value and disabled:",
       "id": "textareaValueDisabled",
-      "value": "Has value",
+      "value": "This is value",
       "disabled": "disabled"
       })
-      @@include("includes/tpl/_tpl_forms_valid.html")
 
       <br>
       <button class="btn-def">VALIDATE</button>
@@ -153,18 +143,20 @@
 &lt;span class="success-feedback"&gt;Success feedback&lt;/span&gt;</pre>
 
     <p class="mark">Example:</p>
-    <p>Для подключения валидации форм, добавить на <b><code>&lt;form&gt;</code></b> класс <b><code>validate-js</code></b>, а на подлежащие валидации элементы форм добавить класс <b><code>field-js</code></b>.</p>
+    <p>Для подключения валидации форм, добавить на <b><code>&lt;form&gt;</code></b> класс <b><code>validate-js</code></b>, а на подлежащие валидации элементы форм добавить аттрибут <b><code>required</code></b>.</p>
     <form action="" class="validate-js">
-      <label for="validateError" class="error">Default: <mark>*</mark></label>
-      <input class="form-def field-js error" id="validateError" name="validateError" type="text" placeholder="Some placeholder" required="" >
-      <span class="error-feedback">Error feedback</span>
-      <span class="success-feedback">Success feedback</span>
+      @@include("includes/tpl/_tpl_forms_input.html", {
+      "label": "Input error:",
+      "id": "inputError",
+      "class": "error"
+      })
 
-      <br>
-      <label for="validateSuccess" class="success">Default: <mark>*</mark></label>
-      <input class="form-def field-js success" id="validateSuccess" name="validateSuccess" type="text" placeholder="Some placeholder" required="" >
-      <span class="error-feedback">Error feedback</span>
-      <span class="success-feedback">Success feedback</span>
+      @@include("includes/tpl/_tpl_forms_input.html", {
+      "label": "Input success:",
+      "id": "inputSuccess",
+      "class": "success",
+      "value": "This is value"
+      })
     </form>
     <br><br>
     <hr>

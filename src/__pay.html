@@ -1,6 +1,6 @@
 @@include("_tpl_layout_head.html", {
   "title": "Pay - Белорусский детский хоспис",
-  "pageClass": "home-page has-sidebar"
+  "pageClass": "has-sidebar"
 })
 
 @@include("_tpl_layout_sidebar.html")
@@ -22,130 +22,117 @@
           <p>ОБО «Белорусский детский хоспис»: негосударственная и некоммерческая структура, которая оказывает медицинскую, психологическую, социальную и духовную помощь семьям, воспитывающим детей с ограничивающими срок жизни и угрожающими жизни заболеваниями. Мы первая общественная организация, которая работает с Министерством здравоохранения на условиях частно-государственного партнерства. Сейчас в хосписе «Лесная поляна» совместно работает ГУ «Республиканский клинический</p>
         </div>
 
-        <h2>Выберите сумму пожертвования</h2>
-        <div class="donate">
-          <div class="donate__list">
-            <div class="donate__item">
-              @@include("_tpl_donate-el.html", {
-                "val": "10",
-                "unit": "byn"
-              })
-            </div>
-            <div class="donate__item">
-              @@include("_tpl_donate-el.html", {
-                "val": "20",
-                "unit": "byn"
-              })
-            </div>
-            <div class="donate__item">
-              @@include("_tpl_donate-el.html", {
-                "val": "30",
-                "unit": "byn"
-              })
-            </div>
-            <div class="donate__item">
-              @@include("_tpl_donate-el.html", {
-                "val": "40",
-                "unit": "byn"
-              })
-            </div>
-            <div class="donate__item">
-              @@include("_tpl_donate-el.html", {
-                "val": "50",
-                "unit": "byn"
-              })
-            </div>
-            <div class="donate__item">
-              @@include("_tpl_donate-el.html", {
-                "val": "60",
-                "unit": "byn"
-              })
-            </div>
-          </div>
-        </div>
-
-        <h2>Внести пожертвование</h2>
         <div class="charity-form">
-          <form action="#" method="post">
-            <div class="form-fields">
-              <div class="form-unit">
+          <form action="#" method="post" class="validate-js">
+            <h2>Выберите сумму пожертвования</h2>
+            <div class="donate">
+              <div class="donate__list">
+                <div class="donate__item">
+                  @@include("_tpl_donate-el.html", {
+                  "val": "10",
+                  "unit": "byn"
+                  })
+                </div>
+                <div class="donate__item">
+                  @@include("_tpl_donate-el.html", {
+                  "val": "20",
+                  "unit": "byn"
+                  })
+                </div>
+                <div class="donate__item">
+                  @@include("_tpl_donate-el.html", {
+                  "val": "30",
+                  "unit": "byn"
+                  })
+                </div>
+                <div class="donate__item">
+                  @@include("_tpl_donate-el.html", {
+                  "val": "40",
+                  "unit": "byn",
+                  "checked": "checked"
+                  })
+                </div>
+                <div class="donate__item">
+                  @@include("_tpl_donate-el.html", {
+                  "val": "50",
+                  "unit": "byn"
+                  })
+                </div>
+                <div class="donate__item">
+                  @@include("_tpl_donate-el.html", {
+                  "val": "60",
+                  "unit": "byn"
+                  })
+                </div>
+              </div>
+            </div>
+
+            <h2>Внести пожертвование</h2>
+            <div class="charity-form-box">
+              <div class="form-fields">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "Сумма",
                 "id": "charityFormAmount",
                 "type": "text"
                 })
-                @@include("includes/tpl/_tpl_forms_valid.html")
-              </div>
-              <div class="form-unit">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "Фамилия",
                 "id": "charityFormSName",
                 "type": "text"
                 })
-                @@include("includes/tpl/_tpl_forms_valid.html")
-              </div>
-              <div class="form-unit">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "Имя",
                 "id": "charityFormName",
                 "type": "text"
                 })
-                @@include("includes/tpl/_tpl_forms_valid.html")
-              </div>
-              <div class="form-unit">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "Город",
                 "id": "charityFormCity",
                 "type": "text"
                 })
-                @@include("includes/tpl/_tpl_forms_valid.html")
-              </div>
-              <div class="form-unit">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "E-mail",
                 "id": "charityFormEmail",
                 "type": "email"
                 })
-                @@include("includes/tpl/_tpl_forms_valid.html")
-              </div>
-              <div class="form-unit">
                 @@include("includes/tpl/_tpl_forms_input.html", {
                 "label": "Телефон",
                 "id": "charityFormTel",
                 "type": "text"
                 })
-                @@include("includes/tpl/_tpl_forms_valid.html")
               </div>
-            </div>
-            <div class="form-row">
-              <div class="radiocheck-text-group">
-                <label class="form-radiocheck">
-                  <input type="radio" name="charityFormPeriod" checked>
-                  <span>Ежемесячно</span>
-                </label>
-                <label class="form-radiocheck">
-                  <input type="radio" name="charityFormPeriod">
-                  <span>Единоразово</span>
-                </label>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <div class="form-group__item">
-                  <label class="form-radiocheck">
-                    <input type="checkbox" name="charityFormShow" checked>
-                    <span>Хочу что бы мои платежи видели на сайте</span>
-                  </label>
-                </div>
-                <div class="form-group__item">
-                  <label class="form-radiocheck">
-                    <input type="checkbox" name="charityFormAgree">
-                    <span>Я согласен с условиями публичной аферты</span>
-                  </label>
+              <div class="form-row">
+                <div class="radiocheck-text-group">
+                  <div class="radiocheck-text-group__frame">
+                    <label class="radiocheck-text">
+                      <input type="radio" name="charityFormPeriod" checked>
+                      <span>Ежемесячно</span>
+                    </label>
+                    <label class="radiocheck-text">
+                      <input type="radio" name="charityFormPeriod">
+                      <span>Единоразово</span>
+                    </label>
+                  </div>
                 </div>
               </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <div class="form-group__item">
+                    <label class="form-radiocheck">
+                      <input type="checkbox" name="charityFormShow" checked>
+                      <span>Хочу что бы мои платежи видели на сайте</span>
+                    </label>
+                  </div>
+                  <div class="form-group__item">
+                    <label class="form-radiocheck">
+                      <input type="checkbox" name="charityFormAgree">
+                      <span>Я согласен с условиями публичной аферты</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <button class="charity-form-btn">Пожертвовать</button>
             </div>
-            <button class="btn-def">Пожертвовать</button>
           </form>
         </div>
       </div>
@@ -212,12 +199,100 @@
               <a href="#" class="link link_account"><span>Благотворительный счет</span></a>
             </div>
             <div class="link-elem">
-              <a href="#" class="link link-erip"><span>Платежи через ЕРИП</span></a>
+              <a href="#" class="link link_erip"><span>Платежи через ЕРИП</span></a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!--subscribe section-->
+    <section class="subscribe-section">
+      <h2 class="hide">Подпишиска на рассылку</h2>
+      <div class="subscribe subs-js">
+        <form action="#" method="post" class="subs-form validate-js">
+          <div class="subs-container">
+            <label for="subs" class="sub-label">Подпишитесь на рассылку</label>
+            <div class="subs-field">
+              <input id="subs" type="email" placeholder="Введите Ваш e-mail" required="" class="subs-input">
+              <button>Подписаться</button>
+              <div class="subs-success"><span>Поздравляем! Вы подписаны!</span></div>
+              <div class="subs-error">Введите корректный адрес</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!--subscribe section end-->
+
+    <!--partners section-->
+    <section class="partners-section">
+      <div class="partners">
+        <div class="swiper-container partners__list partners-slider-js">
+          <div class="swiper-wrapper">
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-01.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-04.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-05.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!--partners section end-->
+
     <!--CONTENT end-->
   </div>
 </main>

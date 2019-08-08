@@ -22,6 +22,124 @@ label {
   }
 }
 
+/* float label */
+label.form-unit {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    z-index: 5;
+    pointer-events: none;
+    backface-visibility: visible;
+    transform-origin: 0 0;
+    will-change: transform;
+    transition: transform $animation-speed cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &::before {
+    border-top: $form-def-border-width solid $form-def-border-color;
+
+    // ------ mob -----------------------------------------
+    @include media($form-media--mob) {
+      border-width: $form-def-border-width--mob;
+    }
+  }
+
+  &::after {
+    border-top: #{$form-def-border-width + 1} solid $form-def-border-color--focus;
+
+    $scale: 0, 1;
+    transform: scale($scale);
+    transform: scale3d($scale, 1);
+
+    // ------ mob -----------------------------------------
+    @include media($form-media--mob) {
+      border-width: #{$form-def-border-width--mob + 1};
+    }
+  }
+
+  .label-float {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    height: 100%;
+    width: auto;
+    @include input-spaces;
+    @include input-font;
+    color: $base-color;
+    @include truncate(100%);
+
+    @include antialiased;
+    pointer-events: none;
+    z-index: 5;
+
+    transform-origin: 0 0;
+
+    $prop: transform, color;
+    will-change: $prop;
+    transition: {
+      property: $prop;
+      duration: $animation-speed;
+      timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    };
+
+    // ------ mob -----------------------------------------
+    @include media($form-media--mob) {
+      @include input-spaces--mob;
+      @include input-font--mob;
+    }
+  }
+
+  // Active
+  &.filled, &.focused {
+    &::after {
+      $scale: 1, 1;
+      transform: scale($scale);
+      transform: scale3d($scale, 1);
+    }
+  }
+
+  .form-def {
+    &:focus, &.filled, &.focused {
+      cursor: text;
+      box-shadow: none;
+
+      & ~ .label-float {
+        $transform: -0.05em, -1.4em;
+        $scale: 0.85;
+        transform: translate($transform) scale($scale);
+        transform: translate3d($transform, 0) scale3d($scale, $scale, 1);
+        cursor: default;
+      }
+    }
+  }
+
+  // Disabled
+  &.disabled {
+    &::before,
+    &::after {
+      border-color: $form-border-color--disabled;
+    }
+  }
+
+  .form-def[disabled] {
+    & ~ .label-float {
+      color: $form-text-color--disabled;
+    }
+  }
+}
+
+/* float label end */
+
 // ====================================================
 // ОБЩИЕ стили для полей ввода
 // ====================================================
@@ -32,6 +150,7 @@ label {
   $form-def: &; // Ссылка на текущий класс
 
   @include input-common;
+  @include input-spaces;
   @include input-font;
   @include form-def-space;
   transition: color $animation-speed, border $animation-speed;
@@ -39,6 +158,7 @@ label {
   // ------ mob -----------------------------------------
   @include media($form-media--mob) {
     @include input-common--mob;
+    @include input-spaces--mob;
     @include input-font--mob;
     @include form-def-space--mob;
   }
@@ -185,9 +305,9 @@ label {
     @include form-success;
 
     // Placeholder
-    @include placeholder {
-      color: $form-success-color;
-    }
+    //@include placeholder {
+    //  color: $form-success-color;
+    //}
   }
 
   // Error

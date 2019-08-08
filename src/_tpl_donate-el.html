@@ -1,6 +1,9 @@
-<a href="#" class="donate-el donate__el">
-  <div class="donate-el__content">
-    <div class="donate-el__val"><strong>@@val</strong><em>@@unit</em></div>
-    <span class="donate-el__btn">Пожертвовать</span>
-  </div>
-</a>
+<label class="donate-el__label">
+  <input class="donate-el__check" name="donate" type="radio"@@if(context.checked) { checked}>
+  <span class="donate-el donate__el">
+    <span class="donate-el__content">
+      <span class="donate-el__val"><strong>@@val</strong><em>@@unit</em></span>
+      <span class="donate-el__btn">Пожертвовать</span>
+    </span>
+  </span>
+</label>

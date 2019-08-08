@@ -1,10 +1,11 @@
-@@if(context.label){<label for="@@id">@@label <mark>*</mark></label>}
-<textarea
-    class="form-def@@if(context.class){ @@class} field-js"
-    id="@@id"
-    name="@@id"
-    @@if(context.placeholder){ placeholder="@@placeholder" }
-    @@if(!context.placeholder){ placeholder="Some placeholder" }
-    @@if(context.disabled){ disabled}
-    required
->@@if(context.value){@@value}</textarea>
+<label class="form-unit">
+  <textarea
+      class="form-def@@if(context.class){ @@class} field-js"
+      name="@@id"
+      @@if(context.placeholder){ placeholder="@@placeholder" }
+      @@if(context.disabled){ disabled}
+      required
+  >@@if(context.value){@@value}</textarea>
+  @@if(context.label){<span class="label-float">@@label</span>}
+  @@include("_tpl_forms_valid.html")
+</label>

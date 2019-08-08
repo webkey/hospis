@@ -33,7 +33,7 @@ function formElementState() {
   if ($elem.length) {
     function toggleStateClass(mod, cond) {
       var $this = $(this);
-      $this.add($this.prev('label')).toggleClass(mod, cond);
+      $this.add($this.prev('label')).add($this.closest('.form-unit')).toggleClass(mod, cond);
     }
 
     // Focus
@@ -48,6 +48,11 @@ function formElementState() {
 
     $elem.on('keyup change', function () {
       toggleStateClass.call(this, 'filled', $(this).val().length !== 0);
+    });
+
+    // Is disabled
+    $.each($elem, function () {
+      toggleStateClass.call(this, 'disabled', $(this).is(':disabled'));
     });
   }
 }

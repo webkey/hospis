@@ -35,6 +35,10 @@ $font-alt: Georgia, serif !default;
   font-weight: 700;
 }
 
+@mixin font-medium {
+  font-weight: 500;
+}
+
 @mixin font-italic {
   font-style: italic;
 }
@@ -324,9 +328,9 @@ $form-media--mob: '<mob' !default;
 
 // Form elements external indents
 // ====================================================
-$form-bottom-space: 3rem !default;
+$form-bottom-space: 2rem !default;
 // ------ mob -----------------------------------------
-$form-bottom-space--mob: 2.5rem !default;
+$form-bottom-space--mob: 2rem !default;
 
 // Form elements vertical space mixin
 // ----------------------------------------------------
@@ -349,9 +353,9 @@ $form-bottom-space--mob: 2.5rem !default;
 $form-def-text-color: $text-color !default;
 $form-def-placeholder-color: lighten($form-def-text-color, 40%) !default;
 $form-def-bg-color: #fff !default;
-$form-def-border-color: lighten($form-def-text-color, 40%) !default;
+$form-def-border-color: $border-color !default;
 // ----------------------------------------------------
-$form-def-border-color--focus: darken($form-def-border-color, 20%) !default;
+$form-def-border-color--focus: $base-color !default;
 // ----------------------------------------------------
 $form-error-color: $error-color !default;
 $form-success-color: $success-color !default;
@@ -366,7 +370,8 @@ $form-border-color--disabled: #ced4da !default;
 @mixin forms-disabled {
   cursor: default !important;
   color: $form-text-color--disabled !important;
-  background-color: $form-bg-color--disabled !important;
+  //background-color: $form-bg-color--disabled !important;
+  background-color: transparent !important;
   border-color: $form-border-color--disabled !important;
   box-shadow: none !important;
 }
@@ -374,62 +379,69 @@ $form-border-color--disabled: #ced4da !default;
 
 // Form elements fonts styles
 // ====================================================
-$form-def-font-size: 1.6rem !default;
-$form-def-line-height: 2.4rem !default;
+$form-def-font-size: 1.3rem !default;
+$form-def-line-height: 1.8rem !default;
 $form-def-letter-spacing: null !default;
 // ------ mob -----------------------------------------
-$form-def-font-size--mob: 1.4rem !default;
+$form-def-font-size--mob: 1.3rem !default;
 $form-def-line-height--mob: 1.8rem !default;
 $form-def-letter-spacing--mob: null !default;
 
 
 // Form elements layout
 // ====================================================
-$form-def-height: 4.8rem !default;
+$form-def-height: 4.0rem !default;
 $form-def-border-width: 1px !default;
-$form-def-space-v: round-float(($form-def-height - $form-def-line-height) / 2 - px-to-rem($form-def-border-width), 1) !default; // Следить, чтобы разница между высотой и межстрочным интервалом была четной
+$form-def-space-v: round-float(($form-def-height - $form-def-line-height) / 2, 1) !default; // Следить, чтобы разница между высотой и межстрочным интервалом была четной
 $form-def-space-vt: $form-def-space-v !default;
 $form-def-space-vb: $form-def-space-v !default;
 $form-def-space-h: 1.8rem !default;
-$form-def-border-radius: 5px !default;
+$form-def-border-radius: 0 !default;
 // ------ mob -----------------------------------------
-$form-def-height--mob: 4.2rem !default;
+$form-def-height--mob: 4.0rem !default;
 $form-def-border-width--mob: 1px !default;
-$form-def-space-v--mob: round-float(($form-def-height--mob - $form-def-line-height--mob) / 2 - px-to-rem($form-def-border-width), 1) !default; // Следить, чтобы разница между высотой и межстрочным интервалом была четной
+$form-def-space-v--mob: round-float(($form-def-height--mob - $form-def-line-height--mob) / 2, 1) !default; // Следить, чтобы разница между высотой и межстрочным интервалом была четной
 $form-def-space-vt--mob: $form-def-space-v--mob !default;
 $form-def-space-vb--mob: $form-def-space-v--mob !default;
 $form-def-space-h--mob: 1.4rem !default;
-$form-def-border-radius--mob: 5px !default;
+$form-def-border-radius--mob: 0 !default;
 
 
 // Input common styles mixin
+// ====================================================
 @mixin input-common {
   display: block;
   position: relative;
   height: $form-def-height;
   width: 100%;
-  padding: $form-def-space-vt $form-def-space-h $form-def-space-vb $form-def-space-h;
   background-color: $form-def-bg-color;
   box-shadow: none;
-  @if $form-def-border-width {
-    border: $form-def-border-width solid $form-def-border-color;
-  }
+  border: none;
 }
 
 // ------ mob -----------------------------------------
 @mixin input-common--mob {
   height: $form-def-height--mob;
-  padding: $form-def-space-vt--mob $form-def-space-h--mob $form-def-space-vb--mob $form-def-space-h--mob;
   border-radius: $form-def-border-radius--mob;
-  @if $form-def-border-width--mob {
-    border-width: $form-def-border-width--mob;
-  }
 }
+
+// Input spaces mixin
+// ====================================================
+@mixin input-spaces {
+  padding: $form-def-space-vt 0 $form-def-space-vb;
+}
+
+@mixin input-spaces--mob {
+  padding: $form-def-space-vt--mob 0 $form-def-space-vb--mob;
+}
+
+// ------ mob -----------------------------------------
 
 // Input font styles mixin
 // ====================================================
 @mixin input-font {
-  @include font-normal;
+  font-family: inherit;
+  @include font-medium;
   font-size: $form-def-font-size;
   line-height: $form-def-line-height;
   color: $form-def-text-color;
@@ -538,8 +550,8 @@ $select-arrow-width--mob: 4.0rem !default;
 // FORM STATES
 // ====================================================
 @mixin form-success {
-  color: $form-success-color;
-  border-color: $form-success-color;
+  //color: $form-success-color;
+  //border-color: $form-success-color;
 }
 
 @mixin form-error {
@@ -548,8 +560,8 @@ $select-arrow-width--mob: 4.0rem !default;
 }
 
 @mixin filled {
-  color: slateblue;
-  border-color: slateblue;
+  //color: slateblue;
+  border-color: $form-def-border-color--focus;
 }
 
 @mixin focused {
@@ -559,9 +571,9 @@ $select-arrow-width--mob: 4.0rem !default;
 
 // Form validate feedback
 // ====================================================
-$validate-feedback-font-size: 1.2rem;
-$validate-feedback-line-height: 1.6rem;
-$validate-feedback-height: 2.2rem;
+$validate-feedback-font-size: 1.0rem;
+$validate-feedback-line-height: 1.2rem;
+$validate-feedback-height: 1.6rem;
 
 
 // Animation

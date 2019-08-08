@@ -26,26 +26,33 @@
   color: $form-error-color;
 
   // Нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
-  form .error + &,
-  form .error + .select2 + &,
-  form .error + .select-arrow + &,
-  form .success + .success-feedback + &,
-  form .success + .select2 + .success-feedback + &,
-  form .success + .select-arrow + .success-feedback + & {
+  .error + &,
+  .error + .label-float + &,
+  .error + .select2 + &,
+  .error + .select-arrow + &,
+  .error + .success-feedback + &,
+  .error + .label-float + .success-feedback + &,
+  .error + .select2 + .success-feedback + &,
+  .error + .select-arrow + .success-feedback + & {
     display: block;
   }
 }
 
-.success-feedback {
-  color: $form-success-color;
+$success-feedback: false;
+@if $success-feedback == "show" {
+  .success-feedback {
+    color: $form-success-color;
 
-  // Нужно выбрать только ближайший элемент подтверждения формы (нельзя использовать ~)
-  form .success + &,
-  form .success + .select2 + &,
-  form .success + .select-arrow + &,
-  form .success + .error-feedback + &,
-  form .success + .select2 + .error-feedback + &,
-  form .success + .select-arrow + .error-feedback + & {
-    display: block;
+    // Нужно выбрать только ближайший элемент подтверждения формы (нельзя использовать ~)
+    .success + &,
+    .success + .label-float + &,
+    .success + .select2 + &,
+    .success + .select-arrow + &,
+    .success + .error-feedback + &,
+    .success + .label-float + .error-feedback + &,
+    .success + .select2 + .error-feedback + &,
+    .success + .select-arrow + .error-feedback + & {
+      display: block;
+    }
   }
 }

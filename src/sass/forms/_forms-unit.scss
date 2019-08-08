@@ -6,6 +6,7 @@
 // ====================================================
 
 .form-unit {
+  display: block; // if tag is label
   position: relative;
   margin-bottom: $form-bottom-space;
 
