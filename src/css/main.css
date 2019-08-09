@@ -4425,24 +4425,24 @@ li.is-open > .nav__angle {
 
 .footer__holder {
   background-color: #005c9c;
-  padding: 7rem 7.2rem 7rem 6rem;
+  padding: 7rem 7.2rem 5rem 6rem;
 }
 
 @media (max-width: 1919px) {
   .footer__holder {
-    padding: 4rem 7.2rem 4rem 3.5rem;
+    padding: 4rem 7.2rem 3rem 3.5rem;
   }
 }
 
 @media (max-width: 1439px) {
   .footer__holder {
-    padding: 4rem 3rem;
+    padding: 4rem 3rem 3rem;
   }
 }
 
 @media (max-width: 639px) {
   .footer__holder {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.5rem 2rem;
   }
 }
 
@@ -4456,18 +4456,18 @@ li.is-open > .nav__angle {
       align-items: flex-start;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  margin-bottom: 14rem;
-}
-
-@media (max-width: 1919px) {
-  .footer-common {
-    margin-bottom: 9rem;
-  }
+  margin-bottom: 7rem;
 }
 
 @media (max-width: 1919px) {
   .footer-common {
     margin-bottom: 6rem;
+  }
+}
+
+@media (max-width: 1919px) {
+  .footer-common {
+    margin-bottom: 5rem;
   }
 }
 
@@ -4953,6 +4953,8 @@ li.is-open > .nav__angle {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center;
   margin-right: -2rem;
   margin-left: -2rem;
   margin-bottom: -1rem;
@@ -5125,6 +5127,8 @@ li.is-open > .nav__angle {
       flex-basis: 32rem;
   max-width: 32rem;
   padding-left: 3rem;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
 }
 
 @media (max-width: 1439px) {
@@ -5132,6 +5136,8 @@ li.is-open > .nav__angle {
     -ms-flex-preferred-size: 30rem;
         flex-basis: 30rem;
     max-width: 30rem;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
   }
 }
 
@@ -5191,6 +5197,7 @@ li.is-open > .nav__angle {
         flex-shrink: 0;
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
+    max-width: 50%;
     padding: 0 1.5rem;
     margin-bottom: 3rem;
   }
@@ -5200,6 +5207,7 @@ li.is-open > .nav__angle {
   .c-aside__widget {
     padding: 0;
     margin-bottom: 2rem;
+    max-width: none;
   }
 }
 
@@ -6084,24 +6092,10 @@ li.is-open > .nav__angle {
   position: relative;
   max-width: 64rem;
   font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 3.0rem;
+  font-size: inherit;
+  line-height: inherit;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
-}
-
-@media (max-width: 1919px) {
-  .programs-el__text {
-    font-size: 1.6rem;
-    line-height: 2.5rem;
-  }
-}
-
-@media (max-width: 639px) {
-  .programs-el__text {
-    font-size: 1.5rem;
-    line-height: 2.3rem;
-  }
 }
 
 .no-touchevents .programs-el:hover .programs-el__img {
@@ -6116,12 +6110,34 @@ li.is-open > .nav__angle {
 
 .programs {
   position: relative;
+  margin-bottom: 7.5rem;
+}
+
+@media (max-width: 991px) {
+  .programs {
+    margin-bottom: 4.5rem;
+  }
 }
 
 @media (max-width: 639px) {
   .programs {
-    margin: 0 -1.5rem;
+    margin-bottom: 3.8rem;
   }
+}
+
+.programs:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 639px) {
+  .programs.programs_to-slider {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+
+.programs.programs_to-slider:last-child {
+  margin-bottom: 0;
 }
 
 .programs__list {
@@ -6130,10 +6146,54 @@ li.is-open > .nav__angle {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  font-size: 2.4rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 1919px) {
+  .programs__list {
+    font-size: 2.0rem;
+  }
+}
+
+@media (max-width: 1599px) {
+  .programs__list {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1365px) {
+  .programs__list {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .programs__list {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .programs__list {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .programs__list {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 639px) {
   .programs__list {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .programs_to-slider .programs__list {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     margin: 0;
@@ -6166,16 +6226,16 @@ li.is-open > .nav__angle {
 }
 
 @media (max-width: 639px) {
-  .programs__item {
+  .programs_to-slider .programs__item {
     -ms-flex-preferred-size: 24rem;
         flex-basis: 24rem;
     max-width: 24rem;
     padding: 0 1rem 0;
   }
-  .programs__item:first-child {
+  .programs_to-slider .programs__item:first-child {
     margin-left: 0.5rem;
   }
-  .programs__item:last-child {
+  .programs_to-slider .programs__item:last-child {
     margin-right: 0.5rem;
   }
 }

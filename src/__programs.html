@@ -1,0 +1,177 @@
+@@include("_tpl_layout_head.html", {
+  "title": "Наши программы - Белорусский детский хоспис",
+  "pageClass": "has-sidebar"
+})
+
+@@include("_tpl_layout_sidebar.html", { "currentItem": "Деятельность" })
+
+@@include("_tpl_layout_header.html")
+
+
+
+<!--MAIN-->
+<main class="main">
+  <div class="layout-page layout-page-spaces">
+    <!--CONTENT-->
+    <h1>Наши программы</h1>
+
+    <div class="entry-text">
+      <p>ОБО «Белорусский детский хоспис»: негосударственная и некоммерческая структура, которая оказывает медицинскую, психологическую, социальную и духовную помощь семьям, воспитывающим детей с ограничивающими срок жизни и угрожающими жизни заболеваниями. Мы первая общественная организация, которая работает с Министерством здравоохранения на условиях частно-государственного партнерства. Сейчас в хосписе «Лесная поляна» совместно работает ГУ «Республиканский клинический</p>
+    </div>
+
+    <!--program section-->
+    <section class="program-section">
+      <div class="programs">
+        <div class="programs__list">
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-program-01.jpg",
+            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы"
+            })
+          </div>
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-program-02.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке"
+            })
+          </div>
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-program-03.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке"
+            })
+          </div>
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-program-04.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке Европейского Союза"
+            })
+          </div>
+
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-news-01.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке"
+            })
+          </div>
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-news-02.jpg",
+            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы"
+            })
+          </div>
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-news-03.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке Европейского Союза"
+            })
+          </div>
+          <div class="programs__item">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-news-04.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке"
+            })
+          </div>
+        </div>
+      </div>
+
+      @@include("_tpl_pagination.html")
+    </section>
+    <!--program section end-->
+
+    <!--subscribe section-->
+    <section class="subscribe-section">
+      <h2 class="hide">Подпишиска на рассылку</h2>
+      <div class="subscribe subs-js">
+        <form action="#" method="post" class="subs-form validate-js">
+          <div class="subs-container">
+            <label for="subs" class="sub-label">Подпишитесь на рассылку</label>
+            <div class="subs-field">
+              <input id="subs" type="email" placeholder="Введите Ваш e-mail" required="" class="subs-input">
+              <button>Подписаться</button>
+              <div class="subs-success"><span>Поздравляем! Вы подписаны!</span></div>
+              <div class="subs-error">Введите корректный адрес</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!--subscribe section end-->
+
+    <!--partners section-->
+    <section class="partners-section">
+      <div class="partners">
+        <div class="swiper-container partners__list partners-slider-js">
+          <div class="swiper-wrapper">
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-01.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-04.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-05.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!--partners section end-->
+
+    <!--CONTENT end-->
+  </div>
+</main>
+<!--MAIN end-->
+
+
+
+@@include("_tpl_layout_footer.html")
+@@include("_tpl_layout_foot.html")
