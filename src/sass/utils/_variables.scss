@@ -75,6 +75,9 @@ $font-alt: Georgia, serif !default;
 $font-size: 1.8rem !default;
 $line-height: 2.5rem !default;
 $letter-spacing: normal !default;
+// ------ tab -----------------------------------------
+$font-size--tab: 1.6rem !default;
+$line-height--tab: 2.2rem !default;
 // ------ mob -----------------------------------------
 $font-size--mob: 1.4rem !default;
 $line-height--mob: 2.0rem !default;
@@ -192,6 +195,9 @@ $line-height-h3--mob: round-float($font-size-h3--mob * $line-height-h3-kef, 1) !
 // ====================================================
 $font-size-h4: 2.0rem !default;
 $line-height-h4: 2.8rem !default;
+// ------ tab -----------------------------------------
+$font-size-h4--tab: $font-size--tab !default;
+$line-height-h4--tab: $line-height--tab !default;
 // ------ mob -----------------------------------------
 $font-size-h4--mob: $font-size--mob !default;
 $line-height-h4--mob: $line-height--mob !default;
@@ -199,6 +205,11 @@ $line-height-h4--mob: $line-height--mob !default;
 @mixin font-h4() {
   font-size: $font-size-h4;
   line-height: $line-height-h4;
+
+  @include media('<tab') {
+    font-size: $font-size-h4--tab;
+    line-height: $line-height-h4--tab;
+  }
 
   @include media("<mob") {
     font-size: $font-size-h4--mob;
@@ -232,10 +243,16 @@ $line-height-h6: round-float($line-height * 0.95, 1) !default;
 // Spaces
 // ====================================================
 $bottom-space: $line-height !default;
-$bottom-section: round-float($line-height * 1.5, 1) !default;
+$bottom-component: 4rem !default;
+$bottom-section: 10rem !default;
+// ------ tab -----------------------------------------
+$bottom-space--tab: $line-height--tab !default;
+$bottom-component--tab: 3rem !default;
+$bottom-section--tab: 6rem !default;
 // ------ mob -----------------------------------------
 $bottom-space--mob: $line-height--mob !default;
-$bottom-section--mob: round-float($line-height--mob * 1.5, 1) !default;
+$bottom-component--mob: 2rem !default;
+$bottom-section--mob: 5rem !default;
 
 
 // Colors

@@ -17,6 +17,10 @@
 .captcha-ctrl {
   margin-bottom: $bottom-space;
 
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
+
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
   }

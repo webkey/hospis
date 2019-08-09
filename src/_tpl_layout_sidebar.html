@@ -37,8 +37,8 @@
           </ul>
           <!--submenu end-->
         </li>
-        <li class="has-sub ">
-          <a href="#">Как помочь</a>
+        <li class="has-sub@@if(context.currentItem == 'Как помочь'){ current}">
+          <a href="pay.html">Как помочь</a>
           <em class="nav__angle nav__angle-js">&#9660;</em>
           <!--submenu-->
           <ul>
@@ -71,8 +71,8 @@
           </ul>
           <!--submenu end-->
         </li>
-        <li>
-          <a href="#">Новости</a>
+        <li@@if(context.currentItem == 'Новости'){ class="current"}>
+          <a href="news.html">Новости</a>
         </li>
         <li>
           <a href="#">Контакты</a>

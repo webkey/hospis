@@ -27,6 +27,11 @@ body {
   color: $text-color;
   background: $bg-color url(../../img/empty.png) no-repeat left top fixed;
 
+  @include media('<tab') {
+    font-size: $font-size--tab;
+    line-height: $line-height--tab;
+  }
+
   @include media('<mob') {
     font-size: $font-size--mob;
     line-height: $line-height--mob;

@@ -15,8 +15,12 @@ body {
 // ----------------------------------------------------
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin: 0 0 $bottom-space;
   padding: 0;
+  margin: 0 0 $bottom-space;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
 
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
@@ -44,6 +48,16 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1 {
   @include font-bold;
   @include font-h1;
+
+  margin-bottom: $bottom-component;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-component--tab;
+  }
+
+  @include media('<mob') {
+    margin-bottom: $bottom-component--mob;
+  }
 }
 
 h2, .h2 {
@@ -75,6 +89,10 @@ p, pre {
   padding: 0;
   margin: 0 0 $bottom-space;
 
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
+
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
   }
@@ -93,6 +111,10 @@ hr {
   background: none;
   border-bottom: 1px solid $border-color;
   margin-bottom: $bottom-space;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
 
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
@@ -158,6 +180,10 @@ table {
   width: auto;
   margin-bottom: $bottom-space;
 
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
+
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
   }
@@ -183,6 +209,10 @@ table {
   max-width: 100%;
   -webkit-overflow-scrolling: touch;
   margin-bottom: $bottom-space;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
 
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
@@ -249,6 +279,10 @@ table {
   margin-bottom: $bottom-space;
   font-size: 0.9em;
 
+  @include media('<tab') {
+    margin-bottom: $bottom-space--tab;
+  }
+
   @include media('<mob') {
     margin-bottom: $bottom-space--mob;
   }
@@ -280,6 +314,79 @@ table {
   }
 }
 
+/* entry text */
+.entry-text {
+  margin-bottom: $bottom-section;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-section--tab;
+  }
+
+  @include media('<mob') {
+    margin-bottom: $bottom-section--mob;
+  }
+}
+
+/* entry text end */
+
+/* article meta */
+.article-meta,
+.article-date,
+.article-share {
+  margin-bottom: round-float($bottom-component / 2, 1);
+
+  @include media('<tab') {
+    margin-bottom: round-float($bottom-component--tab / 2, 1);
+  }
+
+  @include media('<mob') {
+    margin-bottom: round-float($bottom-component--mob / 2, 1);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// article meta
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// article date
+.article-date {
+  display: inline-block;
+  @include font-bold;
+  font-style: normal;
+  color: $base-color;
+  margin-right: 2rem;
+}
+
+// article entry
+.article-entry {
+  @include font-medium;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: $title-color;
+  margin-bottom: $bottom-component;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-component--tab;
+  }
+
+  @include media('<mob') {
+    margin-bottom: $bottom-component--mob;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+/* article meta end */
+
 /* typography elements */
 .typography {
   $typographyClass: &;
@@ -302,6 +409,10 @@ table {
   & > h5, & > .h5,
   & > h6, & > .h6 {
     margin-top: round-float(2.6 * $bottom-space, 1);
+
+    @include media('<tab') {
+      margin-top: round-float(2.6 * $bottom-space--tab, 1);
+    }
 
     @include media('<mob') {
       margin-top: round-float(2.6 * $bottom-space--mob, 1);
@@ -341,7 +452,8 @@ table {
   // blockquote
   blockquote {
     display: block;
-    margin: 2.5em 0;
+    margin: 2.5em auto;
+    max-width: 64rem;
     padding: 0;
 
     q {
@@ -361,6 +473,7 @@ table {
         margin: -0.49em 0 0 2%;
         font-size: 10em;
         line-height: 1;
+        color: $base-color;
         text-align: left;
         pointer-events: none;
         opacity: 0.1;
@@ -372,6 +485,7 @@ table {
     }
 
     cite {
+      @include font-italic;
       text-align: center;
       display: block;
       font-size: inherit;
@@ -388,6 +502,10 @@ table {
     padding: 0;
     list-style: none;
 
+    @include media('<tab') {
+      margin-bottom: $bottom-space--tab;
+    }
+
     @include media('<mob') {
       margin-bottom: $bottom-space--mob;
     }
@@ -400,6 +518,10 @@ table {
       padding-left: $list-space;
       margin: 0 0 round($bottom-space * 0.5);
       position: relative;
+
+      @include media('<tab') {
+        margin-bottom: round($bottom-space--tab * 0.5);
+      }
 
       @include media('<mob') {
         margin-bottom: round($bottom-space--mob * 0.5);
@@ -417,8 +539,8 @@ table {
         float: left;
         height: 0;
         width: 0;
-        margin: 0.6em 0 -0.6em -#{$list-space};
-        border: 3px solid $text-color;
+        margin: 0.5em 0 -0.5em -#{$list-space};
+        border: 3px solid $base-color;
         border-radius: 3px;
       }
 
@@ -447,8 +569,9 @@ table {
       &::before {
         position: relative;
         display: inline-block;
+        @include font-medium;
         text-align: left;
-        color: $text-color;
+        color: $base-color;
         content: counter(section) ".";
         padding: 0 4px 0 0;
         min-width: $list-space;
@@ -462,6 +585,10 @@ table {
     ul,
     ol {
       margin: round-float($bottom-space * 0.5, 1) 0;
+
+      @include media('<tab') {
+        margin: round-float($bottom-space--tab * 0.5, 1) 0;
+      }
 
       @include media('<mob') {
         margin: round-float($bottom-space--mob * 0.5, 1) 0;
