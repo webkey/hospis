@@ -45,6 +45,9 @@
   </noscript>
   <!--[if lte IE 9]>
 <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
+  <div id="bgInnerPage" class="bg-inner-page">
+    <div style="background-image: url(img/bg-inner-page.svg);"></div>
+  </div>
   <!--SIDEBAR-->
   <aside class="sidebar menu-js" data-swc-prevent-remove>
     <a href="#" class="menu-close menu-close-js" title="Close menu">
@@ -84,7 +87,7 @@
             </ul>
             <!--submenu end-->
           </li>
-          <li class="has-sub current">
+          <li class="has-sub">
             <a href="pay.html">Как помочь</a>
             <em class="nav__angle nav__angle-js">&#9660;</em>
             <!--submenu-->
@@ -118,7 +121,7 @@
             </ul>
             <!--submenu end-->
           </li>
-          <li>
+          <li class="current">
             <a href="news.html">Новости</a>
           </li>
           <li>
@@ -306,38 +309,39 @@
           <p>Праздник в "Аисте" удался на славу!</p>
           <p>Мы искренне благодарим всех, кто участвовал в организации "Дня открытых дверей", всех участников и гостей!</p>
           <h3>Галлерея снимков</h3>
+          <!--<a href="img/img-article-01.jpg" data-fancybox="images" data-caption="My caption">
+          <img src="img/img-article-01.jpg" alt="" />
+        </a>-->
           <div class="article-gallery">
-            <img src="img/img-article-01.jpg" alt="image description" />
-            <img src="img/img-article-02.jpg" alt="image description" />
-            <img src="img/img-article-03.jpg" alt="image description" />
-            <img src="img/img-article-04.jpg" alt="image description" />
-            <img src="img/img-article-05.jpg" alt="image description" />
+            <img src="img/img-article-01.jpg" data-fancybox="gallery-01" data-src="img/img-article-01.jpg" data-caption="Заголовок 1" alt="image description" />
+            <img src="img/img-article-02.jpg" data-fancybox="gallery-01" data-src="img/img-article-02.jpg" data-caption="Заголовок 2" alt="image description" />
+            <img src="img/img-article-03.jpg" data-fancybox="gallery-01" data-src="img/img-article-03.jpg" data-caption="Заголовок 3" alt="image description" />
+            <img src="img/img-article-04.jpg" data-fancybox="gallery-01" data-src="img/img-article-04.jpg" data-caption="Заголовок 4" alt="image description" />
+            <img src="img/img-article-05.jpg" data-fancybox="gallery-01" data-src="img/img-article-05.jpg" data-caption="Заголовок 5" alt="image description" />
           </div>
         </div>
         <div class="c-aside">
           <div class="c-aside__holder">
+            <div class="c-aside__title">Другие новости</div>
             <div class="c-aside__widget">
-              <div class="c-aside__title">Другие новости</div>
-              <div class="c-aside__item">
-                <a href="news-inner.html" class="news-el">
-                  <div class="news-el__figure">
-                    <img src="img/img-news-03.jpg" alt="В Белорусском детском хосписе работает юридическая поддержка!" class="news-el__img" />
-                  </div>
-                  <time class="news-el__date" datetime="2019-07-12">12.07.2019</time>
-                  <div class="news-el__title">В Белорусском детском хосписе работает юридическая поддержка!</div>
-                  <div class="news-el__text">Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы</div>
-                </a>
-              </div>
-              <div class="c-aside__item">
-                <a href="news-inner.html" class="news-el">
-                  <div class="news-el__figure">
-                    <img src="img/img-news-04.jpg" alt="Невероятное приключение в Парке-музее интерактивной истории «Сула»!" class="news-el__img" />
-                  </div>
-                  <time class="news-el__date" datetime="2019-07-12">12.07.2019</time>
-                  <div class="news-el__title">Невероятное приключение в Парке-музее интерактивной истории «Сула»!</div>
-                  <div class="news-el__text">Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный</div>
-                </a>
-              </div>
+              <a href="news-inner.html" class="news-el">
+                <div class="news-el__figure">
+                  <img src="img/img-news-03.jpg" alt="В Белорусском детском хосписе работает юридическая поддержка!" class="news-el__img" />
+                </div>
+                <time class="news-el__date" datetime="2019-07-12">12.07.2019</time>
+                <div class="news-el__title">В Белорусском детском хосписе работает юридическая поддержка!</div>
+                <div class="news-el__text">Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы</div>
+              </a>
+            </div>
+            <div class="c-aside__widget">
+              <a href="news-inner.html" class="news-el">
+                <div class="news-el__figure">
+                  <img src="img/img-news-04.jpg" alt="Невероятное приключение в Парке-музее интерактивной истории «Сула»!" class="news-el__img" />
+                </div>
+                <time class="news-el__date" datetime="2019-07-12">12.07.2019</time>
+                <div class="news-el__title">Невероятное приключение в Парке-музее интерактивной истории «Сула»!</div>
+                <div class="news-el__text">Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный</div>
+              </a>
             </div>
           </div>
         </div>

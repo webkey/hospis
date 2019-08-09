@@ -3,7 +3,7 @@
   "pageClass": "has-sidebar"
 })
 
-@@include("_tpl_layout_sidebar.html", { "currentItem": "Как помочь" })
+@@include("_tpl_layout_sidebar.html", { "currentItem": "Новости" })
 
 @@include("_tpl_layout_header.html")
 
@@ -75,37 +75,38 @@
         <p>А нашим помощницам-художницам за роспись значков- аистят и домиков!</p><p>Праздник в "Аисте" удался на славу!</p>
         <p>Мы искренне благодарим всех, кто участвовал в организации "Дня открытых дверей", всех участников и гостей!</p>
         <h3>Галлерея снимков</h3>
+        <!--<a href="img/img-article-01.jpg" data-fancybox="images" data-caption="My caption">
+          <img src="img/img-article-01.jpg" alt="" />
+        </a>-->
         <div class="article-gallery">
-          <img src="img/img-article-01.jpg" alt="image description" />
-          <img src="img/img-article-02.jpg" alt="image description" />
-          <img src="img/img-article-03.jpg" alt="image description" />
-          <img src="img/img-article-04.jpg" alt="image description" />
-          <img src="img/img-article-05.jpg" alt="image description" />
+          <img src="img/img-article-01.jpg" data-fancybox="gallery-01" data-src="img/img-article-01.jpg" data-caption="Заголовок 1" alt="image description" />
+          <img src="img/img-article-02.jpg" data-fancybox="gallery-01" data-src="img/img-article-02.jpg" data-caption="Заголовок 2" alt="image description" />
+          <img src="img/img-article-03.jpg" data-fancybox="gallery-01" data-src="img/img-article-03.jpg" data-caption="Заголовок 3" alt="image description" />
+          <img src="img/img-article-04.jpg" data-fancybox="gallery-01" data-src="img/img-article-04.jpg" data-caption="Заголовок 4" alt="image description" />
+          <img src="img/img-article-05.jpg" data-fancybox="gallery-01" data-src="img/img-article-05.jpg" data-caption="Заголовок 5" alt="image description" />
         </div>
       </div>
 
       <div class="c-aside">
         <div class="c-aside__holder">
+          <div class="c-aside__title">Другие новости</div>
           <div class="c-aside__widget">
-            <div class="c-aside__title">Другие новости</div>
-            <div class="c-aside__item">
-              @@include("_tpl_news-el.html", {
+            @@include("_tpl_news-el.html", {
               "srcImg": "img/img-news-03.jpg",
               "date": "12.07.2019",
               "datetime": "2019-07-12",
               "title": "В Белорусском детском хосписе работает юридическая поддержка!",
               "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы"
-              })
-            </div>
-            <div class="c-aside__item">
-              @@include("_tpl_news-el.html", {
-              "srcImg": "img/img-news-04.jpg",
-              "date": "12.07.2019",
-              "datetime": "2019-07-12",
-              "title": "Невероятное приключение в Парке-музее интерактивной истории «Сула»!",
-              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный"
-              })
-            </div>
+            })
+          </div>
+          <div class="c-aside__widget">
+            @@include("_tpl_news-el.html", {
+            "srcImg": "img/img-news-04.jpg",
+            "date": "12.07.2019",
+            "datetime": "2019-07-12",
+            "title": "Невероятное приключение в Парке-музее интерактивной истории «Сула»!",
+            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный"
+            })
           </div>
         </div>
       </div>

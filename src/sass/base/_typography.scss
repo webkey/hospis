@@ -385,6 +385,82 @@ table {
     margin-bottom: 0;
   }
 }
+
+// article gallery
+.article-gallery,
+.article-gallery img {
+  margin-bottom: round-float($bottom-component / 2, 1);
+
+  @include media('<tab') {
+    margin-bottom: round-float($bottom-component--tab / 2, 1);
+  }
+
+  @include media('<mob') {
+    margin-bottom: round-float($bottom-component--mob / 2, 1);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.article-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -#{round-float($bottom-component / 2, 1)};
+
+  @include media('<tab') {
+    margin-left: -#{round-float($bottom-component--tab / 2, 1)};
+  }
+
+  @include media('<mob') {
+    margin-left: -#{round-float($bottom-component--mob / 2, 1)};
+  }
+
+  img {
+    margin-left: round-float($bottom-component / 2, 1);
+    flex-grow: 1;
+    flex-shrink: 0;
+    $width: calc(25% - #{round-float($bottom-component / 2, 1)});
+    flex-basis: $width;
+    max-width: $width;
+    height: auto;
+    cursor: pointer;
+
+    @include media('<desk') {
+      $width: calc(33.33% - #{round-float($bottom-component / 2, 1)});
+      flex-basis: $width;
+      max-width: $width;
+    }
+
+    @include media('<lap-s') {
+      $width: calc(50% - #{round-float($bottom-component / 2, 1)});
+      flex-basis: $width;
+      max-width: $width;
+    }
+
+    @include media('<tab') {
+      margin-left: round-float($bottom-component--tab / 2, 1);
+      $width: calc(33.33% - #{round-float($bottom-component--tab / 2, 1)});
+      flex-basis: $width;
+      max-width: $width;
+    }
+
+    @include media('<tab-s') {
+      $width: calc(50% - #{round-float($bottom-component--tab / 2, 1)});
+      flex-basis: $width;
+      max-width: $width;
+    }
+
+    @include media('<mob') {
+      margin-left: round-float($bottom-component--mob / 2, 1);
+      $width: calc(50% - #{round-float($bottom-component--mob / 2, 1)});
+      flex-basis: $width;
+      max-width: $width;
+    }
+  }
+}
+
 /* article meta end */
 
 /* typography elements */
@@ -466,6 +542,16 @@ table {
       color: $text-color;
       text-align: center;
 
+      @include media('<tab') {
+        font-size: round-float($font-size--tab * 1.25, 1);
+        line-height: round-float($line-height--tab * 1.2, 1);
+      }
+
+      @include media('<mob') {
+        font-size: round-float($font-size--mob * 1.25, 1);
+        line-height: round-float($line-height--mob * 1.2, 1);
+      }
+
       &::before {
         content: "«";
         display: block;
@@ -477,6 +563,16 @@ table {
         text-align: left;
         pointer-events: none;
         opacity: 0.1;
+
+        @include media('<tab') {
+          font-size: round-float($font-size--tab * 1.25, 1);
+          line-height: round-float($line-height--tab * 1.2, 1);
+        }
+
+        @include media('<mob') {
+          font-size: round-float($font-size--mob * 1.25, 1);
+          line-height: round-float($line-height--mob * 1.2, 1);
+        }
       }
 
       &::after {

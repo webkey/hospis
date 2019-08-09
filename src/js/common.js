@@ -94,6 +94,16 @@ function bgParallax() {
   new ScrollMagic.Scene({triggerElement: "#bg-parallax-2"})
       .setTween("#bg-parallax-2", {y: "40%", ease: Linear.easeNone})
       .addTo(controller);
+
+  // init controller
+  var controllerBgPage = new ScrollMagic.Controller();
+
+  // build scenes
+  new ScrollMagic.Scene({
+    duration: $(document).innerHeight() * 4
+  })
+      .setTween("#bgInnerPage > div", {y: -$(document).innerHeight(), ease: Linear.easeNone})
+      .addTo(controllerBgPage);
 }
 
 /**
@@ -1038,6 +1048,21 @@ function scrollToForm() {
 }
 
 /**
+ * !Article gallery
+ */
+function articleGallery() {
+  $('[data-fancybox="images"]').fancybox({
+    infobar: true,
+    buttons: [
+      "zoom",
+      // "fullScreen",
+      // "thumbs",
+      "close"
+    ]
+  });
+}
+
+/**
  * !Form validation
  * */
 function formValidation() {
@@ -1091,16 +1116,8 @@ function formValidation() {
 }
 
 /**
- * =========== !ready document, load/resize window ===========
+ * =========== !ready document ===========
  */
-
-$(window).on('load', function () {
-  // add functions
-});
-
-$(window).on('debouncedresize', function () {
-  // $(document.body).trigger("sticky_kit:recalc");
-});
 
 $(document).ready(function () {
   // objectFitImages();
@@ -1117,6 +1134,7 @@ $(document).ready(function () {
   navAccordionInit();
   toggleMobMenu();
   scrollToForm();
+  articleGallery();
 
   formValidation();
 });
