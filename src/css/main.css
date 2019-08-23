@@ -776,11 +776,6 @@ a:hover {
   text-decoration: none;
 }
 
-a[href^="javascript:"] {
-  cursor: default;
-  pointer-events: none;
-}
-
 img {
   border: none;
   vertical-align: top;

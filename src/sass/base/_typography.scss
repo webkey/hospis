@@ -136,11 +136,6 @@ a {
   &:hover {
     text-decoration: none;
   }
-
-  &[href^="javascript:"] {
-    cursor: default;
-    pointer-events: none;
-  }
 }
 
 // Изображение
