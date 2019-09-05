@@ -3153,6 +3153,12 @@ a.promo-screen__item {
     line-height: 2.0rem;
   }
 
+  @include media('<mob-xxs') {
+    overflow-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }

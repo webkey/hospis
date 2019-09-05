@@ -6420,6 +6420,14 @@ li.is-open > .nav__angle {
   }
 }
 
+@media (max-width: 359px) {
+  .news-el__title {
+    overflow-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+  }
+}
+
 .news-el__title:last-child {
   margin-bottom: 0;
 }
