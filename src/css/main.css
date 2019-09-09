@@ -6020,6 +6020,17 @@ li.is-open > .nav__angle {
   }
 }
 
+@media (max-width: 639px) {
+  .program-section .section-title .more,
+  .about-section .section-title .more,
+  .news-section .section-title .more,
+  .subscribe-section .section-title .more,
+  .reviews-section .section-title .more,
+  .partners-section .section-title .more {
+    display: none;
+  }
+}
+
 .program-section .section-title .more span,
 .about-section .section-title .more span,
 .news-section .section-title .more span,
