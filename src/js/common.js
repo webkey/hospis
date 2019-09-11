@@ -339,15 +339,15 @@ function slidersInit() {
         slidesPerView: 4,
         loop: true,
         loopedSlides: 5,
-        // freeMode: true,
+        freeMode: true,
         shortSwipes: false,
         parallax: true,
         // slideToClickedSlide: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         navigation: {
-          nextEl: $navPrev,
-          prevEl: $navNext,
+          nextEl: $navNext,
+          prevEl: $navPrev,
         },
       });
 

@@ -1,0 +1,244 @@
+@@include("_tpl_layout_head.html", {
+  "title": "Наша команда - Белорусский детский хоспис",
+  "pageClass": "has-sidebar"
+})
+
+@@include("_tpl_layout_sidebar.html", { "currentItem": "Наша команда" })
+
+@@include("_tpl_layout_header.html")
+
+
+
+<!--MAIN-->
+<main class="main">
+  <div class="layout-page layout-page-spaces">
+    <!--CONTENT-->
+    <h1>Наша команда</h1>
+
+    <div class="c-content">
+
+      <div class="c-body typography">
+        <!--svg icons-->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+          <symbol id="ico-tel" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"></path>
+          </symbol>
+          <symbol id="ico-email" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path>
+          </symbol>
+        </svg>
+
+        <h2>Администрация</h2>
+
+        <div class="team">
+          <div class="team__list">
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Горчакова Анна Георгиевна",
+              "post": "Директор",
+              "tel1": "+375175035715"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Федоренчик Марина Леонидовна",
+              "post": "Заместитель директора",
+              "tel1": "+375175035724"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Барталевич Юлия Викторовна",
+              "post": "Главный бухгалтер",
+              "tel1": "+375175035724"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Иванова Людмила Анатольевна",
+              "post": "Бухгалтер",
+              "tel1": "+375175035724"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Гамова Ирина Евгеньевна",
+              "post": "Юрист по поекту",
+              "tel1": "+375175035724"
+              })
+            </div>
+          </div>
+        </div>
+
+        <h2>Отдел по привлечению ресурсов</h2>
+
+        <div class="team">
+          <div class="team__list">
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Наталья Михайловна Неборская",
+              "post": "Руководитель отдела",
+              "tel1": "+375175035715"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Татьяна Викторовна Поддубная",
+              "post": "Специалист",
+              "tel1": "+375175035724"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Юлия Арменаковна Барт",
+              "post": "Специалист по связи с общественностью",
+              "tel1": "+375175035724"
+              })
+            </div>
+            <div class="team__item">
+              @@include("_tpl_team-el.html", {
+              "imgSrc": "img/img-news-01.jpg",
+              "name": "Софья Георгиевна Сытько",
+              "post": "Социальный работник",
+              "tel1": "+375175035724"
+              })
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-aside">
+        <div class="c-aside__holder">
+          <div class="c-aside__title">Свежие новости</div>
+          <div class="c-aside__widget">
+            @@include("_tpl_news-el.html", {
+              "srcImg": "img/img-news-03.jpg",
+              "date": "12.07.2019",
+              "datetime": "2019-07-12",
+              "title": "В Белорусском детском хосписе работает юридическая поддержка!",
+              "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный проект программы"
+            })
+          </div>
+          <div class="c-aside__widget">
+            @@include("_tpl_news-el.html", {
+            "srcImg": "img/img-news-04.jpg",
+            "date": "12.07.2019",
+            "datetime": "2019-07-12",
+            "title": "Невероятное приключение в Парке-музее интерактивной истории «Сула»!",
+            "text": "Дорогие друзья, мы хотим напомнить, что в 2018 году Белорусский детский хоспис запустил пилотный"
+            })
+          </div>
+          <div class="c-aside__widget">
+            @@include("_tpl_program-el.html", {
+            "srcImg": "img/img-program-02.jpg",
+            "text": "Белорусский детский хоспис объявляет второй этап конкурса местных инициатив при финансовой поддержке"
+            })
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--subscribe section-->
+    <section class="subscribe-section">
+      <h2 class="hide">Подпишиска на рассылку</h2>
+      <div class="subscribe subs-js">
+        <form action="#" method="post" class="subs-form validate-js">
+          <div class="subs-container">
+            <label for="subs" class="sub-label">Подпишитесь на рассылку</label>
+            <div class="subs-field">
+              <input id="subs" type="email" placeholder="Введите Ваш e-mail" required="" class="subs-input">
+              <button>Подписаться</button>
+              <div class="subs-success"><span>Поздравляем! Вы подписаны!</span></div>
+              <div class="subs-error">Введите корректный адрес</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!--subscribe section end-->
+
+    <!--partners section-->
+    <section class="partners-section">
+      <div class="partners">
+        <div class="swiper-container partners__list partners-slider-js">
+          <div class="swiper-wrapper">
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-01.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-04.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-05.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-02.png"
+              })
+            </div>
+            <div class="partners__item swiper-slide">
+              @@include("_tpl_partners-el.html", {
+              "scrLogo": "img/img-p-03.png"
+              })
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!--partners section end-->
+
+    <!--CONTENT end-->
+  </div>
+</main>
+<!--MAIN end-->
+
+
+
+@@include("_tpl_layout_footer.html")
+@@include("_tpl_layout_foot.html")

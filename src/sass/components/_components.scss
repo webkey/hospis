@@ -4225,3 +4225,305 @@ a.promo-screen__item {
 
 /* charity-form end */
 
+/* team */
+// Team element
+.team-el {
+  position: relative;
+}
+
+// Team element card
+.team-card {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    @include ratio(3, 4);
+
+    .touchevents & {
+      content: none;
+    }
+  }
+}
+
+.team-card__figure {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  background-color: $base-color;
+  // transition
+  $prop: transform, opacity;
+  will-change: $prop;
+  transition: {
+    property: $prop;
+    duration: 0.4s;
+    timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+
+  .touchevents & {
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .touchevents &::before {
+    content: "";
+    display: block;
+    @include ratio(3, 4);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include linear-gradient(to top, rgba($base-color, 0.5) 0, rgba($base-color, 0) 100%);
+    opacity: 0;
+    transition-property: opacity, visibility;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+    z-index: 1;
+  }
+
+  img {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    @include object-fit(cover);
+  }
+}
+
+.team-card__contacts {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-height: 70%;
+  min-height: 15%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 6.5% 7%;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  box-shadow: inset 0 0 0 1px $border-color;
+  // transform
+  $translate: 0, 100%;
+  transform: translate($translate);
+  transform: translate3d($translate, 0);
+  // transition
+  $prop: transform, opacity;
+  will-change: $prop;
+  transition: {
+    property: $prop;
+    duration: 0.4s;
+    timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+
+  @include media('<mob') {
+    font-size: 1.4rem;
+  }
+
+  .touchevents & {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    height: auto;
+    width: auto;
+    max-height: none;
+    min-height: 0;
+    padding: 0;
+    // transform
+    $translate: 0, 0;
+    transform: translate($translate);
+    transform: translate3d($translate, 0);
+    box-shadow: none;
+  }
+
+  svg {
+    float: left;
+    clear: left;
+    $size: 2.4rem;
+    margin: 0 -#{$size} 0 0;
+    height: $size;
+    width: $size;
+
+    &, path {
+      fill: $base-color;
+    }
+  }
+
+  a {
+    float: left;
+    clear: right;
+    margin-left: 3.5rem;
+    text-decoration: none;
+    color: $base-color;
+
+    overflow-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+  }
+}
+
+.team-el__card {
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Team element info
+.team-info {
+  position: relative;
+  text-decoration: none;
+  color: currentColor;
+}
+
+.team-info__name {
+  @include font-bold;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  color: $title-color;
+  margin-bottom: 1.5rem;
+  transition: color $animation-speed;
+
+  @include media('<desk') {
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+  }
+
+  @include media('<mob-xxs') {
+    overflow-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.team-info__post {
+  color: $text-color;
+
+  @include media('<desk') {
+    font-size: 1.4rem;
+    line-height: 2.0rem;
+  }
+}
+
+// State
+.team-el {
+  // Hover
+  .no-touchevents &:hover {
+    .team-card__figure {
+      $translate: 0, -12%;
+      transform: translate($translate);
+      transform: translate3d($translate, 0);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    .team-card__contacts {
+      $translate: 0, 0;
+      transform: translate($translate);
+      transform: translate3d($translate, 0);
+    }
+  }
+}
+
+a.team-info {
+  // Hover
+  .no-touchevents &:hover {
+    .team-info__name {
+      color: $base-color;
+    }
+  }
+}
+
+// Team list
+.team {
+  position: relative;
+  margin-bottom: round-float($bottom-section * 0.75, 1);
+
+  @include media('<tab') {
+    margin-bottom: round-float($bottom-section--tab * 0.75, 1);
+  }
+
+  @include media('<mob') {
+    margin-bottom: round-float($bottom-section--mob * 0.75, 1);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.team__list {
+  margin: 0 -1.2rem -4rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include media('<mob') {
+    margin: 0 -0.7rem -4rem;
+  }
+}
+
+.team__item {
+  padding: 0 1.2rem 4rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  $width: 25%;
+  flex-basis: $width;
+  max-width: $width;
+
+  @include media('<net') {
+    $width: 50%;
+    flex-basis: $width;
+    max-width: $width;
+  }
+
+  @include media('<tab') {
+    $width: 33.3%;
+    flex-basis: $width;
+    max-width: $width;
+  }
+
+  @include media('<mob') {
+    $width: 50%;
+    flex-basis: $width;
+    max-width: $width;
+    padding: 0 0.7rem 4rem;
+  }
+
+  @include media('<mob-xxs') {
+    $width: 100%;
+    flex-basis: $width;
+    max-width: $width;
+  }
+}
+
+/* team end */
