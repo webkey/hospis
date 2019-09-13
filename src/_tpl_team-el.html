@@ -1,15 +1,20 @@
 <div class="team-el">
-  <div class="team-card team-el__card">
+  @@if(context.contacts != "false") {
+  <div class="team-contacts">
+    <div class="team-contacts__box">
+      <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#ico-tel"></use></svg>
+      <div><a href="tel:@@tel1">@@tel1</a></div>
+      <div><a href="tel:@@tel1">@@tel1</a></div>
+      <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#ico-email"></use></svg>
+      <div><a href="mailto:example@hospice.by">example@hospice.by</a></div>
+      <div>Не ссылка</div>
+    </div>
+  </div>
+  }
+  <div class="team-card">
     <a href="#" class="team-card__figure">
       <img src="@@imgSrc" alt="image description" />
     </a>
-    <div class="team-card__contacts">
-      <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#ico-tel"></use></svg>
-      <a href="tel:@@tel1">@@tel1</a>
-      <a href="tel:@@tel1">@@tel1</a>
-      <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#ico-email"></use></svg>
-      <a href="mailto:example@hospice.by">example@hospice.by</a>
-    </div>
   </div>
   <a href="#" class="team-info">
     <div class="team-info__name">@@name</div>

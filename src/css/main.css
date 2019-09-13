@@ -6335,6 +6335,13 @@ li.is-open > .nav__angle {
   }
 }
 
+@media (max-width: 479px) {
+  .programs_to-slider .programs__list {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+}
+
 .programs__item {
   padding: 0 0.1rem 4rem;
   -ms-flex-positive: 1;
@@ -7591,6 +7598,11 @@ li.is-open > .nav__angle {
 .team-card {
   position: relative;
   overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.team-card:last-child {
+  margin-bottom: 0;
 }
 
 .team-card::before {
@@ -7667,10 +7679,39 @@ li.is-open > .nav__angle {
   font-family: "object-fit: cover";
 }
 
-.team-card__contacts {
+.team-contacts {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.team-contacts::before {
+  content: "";
+  display: block;
+  padding-top: 133.33%;
+}
+
+.touchevents .team-contacts::before {
+  content: none;
+}
+
+.touchevents .team-contacts {
+  position: relative;
+  left: auto;
+  top: auto;
+  -ms-flex-order: 3;
+      order: 3;
+}
+
+.team-contacts__box {
   position: absolute;
   left: 0;
   bottom: 0;
+  pointer-events: auto;
   max-height: 70%;
   min-height: 15%;
   width: 100%;
@@ -7681,9 +7722,9 @@ li.is-open > .nav__angle {
   font-size: 1.6rem;
   line-height: 2.4rem;
   box-shadow: inset 0 0 0 1px #E0E0E0;
-  -ms-transform: translate(0, 100%);
-      transform: translate(0, 100%);
-  transform: translate3d(0, 100%, 0);
+  -ms-transform: translate(0, 101%);
+      transform: translate(0, 101%);
+  transform: translate3d(0, 101%, 0);
   will-change: transform, opacity;
   transition-property: transform, opacity;
   transition-duration: 0.4s;
@@ -7691,12 +7732,12 @@ li.is-open > .nav__angle {
 }
 
 @media (max-width: 639px) {
-  .team-card__contacts {
+  .team-contacts__box {
     font-size: 1.4rem;
   }
 }
 
-.touchevents .team-card__contacts {
+.touchevents .team-contacts__box {
   position: relative;
   left: auto;
   bottom: auto;
@@ -7711,35 +7752,34 @@ li.is-open > .nav__angle {
   box-shadow: none;
 }
 
-.team-card__contacts svg {
+.team-contacts__box svg {
   float: left;
   clear: left;
-  margin: 0 -2.4rem 0 0;
-  height: 2.4rem;
-  width: 2.4rem;
+  margin: 0.3rem -1.8rem 0 0;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 
-.team-card__contacts svg, .team-card__contacts svg path {
+.team-contacts__box svg, .team-contacts__box svg path {
   fill: #005c9c;
 }
 
-.team-card__contacts a {
+.team-contacts__box > a, .team-contacts__box > div, .team-contacts__box > span {
   float: left;
   clear: right;
-  margin-left: 3.5rem;
-  text-decoration: none;
-  color: #005c9c;
+  margin-left: 2.8rem;
   overflow-wrap: break-word;
   word-break: break-all;
   word-break: break-word;
 }
 
-.team-el__card {
-  margin-bottom: 2rem;
+.team-contacts__box > div, .team-contacts__box > span {
+  width: calc(100% - 2.8rem);
 }
 
-.team-el__card:last-child {
-  margin-bottom: 0;
+.team-contacts__box a {
+  text-decoration: none;
+  color: #005c9c;
 }
 
 .team-info {
@@ -7748,12 +7788,18 @@ li.is-open > .nav__angle {
   color: currentColor;
 }
 
+.touchevents .team-info {
+  -ms-flex-order: 2;
+      order: 2;
+  margin-bottom: 1.5rem;
+}
+
 .team-info__name {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 2.4rem;
   color: #131313;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   transition: color 0.2s;
 }
 
@@ -7787,20 +7833,32 @@ li.is-open > .nav__angle {
   }
 }
 
-.no-touchevents .team-el:hover .team-card__figure {
+.touchevents .team-el {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.touchevents .team-el > * {
+  -ms-flex: 0 1 100%;
+      flex: 0 1 100%;
+}
+
+.no-touchevents .team-el:hover .team-contacts__box {
+  -ms-transform: translate(0, 0);
+      transform: translate(0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.no-touchevents .team-el:hover .team-contacts ~ .team-card .team-card__figure {
   -ms-transform: translate(0, -12%);
       transform: translate(0, -12%);
   transform: translate3d(0, -12%, 0);
 }
 
-.no-touchevents .team-el:hover .team-card__figure::after {
+.no-touchevents .team-el:hover .team-contacts ~ .team-card .team-card__figure::after {
   opacity: 1;
-}
-
-.no-touchevents .team-el:hover .team-card__contacts {
-  -ms-transform: translate(0, 0);
-      transform: translate(0, 0);
-  transform: translate3d(0, 0, 0);
 }
 
 .no-touchevents a.team-info:hover .team-info__name {
