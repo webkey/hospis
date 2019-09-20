@@ -1,9 +1,9 @@
 @@include("_tpl_layout_head.html", {
-  "title": "Наша команда - Белорусский детский хоспис",
+  "title": "История нашего предприятия - Белорусский детский хоспис",
   "pageClass": "has-sidebar"
 })
 
-@@include("_tpl_layout_sidebar.html", { "currentItem": "Наша команда" })
+@@include("_tpl_layout_sidebar.html", { "currentItem": "Наша история" })
 
 @@include("_tpl_layout_header.html")
 
@@ -13,106 +13,54 @@
 <main class="main">
   <div class="layout-page layout-page-spaces">
     <!--CONTENT-->
-    <h1>Наша команда</h1>
-
     <div class="c-content">
 
       <div class="c-body typography">
-        <h2>Администрация</h2>
-
-        <!--svg icons-->
-        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-          <symbol id="ico-tel" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"></path>
-          </symbol>
-          <symbol id="ico-email" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path>
-          </symbol>
-        </svg>
-
-        <div class="team">
-          <div class="team__list">
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Горчакова Анна Георгиевна",
-              "post": "Директор",
-              "tel1": "+375175035715"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "contacts": "false",
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Федоренчик Марина Леонидовна",
-              "post": "Заместитель директора",
-              "tel1": "+375175035724"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Барталевич Юлия Викторовна",
-              "post": "Главный бухгалтер",
-              "tel1": "+375175035724"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Иванова Людмила Анатольевна",
-              "post": "Бухгалтер",
-              "tel1": "+375175035724"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Гамова Ирина Евгеньевна",
-              "post": "Юрист по поекту",
-              "tel1": "+375175035724"
-              })
-            </div>
+        <h1>История нашего предприятия</h1>
+        <div class="list-tree">
+          <div class="list-tree__item">
+            <h3>2016</h3>
+            <p>Окончание строительства и открытие ГУ «РКЦ ПМПД»</p>
           </div>
-        </div>
-
-        <h2>Отдел по привлечению ресурсов</h2>
-
-        <div class="team">
-          <div class="team__list">
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Наталья Михайловна Неборская",
-              "post": "Руководитель отдела",
-              "tel1": "+375175035715"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "contacts": "false",
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Татьяна Викторовна Поддубная",
-              "post": "Специалист",
-              "tel1": "+375175035724"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Юлия Арменаковна Барт",
-              "post": "Специалист по связи с общественностью",
-              "tel1": "+375175035724"
-              })
-            </div>
-            <div class="team__item">
-              @@include("_tpl_team-el.html", {
-              "imgSrc": "img/img-news-01.jpg",
-              "name": "Софья Георгиевна Сытько",
-              "post": "Социальный работник",
-              "tel1": "+375175035724"
-              })
-            </div>
+          <div class="list-tree__item">
+            <h3>2014</h3>
+            <p>Начало строительства нового здания БДХ</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2013</h3>
+            <p>Клинические протоколы оказания паллиативной медицинской помощи детскому населению. Приказ МЗ РБ от 19 июля 2013 №811</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2011</h3>
+            <p>Открытие паллиативного кабинета в Минске на базе ГУ «Дом ребенка»</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2008</h3>
+            <p>Первый нормативный совместный документ с Министерством здравоохранения Республики Беларусь «Об организации оказания паллиативной помощи детям» (Приказ МЗ РБ №1010). Внештатный специалист Министерством здравоохранения – врач БДХ</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2006</h3>
+            <p>Предоставление кратковременного отдыха семьям с детьми, имеющими инвалидность в Белорусском детском хосписе. Закон о социальной передышке</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2005</h3>
+            <p>Программы: выездная, консультативная, стационарная (3 социальные койки и 2 медицинские)</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2003</h3>
+            <p>Отдельное собственное здание (5 медицинских коек)</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>2000</h3>
+            <p>Летний домик. Образовательные курсы при Бел МАПО на базе Белорусского детского хосписа</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>1996</h3>
+            <p>Первое здание ОБО «Белорусский детский хоспис» (на базе детского садика 2 койки). Работает выездная служба и центр дневного пребывания (2 медицинские палаты)</p>
+          </div>
+          <div class="list-tree__item">
+            <h3>1994</h3>
+            <p>Первый детский хоспис на постсоветском пространстве</p>
           </div>
         </div>
       </div>

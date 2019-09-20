@@ -4580,3 +4580,84 @@ a.team-info {
 }
 
 /* team end */
+
+/* list tree */
+.list-tree {
+  margin-bottom: $bottom-section;
+  padding-left: 3rem;
+
+  @include media('<tab') {
+    margin-bottom: $bottom-section--tab;
+  }
+
+  @include media('<mob') {
+    margin-bottom: $bottom-section--mob;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.list-tree__item {
+  $top-space: 2rem;
+  $width: 2.4rem;
+
+  position: relative;
+  margin-bottom: 4rem;
+
+  @include media('<mob') {
+    margin-bottom: 2rem;
+  }
+
+  &::before,
+  h3::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: #{$top-space};
+    left: -$width;
+    border: 0 solid $base-color;
+  }
+
+  &::before {
+    height: calc(100% + 2.5rem);
+    border-width: 0 0 0 2px;
+
+    @include media('<mob') {
+      height: calc(100% + 1rem);
+    }
+  }
+
+  h3 {
+    position: relative;
+    margin-bottom: 0.2em;
+    font-size: 3.2rem;
+    line-height: 1.4;
+    color: $base-color;
+
+    @include media('<mob') {
+      font-size: 2.8rem;
+    }
+
+    &::before {
+      width: $width - 0.5;
+      height: 0;
+      border-width: 2px 0 0;
+    }
+  }
+
+  &:first-child {
+
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+/* list tree end */
