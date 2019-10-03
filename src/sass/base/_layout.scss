@@ -20,10 +20,9 @@ html {
 
 body {
   min-width: $layout-page-min-width;
-
   @include font-normal;
-  @include font-size($font-size, $line-height);
-
+  font-size: $font-size;
+  line-height: $line-height;
   color: $text-color;
   background: $bg-color url(../../img/empty.png) no-repeat left top fixed;
 

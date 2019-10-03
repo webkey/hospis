@@ -1082,19 +1082,19 @@ table td, table th {
 /* article gallery end */
 /* typography elements */
 .typography {
-  font-family: "PT Serif", Georgia, serif;
+  font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   /* article meta */
   /* article meta end */
 }
 
 .typography b, .typography strong, .typography th {
-  font-family: "PT Serif", Georgia, serif;
+  font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
 
 .typography i, .typography em {
-  font-family: "PT Serif", Georgia, serif;
+  font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: italic;
 }
@@ -1103,7 +1103,7 @@ table td, table th {
 .typography em b, .typography em strong,
 .typography b i, .typography b em,
 .typography strong i, .typography strong em {
-  font-family: "PT Serif", Georgia, serif;
+  font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-style: italic;
 }
@@ -1237,7 +1237,7 @@ table td, table th {
 }
 
 .typography blockquote cite {
-  font-family: "PT Serif", Georgia, serif;
+  font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: italic;
   text-align: center;
@@ -1545,7 +1545,7 @@ table td, table th {
 }
 
 .typography .article-entry {
-  font-family: "PT Serif", Georgia, serif;
+  font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.2em;
   line-height: 1.6;
@@ -3970,7 +3970,7 @@ body {
   left: 0;
   top: 0;
   width: 34.4rem;
-  padding: 6.7rem 4rem 4rem 7.2rem;
+  padding: 3.4rem 4rem 4rem 7.2rem;
   z-index: 10;
 }
 
@@ -4101,7 +4101,7 @@ body {
   position: relative;
   overflow: hidden;
   width: 17.5rem;
-  margin: 0 0 4.5rem;
+  margin: 0 0 2.5rem;
   background: url(../img/logo.png) no-repeat;
   background-size: contain;
   text-indent: -9999px;
@@ -4139,11 +4139,11 @@ body {
 .slogan {
   font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-style: italic;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  font-size: 1.5rem;
+  line-height: 2.0rem;
   color: #005c9c;
   margin-bottom: 5rem;
-  max-width: 22rem;
+  max-width: 24rem;
 }
 
 @media (max-width: 639px) {

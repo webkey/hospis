@@ -909,7 +909,7 @@ body {
   left: 0;
   top: 0;
   width: $sidebar-width;
-  padding: 6.7rem 4rem 4rem #{nth($layout-page-space, 2)};
+  padding: 3.4rem 4rem 4rem #{nth($layout-page-space, 2)};
   z-index: 10;
 
   @include media('<desk') {
@@ -1044,7 +1044,7 @@ body {
   position: relative;
   overflow: hidden;
   width: 17.5rem;
-  margin: 0 0 4.5rem;
+  margin: 0 0 2.5rem;
   background: url(../../img/logo.png) no-repeat;
   background-size: contain;
   text-indent: -9999px;
@@ -1078,11 +1078,11 @@ body {
 /* slogan */
 .slogan {
   @include font-italic;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  font-size: 1.5rem;
+  line-height: 2.0rem;
   color: $base-color;
   margin-bottom: 5rem;
-  max-width: 22rem;
+  max-width: 24rem;
 
   @include media('<mob') {
     position: absolute;
