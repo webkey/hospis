@@ -149,7 +149,7 @@ $pagination-border-width: 0;
   color: inherit;
   text-align: center;
   cursor: default;
-  margin-bottom: 0 auto #{$bottom-component};
+  margin: 0 auto #{$bottom-component};
   @include clear;
 
   @include media('<tab') {
@@ -3469,7 +3469,7 @@ a.promo-screen__item {
 
 .sub-label {
   flex-grow: 1;
-  $width: 32rem;
+  $width: 28rem;
   flex-basis: $width;
   max-width: $width;
   @include font-bold;

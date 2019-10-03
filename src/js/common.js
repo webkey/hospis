@@ -87,7 +87,7 @@ function bgParallax() {
 
   // build scenes
   new ScrollMagic.Scene({triggerElement: "#bg-parallax-1"})
-      .setTween("#bg-parallax-1", {y: "25%", ease: Linear.easeNone})
+      .setTween("#bg-parallax-1", {y: "50%", ease: Linear.easeNone})
       .addTo(controller);
 
   // build scenes
@@ -1031,7 +1031,7 @@ function scrollToForm() {
         var $target = $($curBtn.attr('href'));
         $page.stop().animate({scrollTop: $target.offset().top}, 300, function () {
           setTimeout(function () {
-            $target.closest('form').find('.first-field-js').focus();
+            $target.closest('form').find('.first-field-js').focus().trigger('change');
           }, 50)
         });
       }

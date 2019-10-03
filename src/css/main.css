@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,700i,800|PT+Serif:400,400i,700,700i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,700i,800&display=swap");
 /* ==================================== */
 /* ======== NORMALIZE AND RESET ======= */
 /* ==================================== */
@@ -3131,7 +3131,7 @@ select.form-def.has-arrow + .select-arrow {
   color: inherit;
   text-align: center;
   cursor: default;
-  margin-bottom: 0 auto 4rem;
+  margin: 0 auto 4rem;
 }
 
 .pagination::after {
@@ -6827,9 +6827,9 @@ li.is-open > .nav__angle {
 .sub-label {
   -ms-flex-positive: 1;
       flex-grow: 1;
-  -ms-flex-preferred-size: 32rem;
-      flex-basis: 32rem;
-  max-width: 32rem;
+  -ms-flex-preferred-size: 28rem;
+      flex-basis: 28rem;
+  max-width: 28rem;
   font-family: "Montserrat", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 3.2rem;
