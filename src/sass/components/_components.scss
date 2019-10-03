@@ -954,6 +954,17 @@ body {
     width: 100%;
   }
 
+  //&::before {
+  //  content: "";
+  //  position: absolute;
+  //  left: 0;
+  //  top: 0;
+  //  height: 100%;
+  //  width: calc(100% - 2rem);
+  //  background-color: #f7fcfe;
+  //  z-index: -1;
+  //}
+
   &.is-open {
     // ------ мобильное меню -----------------------------------------
     @include media($breakpoint-mob-menu) {
@@ -1337,6 +1348,7 @@ body {
   @include font-bold;
   font-size: 1.4rem;
   text-align: left;
+  background-color: lighten($highlight-color, 30%);
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48bWFzayBpZD0ibWFzazAiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDBIMTdWMTdIMFYwWiIgZmlsbD0id2hpdGUiLz48L21hc2s+PGcgbWFzaz0idXJsKCNtYXNrMCkiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC41IDBDMy44MDU4NSAwIDAgMy44MDU4NSAwIDguNUMwIDEzLjE5MzkgMy44MDU4NSAxNyA4LjUgMTdDMTMuMTkzOSAxNyAxNyAxMy4xOTM5IDE3IDguNUMxNyAzLjgwNTg1IDEzLjE5MzkgMCA4LjUgMFpNMTIuOTg4NSAxMi40MDIzTDEyLjMwOCAxMy4wODMxQzEyLjE4NjUgMTMuMjA0MyAxMS44MzA3IDEzLjI4MDIgMTEuODE5MSAxMy4yODAyQzkuNjY2MTMgMTMuMjk4OSA3LjU5MzA2IDEyLjQ1MzIgNi4wNjk5MiAxMC45MzAxQzQuNTQyNTQgOS40MDE3MSAzLjY5NTk1IDcuMzIxMTcgMy43MTg4MSA1LjE2MTA3QzMuNzE4ODEgNS4xNTk5MSAzLjc5NjYzIDQuODE0NDMgMy45MTc4NyA0LjY5NDE1TDQuNTk4NjUgNC4wMTMzN0M0Ljg0NzY3IDMuNzYzMzkgNS4zMjU5MiAzLjY1MDIxIDUuNjYxMDIgMy43NjIyM0w1LjgwNDM4IDMuODEwMDhDNi4xMzg0OCAzLjkyMjEgNi40ODkxOSA0LjI5MTQgNi41ODE0MSA0LjYzMTlMNi45MjM4MSA1Ljg4ODM0QzcuMDE2MjQgNi4yMjk3OSA2Ljg5MTczIDYuNzE1MzQgNi42NDI3MSA2Ljk2NDM2TDYuMTg4MjggNy40MTg3OUM2LjYzNDQ1IDkuMDcwNjggNy45MzAyOCAxMC4zNjY1IDkuNTgyMTcgMTAuODEzOEwxMC4wMzY2IDEwLjM1OTRDMTAuMjg2NiAxMC4xMDkyIDEwLjc3MjMgOS45ODQ3MSAxMS4xMTI2IDEwLjA3NzFMMTIuMzY5MSAxMC40MjA1QzEyLjcwOTYgMTAuNTEzOSAxMy4wNzg5IDEwLjg2MjYgMTMuMTkwOSAxMS4xOTY2TDEzLjIzODcgMTEuMzQxOEMxMy4zNDk3IDExLjY3NiAxMy4yMzc2IDEyLjE1NDQgMTIuOTg4NSAxMi40MDIzWiIgZmlsbD0id2hpdGUiLz48L2c+PC9zdmc+);
   background-repeat: no-repeat;
   background-position: 1.8rem 50%;
@@ -1828,72 +1840,39 @@ body {
 
 /* footer-common end */
 
-/* copyright */
-.copyright {
-  a {
-    color: inherit;
-    text-decoration: none;
-
-    .no-touchevents &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-/* copyright end */
-
 /* bitrix */
 .bitrix-logo {
   display: inline-block;
-  vertical-align: top;
   color: inherit;
-  text-decoration: none;
+  padding-left: 1.2em;
   background-image: url("../../img/bitrix-logo.png");
   background-repeat: no-repeat;
   background-position: 0 50%;
   background-size: 1.0em;
-  padding-left: 1.2em;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 /* bitrix end */
 
 /* developer */
-.developer {
-  display: inline-block;
-  font-size: 1.8rem;
-  line-height: 2.4rem;
-
-  @include media('<desk') {
-    font-size: 1.2rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: #fff;
-  }
-}
-
-.developer__label {
-  a {
-    box-shadow: inset 0 0 0 currentColor;
-    text-decoration: none;
-    color: currentColor;
-  }
-}
-
-.developer__logo {
-  overflow: hidden;
+.dev {
+  position: relative;
   display: inline-block;
   vertical-align: top;
-  position: relative;
-  width: 24.7rem;
-  font-size: 0;
-  line-height: 0;
-  padding: 4px 0;
+  width: 15rem;
+  padding: 5px;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: white;
+  box-shadow: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 2;
+
+  @include media('<desk') {
+    font-size: 1.3rem;
+  }
 
   @include media('<mob') {
     width: 16rem;
@@ -1902,65 +1881,80 @@ body {
   &::before {
     content: "";
     display: block;
-    @include ratio(247, 84);
-  }
-
-  &::after {
-    content: "";
-    display: block;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(white, 0.2);
+    border-radius: 2px;
+    z-index: -1;
+    will-change: opacity, transform;
+    transition: opacity $animation-speed, transform $animation-speed;
+
+    opacity: 0;
+    transform: translateZ(0) scale(0.92);
+  }
+
+  .dev__logo {
+    display: block;
+    font-size: 0;
+    line-height: 0;
     background: url("../../img/logo-dev.png") no-repeat center center;
     background-size: contain;
-  }
-}
 
-// Hover
-.developer {
-  .developer__label {
-    margin-bottom: 0.5rem;
-
-    a {
-      transition: box-shadow $animation-speed;
-
-      &:hover {
-        box-shadow: inset 0 -1px 0 currentColor;
-      }
+    &::before {
+      content: "";
+      display: block;
+      @include ratio(247, 84);
     }
   }
 
-  .developer__logo {
-    &::after {
-      transition: background-color $animation-speed;
+  .dev__label {
+    text-align: right;
+    padding-right: 5px;
+  }
+
+  // Hover
+  &:hover {
+    .footer & {
+      box-shadow: none;
     }
 
-    &:hover {
-      &::after {
-        background-color: #00ef85;
-      }
+    &::before {
+      opacity: 1;
+      transform: translateZ(0) scale(1);
     }
   }
 }
+
+
 
 /* developer end */
 
 /* footer bottom */
 .footer-bottom {
   position: relative;
-  font-size: 1.8rem;
-  line-height: 1.9rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
   color: #fff;
 
-  @include media('<desk') {
-    font-size: 1.2rem;
-    line-height: 1.9rem;
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow $animation-speed;
+    box-shadow: inset 0 -1px 0 transparent;
+
+    &:hover {
+      box-shadow: inset 0 -1px 0 currentColor;
+      text-decoration: none;
+    }
   }
 
-  // обрезать вытянутый маржинами по горизонтале дочерний элемент
-  overflow: hidden;
+  @include media('<desk') {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
 }
 
 .footer-bottom__holder {
@@ -1969,7 +1963,6 @@ body {
   flex-wrap: wrap;
   align-items: center;
   @include margin-horizontal(-#{round(nth($grid-space, 2) / 2)});
-  margin-bottom: -#{round(nth($grid-space, 1) / 2)};
 }
 
 .footer-bottom__col {
@@ -1977,18 +1970,22 @@ body {
   flex-shrink: 0;
   text-align: center;
   @include padding-horizontal(round(nth($grid-space, 2) / 2));
-  margin-bottom: #{round(nth($grid-space, 1) / 2)};
   $width: 33.33%;
   flex-basis: $width;
   max-width: $width;
 
   @include media("<tab") {
     min-width: 100%;
+    margin-top: 2rem;
   }
 
   &:first-child {
     @include media(">=tab") {
       text-align: left;
+    }
+
+    @include media("<tab") {
+      margin-top: 0;
     }
   }
 
@@ -2020,15 +2017,15 @@ body {
   }
 
   .home-page & {
-    padding-bottom: 15rem;
+    padding-bottom: $bottom-section + 2;
     overflow: hidden; // Важно! Обрезает элементы с фоновыми изображенияме на секциях
 
     @include media('<desk') {
-      padding-bottom: 12rem;
+      padding-bottom: $bottom-section--desk + 1;
     }
 
     @include media('<lap-l') {
-      padding-bottom: 9.5rem;
+      padding-bottom: $bottom-section--tab + 1;
     }
 
     @include media('<tab') {
@@ -2036,7 +2033,7 @@ body {
     }
 
     @include media('<mob') {
-      padding-bottom: 5rem;
+      padding-bottom: $bottom-space--mob + 1;
       padding-top: $header-height--mob;
     }
   }
@@ -2397,18 +2394,18 @@ body {
 /* promo */
 .promo-slider {
   position: relative;
-  margin-bottom: 10rem;
+  margin-bottom: $bottom-section;
 
   @include media('<desk') {
-    margin-bottom: 4.2rem;
+    margin-bottom: $bottom-section--desk;
   }
 
   @include media('<lap-s') {
-    margin-bottom: 3rem;
+    margin-bottom: $bottom-section--tab;
   }
 
   @include media('<mob') {
-    margin: 0 -#{nth($layout-page-space--mob, 2)} 4rem;
+    margin: 0 -#{nth($layout-page-space--mob, 2)} #{$bottom-section--mob};
   }
 
   &:last-child {
@@ -2429,29 +2426,39 @@ body {
   .swiper-button-next {
     position: absolute;
     top: auto;
-    bottom: 10.2%;
-    $size: 8.8rem;
+    //bottom: 10.2%;
+    bottom: 5.3%;
+    //$size: 8.8rem;
+    $size: 6rem;
     width: $size;
     height: $size;
     border-radius: $size;
-    margin: 0 1rem;
+    //margin: 0 1rem;
+    margin: 0 2rem;
     z-index: 10;
     cursor: pointer;
-    background-color: #fff;
-    background-size: 13px;
+    //background-color: #fff;
+    background-color: $highlight-color;
+    background-size: 12px;
     background-repeat: no-repeat;
     background-position: 50%;
-    box-shadow: 0 1px 19px rgba(0, 0, 0, 0.13);
-    transition: box-shadow $animation-speed;
+    //box-shadow: 0 1px 19px rgba(0, 0, 0, 0.13);
+    transition: background-color $animation-speed;
     outline: none;
 
     @include media('<desk') {
-      $size: 6rem;
-      width: $size;
-      height: $size;
       border-radius: $size;
-      margin: 0;
-      bottom: 11.8%;
+      margin: 0 1rem;
+      //bottom: 11.8%;
+      bottom: 4.4%;
+    }
+
+    @include media('<desk-s') {
+      bottom: 3.4%;
+    }
+
+    @include media('<lap') {
+      bottom: 2.8%;
     }
 
     @include media('<lap-s') {
@@ -2459,8 +2466,17 @@ body {
       width: $size;
       height: $size;
       border-radius: $size;
-      bottom: 14.2%;
       background-size: 10px;
+      //bottom: 14.2%;
+      bottom: 4.1%;
+    }
+
+    @include media('<tab') {
+      bottom: 5%;
+    }
+
+    @include media('<tab-s') {
+      bottom: 7%;
     }
 
     @include media('<mob') {
@@ -2468,33 +2484,48 @@ body {
     }
 
     &:not(.swiper-button-disabled):active {
-      transform: translate(0, 1px);
+      transform: scale(0.98);
     }
 
     .no-touchevents &:not(.swiper-button-disabled):hover {
-      box-shadow: 0 5px 29px rgba(0, 0, 0, 0.35);
+      //box-shadow: 0 5px 29px rgba(0, 0, 0, 0.35);
+      background-color: $highlight-color--hover;
     }
 
     &.swiper-button-disabled {
       pointer-events: auto;
+      cursor: default;
     }
   }
 
   .swiper-button-prev {
     left: 0;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAxOCAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUuOTMzMyAyTDIuNzMzMzUgMTUuNjYzMUwxNS45MzMzIDMxIiBzdHJva2U9IiMwMDVDOUMiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+    background-position: 45% 50%;
+    //background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAxOCAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUuOTMzMyAyTDIuNzMzMzUgMTUuNjYzMUwxNS45MzMzIDMxIiBzdHJva2U9IiMwMDVDOUMiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAxOCAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUuOTMzMyAyTDIuNzMzMzUgMTUuNjYzMUwxNS45MzMzIDMxIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
   }
 
   .swiper-button-next {
     right: 0;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAxNyAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMiAyTDE1IDE1LjY2MzFMMiAzMSIgc3Ryb2tlPSIjMDA1QzlDIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
+    background-position: 55% 50%;
+    //background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAxNyAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMiAyTDE1IDE1LjY2MzFMMiAzMSIgc3Ryb2tlPSIjMDA1QzlDIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAxNyAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMiAyTDE1IDE1LjY2MzFMMiAzMSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
   }
 }
 
 // promo-screen
 .promo-screen {
   box-shadow: 0 3.6rem 4.6rem rgba(#000, 0.12);
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+
+  @include media('<tab-s') {
+    margin-bottom: 1rem;
+  }
+
+  @include media('<mob') {
+    border-radius: 0;
+  }
 }
 
 .promo-screen__item {
@@ -2502,6 +2533,12 @@ body {
   text-decoration: none;
   color: inherit;
   position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+
+  @include media('<mob') {
+    border-radius: 0;
+  }
 
   &::before {
     content: "";
@@ -2581,15 +2618,9 @@ body {
   position: relative;
   max-width: 64rem;
   @include font-extra-bold;
-  font-size: 6.6rem;
-  line-height: 7.7rem;
+  font-size: 4.8rem;
+  line-height: 5.4rem;
   color: #fff;
-
-  @include media('<desk') {
-    max-width: 48rem;
-    font-size: 4.8rem;
-    line-height: 5.7rem;
-  }
 
   @include media('<lap-l') {
     max-width: 40rem;
@@ -2629,15 +2660,18 @@ a.promo-screen__item {
 
 // promo-thumbs
 .promo-thumbs {
-  padding: 0 11.3rem 4.7rem;
+  //padding: 0 11.3rem 4.7rem;
+  padding: 0 10rem;
   margin-bottom: 0;
 
   @include media('<desk') {
-    padding: 0 8.5rem 4.7rem;
+    //padding: 0 8.5rem 4.7rem;
+    padding: 0 8rem;
   }
 
   @include media('<lap-s') {
-    padding: 0 6rem 4.7rem;
+    //padding: 0 6rem 4.7rem;
+    padding: 0 6rem;
   }
 
   @include media('<mob') {
@@ -2651,9 +2685,11 @@ a.promo-screen__item {
 
 .promo-thumbs__item {
   position: relative;
+  overflow: hidden;
   cursor: pointer;
   background-color: #daecf9;
-  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  //box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
   transition: box-shadow $animation-speed, opacity $animation-speed;
 
   &:not(.swiper-slide-visible) {
@@ -2668,33 +2704,51 @@ a.promo-screen__item {
 
   &::after {
     content: "";
-    display: block;
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 0;
+    height: 100%;
     width: 100%;
-    height: 6px;
-    background-color: $highlight-color;
-    $scale: 1, 0;
-    transform: scale($scale);
-    transform: scale3d($scale, 1);
-    transform-origin: left top;
-    will-change: transform;
-    transition: transform $animation-speed;
+    border-radius: 15px;
+    border: 4px solid $base-color;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity $animation-speed;
   }
+
+  //&::after {
+  //  content: "";
+  //  display: block;
+  //  position: absolute;
+  //  left: 0;
+  //  top: 100%;
+  //  width: 100%;
+  //  height: 6px;
+  //  background-color: $highlight-color;
+  //  $scale: 1, 0;
+  //  transform: scale($scale);
+  //  transform: scale3d($scale, 1);
+  //  transform-origin: left top;
+  //  will-change: transform;
+  //  transition: transform $animation-speed;
+  //}
 
   &.swiper-slide-thumb-active,
   .no-touchevents &:hover {
+    //&::after {
+    //  $scale: 1, 1;
+    //  transform: scale($scale);
+    //  transform: scale3d($scale, 1);
+    //}
+
     &::after {
-      $scale: 1, 1;
-      transform: scale($scale);
-      transform: scale3d($scale, 1);
+      opacity: 1;
     }
   }
 
   .no-touchevents &:hover {
-    box-shadow: 0 2rem 2.7rem rgba(0, 0, 0, 0.5);
-    z-index: 5;
+    //box-shadow: 0 2rem 2.7rem rgba(0, 0, 0, 0.5);
+    //z-index: 5;
   }
 }
 
@@ -2704,7 +2758,7 @@ a.promo-screen__item {
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
+  //opacity: 0.6;
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -2714,7 +2768,7 @@ a.promo-screen__item {
 
   .swiper-slide-thumb-active &,
   .no-touchevents &:hover {
-    opacity: 1;
+    //opacity: 1;
   }
 }
 
@@ -2726,6 +2780,25 @@ a.promo-screen__item {
 .subscribe-section,
 .reviews-section,
 .partners-section {
+  position: relative;
+  margin-bottom: $bottom-section;
+
+  @include media('<desk') {
+    margin-bottom: $bottom-section--desk;
+  }
+
+  @include media('<lap-s') {
+    margin-bottom: $bottom-section--tab;
+  }
+
+  @include media('<mob') {
+    margin-bottom: $bottom-section--mob;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   h2 {
     @include font-bold;
     color: $title-color;
@@ -2776,6 +2849,10 @@ a.promo-screen__item {
       @include media('<lap-s') {
         margin-bottom: 2rem;
       }
+
+      @include media('<mob') {
+        margin-bottom: 1.5rem;
+      }
     }
 
     .more {
@@ -2822,22 +2899,6 @@ a.promo-screen__item {
 }
 
 /* program-section */
-.program-section {
-  position: relative;
-  margin-bottom: 14rem;
-
-  @include media('<desk') {
-    margin-bottom: 10rem;
-  }
-
-  @include media('<mob') {
-    margin-bottom: 5rem;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
 
 // Background
 .program-section__bg {
@@ -2871,26 +2932,27 @@ a.promo-screen__item {
     @include ratio(377, 450);
   }
 
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 100%;
-    width: 100%;
-    height: 9px;
-    background-color: $highlight-color;
-    $scale: 1, 0;
-    transform: scale($scale);
-    transform: scale3d($scale, 1);
-    transform-origin: left bottom;
-    will-change: transform;
-    transition: transform $animation-speed;
-
-    @include media('<desk') {
-      height: 6px;
-    }
-  }
+  //&::after {
+  //  content: "";
+  //  display: block;
+  //  position: absolute;
+  //  left: 0;
+  //  top: 0;
+  //  width: 100%;
+  //  height: 9px;
+  //  background-color: $highlight-color;
+  //  $scale: 1, 0;
+  //  transform: scale($scale);
+  //  transform: scale3d($scale, 1);
+  //  transform-origin: left top;
+  //  will-change: transform;
+  //  transition: transform $animation-speed;
+  //  z-index: 5;
+  //
+  //  @include media('<desk') {
+  //    height: 6px;
+  //  }
+  //}
 }
 
 .programs-el__img {
@@ -2968,11 +3030,11 @@ a.promo-screen__item {
       opacity: 1;
     }
 
-    &::after {
-      $scale: 1, 1;
-      transform: scale($scale);
-      transform: scale3d($scale, 1);
-    }
+    //&::after {
+    //  $scale: 1, 1;
+    //  transform: scale($scale);
+    //  transform: scale3d($scale, 1);
+    //}
   }
 }
 
@@ -3104,15 +3166,7 @@ a.promo-screen__item {
 
 /* about-section */
 .about-section {
-  margin-bottom: 14rem;
-
-  @include media('<desk') {
-    margin-bottom: 6.5rem;
-  }
-
   @include media('<mob') {
-    margin-bottom: 5rem;
-
     display: none;
   }
 
@@ -3153,9 +3207,10 @@ a.promo-screen__item {
 }
 
 .about__logo {
-  flex-grow: 1;
-  flex-shrink: 0;
   margin: 0 0 0 6rem;
+  $width: 17.5rem;
+  flex: 1 0 $width;
+  max-width: $width;
 
   @include media('<tab') {
     margin: 0 0 0 2rem;
@@ -3174,31 +3229,11 @@ a.promo-screen__item {
 /* about-section end */
 
 /* news-section */
-.news-section {
-  //margin-bottom: 7rem;
-  margin-bottom: $bottom-section;
-
-  @include media('<tab') {
-    margin-bottom: $bottom-section--tab;
-  }
-
-  @include media('<mob') {
-    //margin-bottom: 5rem;
-    margin-bottom: $bottom-section--mob;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 // news element
 .news-el {
   display: block;
   text-decoration: none;
   color: inherit;
-  font-size: 1.7rem;
-  line-height: 2.4rem;
 }
 
 .news-el__figure {
@@ -3236,16 +3271,9 @@ a.promo-screen__item {
 
 .news-el__title {
   @include font-bold;
-  font-size: 1.8rem;
-  line-height: 2.4rem;
   color: $title-color;
   margin-bottom: 1.5rem;
   transition: color $animation-speed;
-
-  @include media('<desk') {
-    font-size: 1.5rem;
-    line-height: 2.0rem;
-  }
 
   @include media('<mob-xxs') {
     overflow-wrap: break-word;
@@ -3371,26 +3399,6 @@ a.promo-screen__item {
 /* news-section end */
 
 /* subscribe-section */
-.subscribe-section {
-  margin-bottom: 10rem;
-
-  @include media('<desk') {
-    margin-bottom: 8.8rem;
-  }
-
-  @include media('<lap-s') {
-    margin-bottom: 6rem;
-  }
-
-  @include media('<mob') {
-    margin-bottom: 5rem;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 .subscribe {
   position: relative;
   overflow: hidden;
@@ -3637,23 +3645,6 @@ a.promo-screen__item {
 /* subscribe-section end */
 
 /* reviews-section */
-.reviews-section {
-  position: relative;
-  margin-bottom: 14rem;
-
-  @include media('<desk') {
-    margin-bottom: 10rem;
-  }
-
-  @include media('<mob') {
-    margin-bottom: 8rem;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 // Background
 .reviews-section__bg {
   position: absolute;
@@ -3686,8 +3677,6 @@ a.promo-screen__item {
   display: flex;
   text-decoration: none;
   color: inherit;
-  font-size: 1.7rem;
-  line-height: 2.4rem;
   padding: 3.5rem 2rem 3.5rem 2.8rem;
   background: #fff;
   box-shadow: 0 1rem 2.5rem rgba(188, 188, 188, 0.5);
@@ -3751,20 +3740,11 @@ a.promo-screen__item {
 
 .reviews-el__author {
   @include font-bold;
-  font-size: 1.8rem;
-  line-height: 2.4rem;
   color: $title-color;
   margin-bottom: 1rem;
   transition: color $animation-speed;
 
-  @include media('<desk') {
-    font-size: 1.5rem;
-    line-height: 2;
-  }
-
   @include media('<mob') {
-    font-size: 1.8rem;
-    line-height: 2rem;
     text-align: center;
     margin-bottom: 2.2rem;
   }
@@ -3794,7 +3774,7 @@ a.promo-screen__item {
 }
 
 .reviews__list {
-  margin: -1.5rem -2.5rem -4.2rem;
+  margin: -1.5rem -2.5rem 0;
   padding: 1.5rem 2.5rem 4.2rem;
 
   .js &:not(.is-loaded) {
@@ -3823,14 +3803,6 @@ a.promo-screen__item {
 /* reviews-section end */
 
 /* partners-section */
-.partners-section {
-  margin-bottom: 12rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 // partners element
 .partners-el {
   display: block;
@@ -3855,18 +3827,7 @@ a.promo-screen__item {
 }
 
 .partners__list {
-  //display: flex;
-  //flex-wrap: wrap;
-  //align-items: center;
-  //justify-content: space-between;
-  //justify-content: center;
-  //margin: 0 -1.5rem -3rem;
-  padding: 0 0 3rem;
-
-  //@include media('<mob') {
-  //  justify-content: flex-start;
-  //  margin: 0 -1rem -2rem;
-  //}
+  padding: 0 0 4.2rem;
 
   .js &:not(.is-loaded) {
     opacity: 0;
@@ -3880,27 +3841,9 @@ a.promo-screen__item {
 }
 
 .partners__item {
-  //padding: 0 1.5rem 3rem;
   padding: 0;
-  //flex-grow: 1;
-  //flex-shrink: 0;
-  //$width: 13rem;
-  //flex-basis: $width;
-  //max-width: $width;
-
-  //@include media('<lap-s') {
-  //  $width: 9rem;
-  //  flex-basis: $width;
-  //  max-width: $width;
-  //}
-  //
-  //@include media('<mob') {
-  //  padding: 0 1rem 2rem;
-  //  $width: 7.6rem;
-  //  flex-basis: $width;
-  //  max-width: $width;
-  //}
 }
+
 /* partners-section end */
 
 /* donate */

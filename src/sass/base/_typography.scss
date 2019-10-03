@@ -324,64 +324,7 @@ table {
 
 /* entry text end */
 
-/* article meta */
-.article-meta,
-.article-date,
-.article-share {
-  margin-bottom: round-float($bottom-component / 2, 1);
-
-  @include media('<tab') {
-    margin-bottom: round-float($bottom-component--tab / 2, 1);
-  }
-
-  @include media('<mob') {
-    margin-bottom: round-float($bottom-component--mob / 2, 1);
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-// article meta
-.article-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-// article date
-.article-date {
-  display: inline-block;
-  @include font-bold;
-  font-style: normal;
-  color: $base-color;
-  margin-right: 2rem;
-}
-
-// article entry
-.article-entry {
-  @include font-medium;
-  font-size: 1.2em;
-  line-height: 1.6;
-  color: $title-color;
-  margin-bottom: $bottom-component;
-
-  @include media('<tab') {
-    margin-bottom: $bottom-component--tab;
-  }
-
-  @include media('<mob') {
-    margin-bottom: $bottom-component--mob;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-// article gallery
+/* article gallery */
 .article-gallery,
 .article-gallery img {
   margin-bottom: round-float($bottom-component / 2, 1);
@@ -456,10 +399,12 @@ table {
   }
 }
 
-/* article meta end */
+/* article gallery end */
 
 /* typography elements */
 .typography {
+  @include font-alt;
+
   $typographyClass: &;
   $list: h2, h3, h4, h5, h6, ".h2", ".h3", ".h4", ".h5", ".h6";
   //@each $tags in $list {
@@ -472,6 +417,23 @@ table {
   //    margin-top: 6.2rem;
   //  }
   //}
+
+  // Начертание
+  // ----------------------------------------------------
+  b, strong, th {
+    @include font-alt-bold;
+  }
+
+  i, em {
+    @include font-alt-italic;
+  }
+
+  i b, i strong,
+  em b, em strong,
+  b i, b em,
+  strong i, strong em {
+    @include font-alt-bold-italic;
+  }
 
   & > h1, & > .h1,
   & > h2, & > .h2,
@@ -576,7 +538,7 @@ table {
     }
 
     cite {
-      @include font-italic;
+      @include font-alt-italic;
       text-align: center;
       display: block;
       font-size: inherit;
@@ -750,6 +712,66 @@ table {
       }
     }
   }
+
+  /* article meta */
+  .article-meta,
+  .article-date,
+  .article-share {
+    @include font-normal;
+    margin-bottom: round-float($bottom-component / 2, 1);
+
+    @include media('<tab') {
+      margin-bottom: round-float($bottom-component--tab / 2, 1);
+    }
+
+    @include media('<mob') {
+      margin-bottom: round-float($bottom-component--mob / 2, 1);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // article meta
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // article date
+  .article-date {
+    display: inline-block;
+    @include font-bold;
+    font-style: normal;
+    color: $base-color;
+    margin-right: 2rem;
+  }
+
+  // article entry
+  .article-entry {
+    @include font-alt-bold;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: $title-color;
+    margin-bottom: $bottom-component;
+
+    @include media('<tab') {
+      margin-bottom: $bottom-component--tab;
+    }
+
+    @include media('<mob') {
+      margin-bottom: $bottom-component--mob;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* article meta end */
 }
 
 /* typography elements end */

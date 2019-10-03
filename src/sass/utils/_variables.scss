@@ -23,7 +23,7 @@ $breakpoints: (
 // Fonts style
 // ====================================================
 $font-norm: 'Montserrat', Roboto, Helvetica, Arial, sans-serif !default;
-$font-alt: Georgia, serif !default;
+$font-alt: 'PT Serif', Georgia, serif !default;
 
 // Main font
 // ----------------------------------------------------
@@ -32,23 +32,28 @@ $font-alt: Georgia, serif !default;
 }
 
 @mixin font-bold {
+  font-family: $font-norm;
   font-weight: 700;
 }
 
 @mixin font-medium {
+  font-family: $font-norm;
   font-weight: 500;
 }
 
 @mixin font-italic {
+  font-family: $font-norm;
   font-style: italic;
 }
 
 @mixin font-bold-italic {
+  font-family: $font-norm;
   font-weight: 700;
   font-style: italic;
 }
 
 @mixin font-extra-bold {
+  font-family: $font-norm;
   font-weight: 800;
 }
 
@@ -56,16 +61,23 @@ $font-alt: Georgia, serif !default;
 // ----------------------------------------------------
 @mixin font-alt {
   font-family: $font-alt;
+  font-weight: 400;
 }
 
 @mixin font-alt-bold {
   font-family: $font-alt;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+@mixin font-alt-italic {
+  font-family: $font-alt;
+  font-weight: 400;
+  font-style: italic;
 }
 
 @mixin font-alt-bold-italic {
   font-family: $font-alt;
-  font-weight: bold;
+  font-weight: 700;
   font-style: italic;
 }
 
@@ -73,14 +85,14 @@ $font-alt: Georgia, serif !default;
 // Base font size
 // ====================================================
 $font-size: 1.8rem !default;
-$line-height: 2.5rem !default;
+$line-height: 2.8rem !default;
 $letter-spacing: normal !default;
 // ------ tab -----------------------------------------
 $font-size--tab: 1.6rem !default;
-$line-height--tab: 2.2rem !default;
+$line-height--tab: 2.5rem !default;
 // ------ mob -----------------------------------------
 $font-size--mob: 1.4rem !default;
-$line-height--mob: 2.0rem !default;
+$line-height--mob: 2.2rem !default;
 
 
 // Heading h1
@@ -243,22 +255,25 @@ $line-height-h6: round-float($line-height * 0.95, 1) !default;
 // Spaces
 // ====================================================
 $bottom-space: $line-height !default;
-$bottom-component: 4rem !default;
-$bottom-section: 10rem !default;
-// ------ tab -----------------------------------------
 $bottom-space--tab: $line-height--tab !default;
-$bottom-component--tab: 3rem !default;
-$bottom-section--tab: 6rem !default;
-// ------ mob -----------------------------------------
 $bottom-space--mob: $line-height--mob !default;
+
+// Components bottom space
+$bottom-component: 4rem !default;
+$bottom-component--tab: 3rem !default;
 $bottom-component--mob: 2rem !default;
-$bottom-section--mob: 5rem !default;
+
+// Section bottom space
+$bottom-section: 7rem !default;
+$bottom-section--desk: 5rem !default;
+$bottom-section--tab: 3rem !default;
+$bottom-section--mob: 2rem !default;
 
 
 // Colors
 // ====================================================
 $base-color: #005c9c !default;
-$base-color-alt: invert($base-color) !default;
+$base-color-alt: $base-color !default;
 // ----------------------------------------------------
 $link-color: #005c9c !default;
 $focus-color: #0080ff !default;
@@ -275,7 +290,7 @@ $highlight-color--hover: lighten($base-color, 10%) !default
 $bg-color: #fff !default;
 $bg-color-alt: #f3f3f3 !default;
 // ----------------------------------------------------
-$text-color: #6c6c6c !default;
+$text-color: #333 !default;
 $text-color-muted: #afb5bb !default;
 $text-color-light: #ccc !default;
 // ----------------------------------------------------

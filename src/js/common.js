@@ -328,64 +328,59 @@ function slidersInit() {
   if($promoSlider.length){
     $promoSlider.each(function () {
       var $thisSlider = $(this),
-          $screen = $thisSlider.find('.promo-screen-js'),
-          $thumbs = $thisSlider.find('.promo-thumbs-js'),
-          $pagination = $thisSlider.find('.swiper-pagination'),
           $navPrev = $thisSlider.find('.swiper-button-prev'),
-          $navNext = $thisSlider.find('.swiper-button-next');
+          $navNext = $thisSlider.find('.swiper-button-next'),
+          $pagination = $thisSlider.find('.swiper-pagination');
 
-      var thumbs = new Swiper($thumbs, {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        loop: true,
-        loopedSlides: 5,
-        freeMode: true,
+      var thumbsSlider = new Swiper('.promo-thumbs-js', {
+        spaceBetween: 20,
+        slidesPerView: 5,
         shortSwipes: false,
-        parallax: true,
-        // slideToClickedSlide: true,
+        // parallax: true,
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
-        navigation: {
-          nextEl: $navNext,
-          prevEl: $navPrev,
+        parallax: true,
+        breakpoints: {
+          1199: {
+            spaceBetween: 15,
+            slidesPerView: 4,
+          },
+          767: {
+            spaceBetween: 10,
+            slidesPerView: 3,
+          }
         },
       });
 
-      var screen = new Swiper ($screen, {
+      var screen = new Swiper ('.promo-screen-js', {
         init: false,
         effect: 'fade',
         fadeEffect: {
           crossFade: true
         },
-        loop: true,
-        loopedSlides: 5,
         allowTouchMove: false,
         parallax: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
         pagination: {
           el: $pagination,
           type: 'bullets',
           clickable: true
         },
-        thumbs: {
-          swiper: thumbs
+        navigation: {
+          nextEl: $navNext,
+          prevEl: $navPrev,
         },
-        // controller: {
-        //   swiper: thumbs
-        // },
+        thumbs: {
+          swiper: thumbsSlider
+        },
         breakpoints: {
           639: {
             allowTouchMove: true,
           }
-        },
-        // on: {
-        //   resize: function () {
-        //     if (window.innerWidth <= 992) {
-        //       sampleSlider.slides.css('width', '');
-        //     }
-        //   }
-        // }
+        }
       });
 
       screen.on('init', function() {
@@ -393,9 +388,6 @@ function slidersInit() {
       });
 
       screen.init();
-
-      // screen.params.controller.control = thumbs;
-      // thumbs.params.controller.control = screen;
     });
   }
   
@@ -444,7 +436,7 @@ function slidersInit() {
     });
   }
 
-  // Reviews slider
+  // Partners slider
   var $partnersSlider = $('.partners-slider-js');
 
   if($partnersSlider.length){
